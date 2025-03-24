@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Narrative/MainMenu/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=5a00cb4b81509d543992407f1a511fa6&amp;type=3#MainMenuStyle" />
+    <ui:VisualElement name="ChoosePlayerPanel" tabindex="0" style="left: 0; width: 1916px; height: 1080px; background-color: rgba(0, 0, 0, 0); position: absolute;" />
+</ui:UXML>
