@@ -23,19 +23,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4.HermitHome01.unity
     guid: 01bdd37da298b5b4180b9b5d676ebadd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/5.HermitHome02.unity
     guid: 7f70ff8536ebc6d41bc745b757cae7c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/6.HermitHome03.unity
     guid: 4c8c41c3b96ed144cbeda79852078cdd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/7.HermitHome04.unity
     guid: 91f2050a761a15443964771f149c23e6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/8.Merchant01.unity
     guid: c045f8e9a5189b647a823de9247246fc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/9.Merchant02.unity
     guid: 74354dc8c2865104992b25306b3a31b9
   m_configObjects: {}
