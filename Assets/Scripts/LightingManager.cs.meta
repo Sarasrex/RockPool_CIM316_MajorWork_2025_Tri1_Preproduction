@@ -5,7 +5,9 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - DirectionalLight: {instanceID: 0}
-  - Preset: {fileID: 11400000, guid: 6e8d11b9a2713624fab3793f6978a9e5, type: 2}
+  - MoonLight: {instanceID: 0}
+  - SunPreset: {fileID: 11400000, guid: 6e8d11b9a2713624fab3793f6978a9e5, type: 2}
+  - MoonPreset: {fileID: 11400000, guid: cb5ba4ec19314cc4a93a9cbda5ea4498, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
