@@ -668,9 +668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887bcdd08647fd443aed486495294e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowColor: {r: 0.54901963, g: 0.6666667, b: 1, a: 1}
   scaleMultiplier: 1.1
-  transitionSpeed: 3
+  transitionSpeed: 2
 --- !u!114 &786499574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,9 +1262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887bcdd08647fd443aed486495294e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 1, g: 1, b: 1, a: 1}
-  scaleMultiplier: 1.03
-  transitionSpeed: 3
+  glowColor: {r: 0.54901963, g: 0.6666667, b: 1, a: 1}
+  scaleMultiplier: 1.1
+  transitionSpeed: 2
 --- !u!114 &1863504758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1423,9 +1423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887bcdd08647fd443aed486495294e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 1, g: 1, b: 1, a: 1}
-  scaleMultiplier: 1.03
-  transitionSpeed: 3
+  glowColor: {r: 0.5503144, g: 0.6661424, b: 1, a: 1}
+  scaleMultiplier: 1.1
+  transitionSpeed: 2
 --- !u!114 &2074789612
 MonoBehaviour:
   m_ObjectHideFlags: 0

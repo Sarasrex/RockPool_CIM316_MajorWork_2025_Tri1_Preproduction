@@ -10,7 +10,7 @@ public class HoverGlowEffect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private Image image;
     private Color originalColor;
 
-    [SerializeField] private Color glowColor = Color.white;
+    [SerializeField] private Color glowColor = Color.blue;
     [SerializeField] private float scaleMultiplier = 1.1f;
     [SerializeField] private float transitionSpeed = 10f;
 
