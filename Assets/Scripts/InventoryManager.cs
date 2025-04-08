@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -11,15 +10,15 @@ public class InventoryManager : MonoBehaviour
     public bool hasBaseHome = true;  // Starting home
     public bool hasGoldCoinHome = false;
     public bool hasMirrorShellHome = false;
-    public bool hasBoardNose = false;
-    public bool hasRockBowl = false;
-    public bool hasSnorkel = false;
-    public bool hasShellPurse = false;
-    public bool hasLostCompass = false;
-    public bool hasCharStick = false;
-    public bool hasCoralSpoon = false;
-    public bool hasStoneStack = false;
-    public bool hasGlassHeart = false;
+    public bool hasBoardNoseHome = false;
+    public bool hasRockBowlHome = false;
+    public bool hasSnorkelHome = false;
+    public bool hasShellPurseHome = false;
+    public bool hasLostCompassHome = false;
+    public bool hasCharStickHome = false;
+    public bool hasCoralSpoonHome = false;
+    public bool hasStoneStackHome = false;
+    public bool hasGlassHeartHome = false;
 
 
     // Track food items
@@ -40,15 +39,15 @@ public class InventoryManager : MonoBehaviour
     // Defining constants for treasures and food items
     public const string GoldCoinHome = "GoldCoinHome";
     public const string MirrorShellHome = "MirrorShellHome";
-    public const string BoardNose = "BoardNose";
-    public const string RockBowl = "RockBowl";
-    public const string Snorkel = "Snorkel";
-    public const string ShellPurse = "ShellPurse";
-    public const string LostCompass = "LostCompass";
-    public const string CharStick = "CharStick";
-    public const string CoralSpoon = "CoralSpoon";
-    public const string StoneStack = "StoneStack";
-    public const string GlassHeart = "GlassHeart";
+    public const string BoardNoseHome = "BoardNoseHome";
+    public const string RockBowlHome = "RockBowlHome";
+    public const string SnorkelHome = "SnorkelHome";
+    public const string ShellPurseHome = "ShellPurseHome";
+    public const string LostCompassHome = "LostCompassHome";
+    public const string CharStickHome = "CharStickHome";
+    public const string CoralSpoonHome = "CoralSpoonHome";
+    public const string StoneStackHome = "StoneStackHome";
+    public const string GlassHeartHome = "GlassHeartHome";
 
     // Food items
     public const string SeaweedSnarlRoll = "SeaweedSnarlRoll";
@@ -81,6 +80,15 @@ public class InventoryManager : MonoBehaviour
             case "Home":
                 if (itemName == GoldCoinHome) hasGoldCoinHome = true;
                 if (itemName == MirrorShellHome) hasMirrorShellHome = true;
+                if (itemName == BoardNoseHome) hasBoardNoseHome = true;
+                if (itemName == RockBowlHome) hasRockBowlHome = true;
+                if (itemName == SnorkelHome) hasSnorkelHome = true;
+                if (itemName == ShellPurseHome) hasShellPurseHome = true;
+                if (itemName == LostCompassHome) hasLostCompassHome = true;
+                if (itemName == CharStickHome) hasCharStickHome = true;
+                if (itemName == CoralSpoonHome) hasCoralSpoonHome = true;
+                if (itemName == StoneStackHome) hasStoneStackHome = true;
+                if (itemName == GlassHeartHome) hasGlassHeartHome = true;
                 break;
 
             // Food
@@ -99,18 +107,6 @@ public class InventoryManager : MonoBehaviour
                 if (itemName == Stars) hasStars = true;
                 break;
 
-            // Treasures (non-food items)
-            case "Treasure":
-                if (itemName == BoardNose) hasBoardNose = true;
-                if (itemName == RockBowl) hasRockBowl = true;
-                if (itemName == Snorkel) hasSnorkel = true;
-                if (itemName == ShellPurse) hasShellPurse = true;
-                if (itemName == LostCompass) hasLostCompass = true;
-                if (itemName == CharStick) hasCharStick = true;
-                if (itemName == CoralSpoon) hasCoralSpoon = true;
-                if (itemName == StoneStack) hasStoneStack = true;
-                if (itemName == GlassHeart) hasGlassHeart = true;
-                break;
         }
 
         // Update UI
