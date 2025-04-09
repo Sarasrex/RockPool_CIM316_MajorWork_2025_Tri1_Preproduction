@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class HermitRoaming : MonoBehaviour
 {
+    
+    // I have removed this roaming script from all hermits except for Captain claw due to bug causing them to bunch. I have left it on Captain claw for now. Will fix at a later date. 
+    // Just kidding, I have removed it off Captain claw for now as well.
+
+
     private SpriteRenderer spriteRenderer;
 
     [Header("Roaming Settings")]

@@ -8491,6 +8491,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875201907}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &878531526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8429053299209330380, guid: 2cbefc3c9fabf3349b9f2077fbb4b89d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1397106450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &903476542
 GameObject:
   m_ObjectHideFlags: 0
@@ -9800,6 +9806,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pearl
       objectReference: {fileID: 0}
+    - target: {fileID: 819293095956390178, guid: 62f410fc68bfae74c9e53960eaa7f544,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8297859622832429009, guid: 62f410fc68bfae74c9e53960eaa7f544,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9851,7 +9862,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6893922791207534815, guid: 62f410fc68bfae74c9e53960eaa7f544, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62f410fc68bfae74c9e53960eaa7f544, type: 3}
@@ -11549,6 +11561,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hans
       objectReference: {fileID: 0}
+    - target: {fileID: 5183062779191123614, guid: bebe41168c19e794886b7655cfa1d882,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8764711719414720741, guid: bebe41168c19e794886b7655cfa1d882,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11600,7 +11617,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6968772398736969256, guid: bebe41168c19e794886b7655cfa1d882, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebe41168c19e794886b7655cfa1d882, type: 3}
@@ -12638,9 +12656,14 @@ PrefabInstance:
       value: CaptainClaw
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6123435208248125223, guid: 2cbefc3c9fabf3349b9f2077fbb4b89d, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8429053299209330380, guid: 2cbefc3c9fabf3349b9f2077fbb4b89d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1397106454}
   m_SourcePrefab: {fileID: 100100000, guid: 2cbefc3c9fabf3349b9f2077fbb4b89d, type: 3}
 --- !u!4 &1397106451 stripped
 Transform:
@@ -12648,6 +12671,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1397106450}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1397106454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878531526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834cc52ecd6431c42a7ece5d85f59ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveRadius: 2
+  moveSpeed: 0.5
+  waitTime: 5
+  roamCenter: {x: 0, y: 0}
+  groundY: 1
+  personalSpace: 5
+  hermitLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1406696593
 GameObject:
   m_ObjectHideFlags: 0
@@ -17365,6 +17409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finn
       objectReference: {fileID: 0}
+    - target: {fileID: 578192945149545428, guid: b44020c409d5c564eabcf16e4366e519,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1561671338265802309, guid: b44020c409d5c564eabcf16e4366e519,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17416,7 +17465,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7861633330519332761, guid: b44020c409d5c564eabcf16e4366e519, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b44020c409d5c564eabcf16e4366e519, type: 3}

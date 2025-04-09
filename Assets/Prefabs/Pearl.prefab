@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8297859622832429009}
-  - component: {fileID: 1219991518582412508}
   - component: {fileID: 5379956885495243155}
   - component: {fileID: 1760460835124551912}
+  - component: {fileID: -3577579784688201564}
   m_Layer: 8
   m_Name: Pearl
   m_TagString: Untagged
@@ -35,27 +35,6 @@ Transform:
   - {fileID: 3291631939996409330}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1219991518582412508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819293095956390178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834cc52ecd6431c42a7ece5d85f59ddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveRadius: 2
-  moveSpeed: 3
-  waitTime: 5
-  roamCenter: {x: 0, y: 0}
-  groundY: 1
-  personalSpace: 5
-  hermitLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &5379956885495243155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +101,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &-3577579784688201564
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819293095956390178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.21, y: 2.64, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6893922791207534815
 GameObject:
   m_ObjectHideFlags: 0
