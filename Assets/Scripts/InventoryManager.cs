@@ -19,6 +19,7 @@ public class InventoryManager : MonoBehaviour
     public bool hasCoralSpoonHome = false;
     public bool hasStoneStackHome = false;
     public bool hasGlassHeartHome = false;
+    public bool hasUsbStickHome = false;
 
 
     // Track food items
@@ -48,6 +49,7 @@ public class InventoryManager : MonoBehaviour
     public const string CoralSpoonHome = "CoralSpoonHome";
     public const string StoneStackHome = "StoneStackHome";
     public const string GlassHeartHome = "GlassHeartHome";
+    public const string UsbStickHome = "UsbStickHome";
 
     // Food items
     public const string SeaweedSnarlRoll = "SeaweedSnarlRoll";
@@ -89,6 +91,7 @@ public class InventoryManager : MonoBehaviour
                 if (itemName == CoralSpoonHome) hasCoralSpoonHome = true;
                 if (itemName == StoneStackHome) hasStoneStackHome = true;
                 if (itemName == GlassHeartHome) hasGlassHeartHome = true;
+                if (itemName == UsbStickHome) hasUsbStickHome = true;
                 break;
 
             // Food

@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject coralSpoonHomeIcon;
     public GameObject stoneStackHomeIcon;
     public GameObject glassHeartHomeIcon;
+    public GameObject usbStickHomeIcon;
 
     // UI Elements for food icons
     public GameObject seaweedSnarlRollIcon;
@@ -59,6 +60,7 @@ public class UIManager : MonoBehaviour
                 if (itemName == "CoralSpoonHome") coralSpoonHomeIcon.SetActive(true);
                 if (itemName == "StoneStackHome") stoneStackHomeIcon.SetActive(true);
                 if (itemName == "GlassHeartHome") glassHeartHomeIcon.SetActive(true);
+                if (itemName == "UsbStickHome") usbStickHomeIcon.SetActive(true) ;
                 break;
 
             case "Food":
