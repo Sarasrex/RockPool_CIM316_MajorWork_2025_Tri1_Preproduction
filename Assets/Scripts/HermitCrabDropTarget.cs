@@ -14,7 +14,7 @@ public class HermitCrabDropTarget : MonoBehaviour
     public string[] dislikedHomes;
 
     [Header("Happiness")]
-    [Range(0, 100)] public float happiness = 50f;
+    [Range(0, 100)] public float happiness = 0f;
 
     public void ReceiveItem(string itemName, string itemCategory)
     {
