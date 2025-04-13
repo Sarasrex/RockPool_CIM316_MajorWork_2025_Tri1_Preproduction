@@ -102,6 +102,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hermitName: CaptainClaw
   acceptedCategory: 
+  likedFoods:
+  - SquidlyChew
+  - CrunchMunch
+  - SnailSlurp
+  - Stars
+  dislikedFoods:
+  - SeaweedSnarlRoll
+  - DriftChipDip
+  - SeaSalad
+  - JellyWiggle
+  - BubbleBurst
+  - BeachBanana
+  - BubbleBounce
+  - NoriNibble
+  - PlumDrop
+  likedHomes:
+  - GoldCoinHome
+  - LostCompassHome
+  - GlassHeartHome
+  dislikedHomes:
+  - MirrorShellHome
+  - BoardNoseHome
+  - RockBowlHome
+  - SnorkelHome
+  - ShellPurseHome
+  - CharStickHome
+  - CoralSpoonHome
+  - StoneStackHome
+  - UsbStickHome
+  happiness: 50
 --- !u!212 &8827310454510732342
 SpriteRenderer:
   m_ObjectHideFlags: 0
