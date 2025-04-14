@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+
+    public GameObject dialoguePanel;
+    public TMP_Text nameText;
+    public TMP_Text dialogueText;
+    public AudioSource audioSource;
+    public Animator characterAnimator;
 
     // UI Elements for treasure (home) icons
     public GameObject goldCoinHomeIcon;
@@ -80,4 +87,26 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
+
+    public void ShowDialogue(string speakerName, DialogueLine line)
+    {
+        dialoguePanel.SetActive(true);
+        nameText.text = speakerName;
+        dialogueText.text = line.text;
+
+        if (line.audioClip != null && audioSource != null)
+            audioSource.PlayOneShot(line.audioClip);
+
+        if (!string.IsNullOrEmpty(line.animationTrigger) && characterAnimator != null)
+            characterAnimator.SetTrigger(line.animationTrigger);
+
+        CancelInvoke(nameof(HideDialogue));
+        Invoke(nameof(HideDialogue), 3.5f);
+    }
+
+    public void HideDialogue()
+    {
+        dialoguePanel.SetActive(false);
+    }
+
 }

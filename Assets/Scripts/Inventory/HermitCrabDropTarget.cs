@@ -50,6 +50,34 @@ public class HermitCrabDropTarget : MonoBehaviour
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
         CommunityCompassManager.Instance.UpdateCommunityHappiness();
 
-        // TODO: Trigger visual and audio feedback
+        // Next part triggers dialgoue / audio / visual feedback
+
+        
+        // Determine dialogue category based on item preference
+        DialogueTriggerType trigger;
+
+        if (System.Array.Exists(likedFoods, item => item == itemName) ||
+            System.Array.Exists(likedHomes, item => item == itemName))
+        {
+            trigger = DialogueTriggerType.InAgreement;
+        }
+        else if (System.Array.Exists(dislikedFoods, item => item == itemName) ||
+                 System.Array.Exists(dislikedHomes, item => item == itemName))
+        {
+            trigger = DialogueTriggerType.Disapproves;
+        }
+        else
+        {
+            trigger = DialogueTriggerType.Munching;
+        }
+
+        // Trigger dialogue
+        HermitDialogue dialogue = GetComponent<HermitDialogue>();
+        if (dialogue != null)
+        {
+            DialogueLine line = dialogue.GetRandomLineByTrigger(trigger);
+            UIManager.Instance.ShowDialogue(hermitName, line);
+        }
+
     }
 }
