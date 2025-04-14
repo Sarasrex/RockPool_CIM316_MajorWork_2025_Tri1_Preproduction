@@ -16,6 +16,12 @@ public class HermitCrabDropTarget : MonoBehaviour
     [Header("Happiness")]
     [Range(0, 100)] public float happiness = 0f;
 
+    public void Awake()
+    {
+        happiness = 0f;
+    }
+    
+    
     public void ReceiveItem(string itemName, string itemCategory)
     {
         if (!string.IsNullOrEmpty(acceptedCategory) && acceptedCategory != itemCategory)

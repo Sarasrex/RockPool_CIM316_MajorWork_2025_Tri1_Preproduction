@@ -15,6 +15,17 @@ public class CommunityCompassManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    void Start()
+    {
+        StartCoroutine(DelayedUpdate());
+    }
+
+    IEnumerator DelayedUpdate()
+    {
+        yield return null; // wait one frame
+        UpdateCommunityHappiness(); // now everythign has loaded
+    }
+
     public void UpdateCommunityHappiness()
     {
         if (hermits == null || hermits.Length == 0)

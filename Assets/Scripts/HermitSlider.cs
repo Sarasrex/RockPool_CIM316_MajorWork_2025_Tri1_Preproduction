@@ -14,11 +14,10 @@ public class HermitSlider : MonoBehaviour
         {
             happinessSlider.minValue = 0;
             happinessSlider.maxValue = 100;
-            happinessSlider.value = crab.happiness;
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (happinessSlider != null && crab != null)
         {
