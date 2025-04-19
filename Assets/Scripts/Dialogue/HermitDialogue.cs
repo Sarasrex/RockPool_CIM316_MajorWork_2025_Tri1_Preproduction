@@ -19,3 +19,5 @@ public class HermitDialogue : MonoBehaviour
         return new DialogueLine { text = "..." };
     }
 }
+
+// Need to add a randomised general state trigger after 30 seconds of no input. TBC

@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HermitCrabDropTarget : MonoBehaviour
 {
+    [Header("Speech Bubble References")]
+    public GameObject speechBubble;
+    public TMP_Text bubbleText;
+    public AudioSource audioSource;
+
     public string hermitName;
     public string acceptedCategory; // "Food", "Home", or leave blank for any
 
@@ -20,7 +26,6 @@ public class HermitCrabDropTarget : MonoBehaviour
     {
         happiness = 0f;
     }
-
 
     public void ReceiveItem(string itemName, string itemCategory)
     {
@@ -81,7 +86,27 @@ public class HermitCrabDropTarget : MonoBehaviour
         if (dialogue != null)
         {
             DialogueLine line = dialogue.GetRandomLineByTrigger(trigger);
-            UIManager.Instance.ShowDialogue(hermitName, line);
+            if (bubbleText != null && speechBubble != null)
+            {
+                bubbleText.text = line.text;
+                speechBubble.SetActive(true);
+
+                if (audioSource != null && line.audioClip != null)
+                {
+                    audioSource.PlayOneShot(line.audioClip);
+                }
+
+                CancelInvoke(nameof(HideBubble));
+                Invoke(nameof(HideBubble), 3.5f);
+            }
+        }
+    }
+
+    private void HideBubble()
+    {
+        if (speechBubble != null)
+        {
+            speechBubble.SetActive(false);
         }
     }
 }

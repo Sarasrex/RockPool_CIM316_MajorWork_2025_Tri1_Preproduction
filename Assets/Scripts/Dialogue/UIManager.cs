@@ -7,19 +7,20 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    [Header("Shared Dialogue UI")]
     public GameObject dialoguePanel;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
     public AudioSource audioSource;
     public Animator characterAnimator;
 
-    // UI Elements for treasure (home) icons
+    [Header("Treasure (Home) Icons")]
     public GameObject goldCoinHomeIcon;
     public GameObject mirrorShellHomeIcon;
     public GameObject boardNoseHomeIcon;
     public GameObject rockBowlHomeIcon;
-    public GameObject snorkelHomeIcon;  
-    public GameObject shellPurseHomeIcon;  
+    public GameObject snorkelHomeIcon;
+    public GameObject shellPurseHomeIcon;
     public GameObject lostCompassHomeIcon;
     public GameObject charStickHomeIcon;
     public GameObject coralSpoonHomeIcon;
@@ -27,7 +28,7 @@ public class UIManager : MonoBehaviour
     public GameObject glassHeartHomeIcon;
     public GameObject usbStickHomeIcon;
 
-    // UI Elements for food icons
+    [Header("Food Icons")]
     public GameObject seaweedSnarlRollIcon;
     public GameObject squidlyChewIcon;
     public GameObject driftChipDipIcon;
@@ -42,13 +43,21 @@ public class UIManager : MonoBehaviour
     public GameObject plumDropIcon;
     public GameObject starsIcon;
 
-    // Note to self when setting up: Make sure the button GameObject is disabled by default (SetActive(false) in the Inspector), so it only appears once the item is collected.
+    [Header("Initial UI Panels")]
+    public GameObject inventoryPanel;
+    public GameObject compassPanel;
+
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        // Turn off UI panels at runtime instead of in editor
+        if (inventoryPanel != null) inventoryPanel.SetActive(false);
+        if (compassPanel != null) compassPanel.SetActive(false);
     }
+
 
     // Show collected item icons based on category
     public void ShowItem(string itemName, string itemCategory)
@@ -67,7 +76,7 @@ public class UIManager : MonoBehaviour
                 if (itemName == "CoralSpoonHome") coralSpoonHomeIcon.SetActive(true);
                 if (itemName == "StoneStackHome") stoneStackHomeIcon.SetActive(true);
                 if (itemName == "GlassHeartHome") glassHeartHomeIcon.SetActive(true);
-                if (itemName == "UsbStickHome") usbStickHomeIcon.SetActive(true) ;
+                if (itemName == "UsbStickHome") usbStickHomeIcon.SetActive(true);
                 break;
 
             case "Food":
@@ -88,6 +97,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Legacy fallback (for global use if needed)
     public void ShowDialogue(string speakerName, DialogueLine line)
     {
         dialoguePanel.SetActive(true);
@@ -108,5 +118,4 @@ public class UIManager : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
     }
-
 }
