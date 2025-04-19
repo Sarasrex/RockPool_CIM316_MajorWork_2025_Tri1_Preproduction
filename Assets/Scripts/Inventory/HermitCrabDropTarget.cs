@@ -20,14 +20,20 @@ public class HermitCrabDropTarget : MonoBehaviour
     {
         happiness = 0f;
     }
-    
-    
+
+
     public void ReceiveItem(string itemName, string itemCategory)
     {
         if (!string.IsNullOrEmpty(acceptedCategory) && acceptedCategory != itemCategory)
             return;
 
-        Debug.Log($"[{hermitName}] received {itemName} ({itemCategory})");
+        Debug.Log($"[{hermitName}] received '{itemName}' ({itemCategory})");
+
+        // Debug: Show current preferences
+        Debug.Log($"[{hermitName}] Liked Foods: {string.Join(", ", likedFoods)}");
+        Debug.Log($"[{hermitName}] Disliked Foods: {string.Join(", ", dislikedFoods)}");
+        Debug.Log($"[{hermitName}] Liked Homes: {string.Join(", ", likedHomes)}");
+        Debug.Log($"[{hermitName}] Disliked Homes: {string.Join(", ", dislikedHomes)}");
 
         // Determine delta based on preference
         int delta = 0;
@@ -47,12 +53,11 @@ public class HermitCrabDropTarget : MonoBehaviour
                 delta = -20;
         }
 
+        Debug.Log($"[{hermitName}] happiness changed by {delta}");
+
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
         CommunityCompassManager.Instance.UpdateCommunityHappiness();
 
-        // Next part triggers dialgoue / audio / visual feedback
-
-        
         // Determine dialogue category based on item preference
         DialogueTriggerType trigger;
 
@@ -78,6 +83,5 @@ public class HermitCrabDropTarget : MonoBehaviour
             DialogueLine line = dialogue.GetRandomLineByTrigger(trigger);
             UIManager.Instance.ShowDialogue(hermitName, line);
         }
-
     }
 }

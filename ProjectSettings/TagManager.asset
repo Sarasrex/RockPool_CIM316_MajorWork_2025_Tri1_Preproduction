@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background (Bottom-most)
+    uniqueID: 2554952997
+    locked: 0
+  - name: Environment
+    uniqueID: 2044967077
+    locked: 0
+  - name: UI Panels
+    uniqueID: 1848193543
+    locked: 0
+  - name: HermitCrabs (Top-most)
+    uniqueID: 4020038915
+    locked: 0
+  - name: DragUI
+    uniqueID: 1407711675
+    locked: 0

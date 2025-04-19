@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3521763364394703460}
   - component: {fileID: 3242261281951347701}
   - component: {fileID: 7291047132687126087}
-  - component: {fileID: 742331182707681568}
   - component: {fileID: 1102081340213888763}
+  - component: {fileID: -304507516419573860}
   m_Layer: 8
   m_Name: Hans
   m_TagString: Untagged
@@ -117,9 +117,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -274928381
+  m_SortingLayer: 4
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 933f0cfe990715f458c07fdc00da0c57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,27 +131,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &742331182707681568
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8793102859087139429}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.06, y: 3.11, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1102081340213888763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +228,24 @@ MonoBehaviour:
     - text: "\u201CI carry a lot... but this rockpool? It\u2019s teaching me to breathe.\u201D"
       audioClip: {fileID: 0}
       animationTrigger: 
+--- !u!65 &-304507516419573860
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8793102859087139429}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.06, y: 3.11, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

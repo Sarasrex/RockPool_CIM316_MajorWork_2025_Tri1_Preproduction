@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8564090827384057734}
   - component: {fileID: 8345808170018666615}
   - component: {fileID: 3565481359336697745}
-  - component: {fileID: 3826724415032088320}
   - component: {fileID: 5462075888474269979}
+  - component: {fileID: 8057305598981010069}
   m_Layer: 8
   m_Name: Pearl
   m_TagString: Untagged
@@ -117,9 +117,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -274928381
+  m_SortingLayer: 4
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 00a53a2b489d3324998fdc9699806aad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,27 +131,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &3826724415032088320
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849159531630799188}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.21, y: 2.64, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5462075888474269979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,3 +219,24 @@ MonoBehaviour:
     - text: "\u201CIf it\u2019s not fabulous, I\u2019m not interested.\u201D"
       audioClip: {fileID: 0}
       animationTrigger: 
+--- !u!65 &8057305598981010069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849159531630799188}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.21, y: 2.64, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
