@@ -9,6 +9,12 @@ public class CommunityCompassManager : MonoBehaviour
     public HermitCrabDropTarget[] hermits;
     public Slider communitySlider; // UI element for community compass
 
+    public GameObject winPanel;
+    private bool hasWon = false;
+
+    [Header("Settings")]
+    [Range(0f, 1f)] public float winThreshold = 1f;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -23,7 +29,7 @@ public class CommunityCompassManager : MonoBehaviour
     IEnumerator DelayedUpdate()
     {
         yield return null; // wait one frame
-        UpdateCommunityHappiness(); // now everythign has loaded
+        UpdateCommunityHappiness(); // now everything has loaded
     }
 
     public void UpdateCommunityHappiness()
@@ -44,13 +50,36 @@ public class CommunityCompassManager : MonoBehaviour
         float average = total / hermits.Length;
         Debug.Log("Updated community average: " + average);
 
+        // Normalise to 0–1 range assuming 100 is max happiness
+        float normalisedAverage = average / 100f;
+
         if (communitySlider != null)
         {
-            communitySlider.value = average;
+            communitySlider.value = normalisedAverage;
         }
         else
         {
             Debug.LogWarning("Community Slider not assigned!");
+        }
+
+        // Win condition check (based on slider fill)
+        if (!hasWon && Mathf.Approximately(normalisedAverage, winThreshold))
+        {
+            hasWon = true;
+            TriggerWinCondition();
+        }
+    }
+
+    private void TriggerWinCondition()
+    {
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+            Debug.Log("Win condition reached — win panel activated.");
+        }
+        else
+        {
+            Debug.LogWarning("Win Panel not assigned in inspector.");
         }
     }
 }
