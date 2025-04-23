@@ -34,7 +34,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         // 1. Cast a ray from the camera to the world
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        int crabLayerMask = Physics.DefaultRaycastLayers;
+        int crabLayerMask = LayerMask.GetMask("HermitCrab");
 
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f, crabLayerMask))

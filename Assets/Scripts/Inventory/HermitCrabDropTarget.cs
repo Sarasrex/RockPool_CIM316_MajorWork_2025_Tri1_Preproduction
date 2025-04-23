@@ -32,12 +32,15 @@ public class HermitCrabDropTarget : MonoBehaviour
         if (!string.IsNullOrEmpty(acceptedCategory) && acceptedCategory != itemCategory)
             return;
 
-        Debug.Log("[" + hermitName + "] received '" + itemName + "' (" + itemCategory + ")");
-        Debug.Log("[" + hermitName + "] Liked Foods: " + string.Join(", ", likedFoods));
-        Debug.Log("[" + hermitName + "] Disliked Foods: " + string.Join(", ", dislikedFoods));
-        Debug.Log("[" + hermitName + "] Liked Homes: " + string.Join(", ", likedHomes));
-        Debug.Log("[" + hermitName + "] Disliked Homes: " + string.Join(", ", dislikedHomes));
+        Debug.Log($"[{hermitName}] received '{itemName}' ({itemCategory})");
 
+        // Debug: Show current preferences
+        Debug.Log($"[{hermitName}] Liked Foods: {string.Join(", ", likedFoods)}");
+        Debug.Log($"[{hermitName}] Disliked Foods: {string.Join(", ", dislikedFoods)}");
+        Debug.Log($"[{hermitName}] Liked Homes: {string.Join(", ", likedHomes)}");
+        Debug.Log($"[{hermitName}] Disliked Homes: {string.Join(", ", dislikedHomes)}");
+
+        // Determine delta based on preference
         int delta = 0;
 
         if (itemCategory == "Food")
@@ -55,12 +58,14 @@ public class HermitCrabDropTarget : MonoBehaviour
                 delta = -20;
         }
 
-        Debug.Log("[" + hermitName + "] happiness changed by " + delta);
+        Debug.Log($"[{hermitName}] happiness changed by {delta}");
+
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
         CommunityCompassManager.Instance.UpdateCommunityHappiness();
 
-        // Determine dialogue category
+        // Determine dialogue category based on item preference
         DialogueTriggerType trigger;
+
         if (System.Array.Exists(likedFoods, item => item == itemName) ||
             System.Array.Exists(likedHomes, item => item == itemName))
         {
@@ -76,43 +81,25 @@ public class HermitCrabDropTarget : MonoBehaviour
             trigger = DialogueTriggerType.Munching;
         }
 
+        // Trigger dialogue
         HermitDialogue dialogue = GetComponent<HermitDialogue>();
-        if (dialogue == null)
+        if (dialogue != null)
         {
-            Debug.LogError("[" + hermitName + "] Missing HermitDialogue component.");
-            return;
+            DialogueLine line = dialogue.GetRandomLineByTrigger(trigger);
+            if (bubbleText != null && speechBubble != null)
+            {
+                bubbleText.text = line.text;
+                speechBubble.SetActive(true);
+
+                if (audioSource != null && line.audioClip != null)
+                {
+                    audioSource.PlayOneShot(line.audioClip);
+                }
+
+                CancelInvoke(nameof(HideBubble));
+                Invoke(nameof(HideBubble), 3.5f);
+            }
         }
-
-        DialogueLine line = dialogue.GetRandomLineByTrigger(trigger);
-        if (line == null)
-        {
-            Debug.LogError("[" + hermitName + "] DialogueLine is null for trigger: " + trigger);
-            return;
-        }
-
-        if (string.IsNullOrEmpty(line.text))
-        {
-            Debug.LogError("[" + hermitName + "] DialogueLine text is null or empty.");
-            return;
-        }
-
-        if (bubbleText == null || speechBubble == null)
-        {
-            Debug.LogError("[" + hermitName + "] bubbleText or speechBubble is not assigned.");
-            return;
-        }
-
-        Debug.Log("[" + hermitName + "] Showing speech bubble: " + line.text);
-        bubbleText.text = line.text;
-        speechBubble.SetActive(true);
-
-        if (audioSource != null && line.audioClip != null)
-        {
-            audioSource.PlayOneShot(line.audioClip);
-        }
-
-        CancelInvoke(nameof(HideBubble));
-        Invoke(nameof(HideBubble), 3.5f);
     }
 
     private void HideBubble()
