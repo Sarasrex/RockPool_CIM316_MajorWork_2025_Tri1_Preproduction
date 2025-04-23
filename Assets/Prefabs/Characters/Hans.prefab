@@ -176,6 +176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ef3e0ab8592ea45abc132e129bf1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speechBubble: {fileID: 0}
+  bubbleText: {fileID: 0}
+  audioSource: {fileID: 0}
   hermitName: Hans
   acceptedCategory: 
   likedFoods:
@@ -249,7 +252,7 @@ SpriteRenderer:
   m_SortingLayerID: -274928381
   m_SortingLayer: 4
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 933f0cfe990715f458c07fdc00da0c57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae057416eab42664fb407335b2af8eda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -357,9 +360,6 @@ MonoBehaviour:
     - text: "\u201CI carry a lot... but this rockpool? It\u2019s teaching me to breathe.\u201D"
       audioClip: {fileID: 0}
       animationTrigger: 
-  speechBubble: {fileID: 0}
-  bubbleText: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!65 &8495721094810605739
 BoxCollider:
   m_ObjectHideFlags: 0
