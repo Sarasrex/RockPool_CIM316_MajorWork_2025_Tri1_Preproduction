@@ -14,8 +14,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.7075472, g: 0.41789863, b: 0, a: 0.57254905}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -23,18 +23,18 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.41
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0, g: 0.039684363, b: 0.4433962, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
+  m_DefaultReflectionMode: 1
+  m_DefaultReflectionResolution: 32
+  m_ReflectionBounces: 2
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
@@ -97,7 +97,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 545a445722c122348a0de2747b5e9fd5,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -359,11 +360,11 @@ Light:
   m_Color: {r: 1, g: 0.8442564, b: 0.4009434, a: 1}
   m_Intensity: 888
   m_Range: 28.8
-  m_SpotAngle: 131.04277
+  m_SpotAngle: 179
   m_InnerSpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -416,7 +417,7 @@ Transform:
   m_GameObject: {fileID: 23252720}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7323281, y: 0.16124532, z: 0.20641416, w: 0.62856084}
-  m_LocalPosition: {x: -14.69, y: 21.86, z: 3.1}
+  m_LocalPosition: {x: -11.2, y: 24.4, z: 3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -434,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba8649eec29a36468200fead68c48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatStrength: 6
-  floatSpeed: 0.5
+  floatStrength: 3
+  floatSpeed: 0.3
 --- !u!1 &105356772
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +451,7 @@ GameObject:
   - component: {fileID: 105356775}
   - component: {fileID: 105356778}
   - component: {fileID: 105356779}
+  - component: {fileID: 105356780}
   m_Layer: 5
   m_Name: Map
   m_TagString: Untagged
@@ -473,7 +475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 694, y: -336}
+  m_AnchoredPosition: {x: 89.7, y: 346}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &105356775
@@ -552,7 +554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ad6d4503dddf46348b54047983029980, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9cffdef1f67bcd4a86166bc4804caab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -596,6 +598,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b522ab61efc45f4988dceaa71bed6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &105356780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105356772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887bcdd08647fd443aed486495294e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 0.9584457, b: 0, a: 1}
+  scaleMultiplier: 1.2
+  transitionSpeed: 5
 --- !u!1 &139994557
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +626,7 @@ GameObject:
   - component: {fileID: 139994560}
   - component: {fileID: 139994559}
   - component: {fileID: 139994562}
+  - component: {fileID: 139994563}
   m_Layer: 5
   m_Name: Compass
   m_TagString: Untagged
@@ -625,7 +643,7 @@ RectTransform:
   m_GameObject: {fileID: 139994557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.92, y: 5.7, z: 1}
+  m_LocalScale: {x: 1, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 268643152}
@@ -711,7 +729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 474c56e45336241458a6e529978d9921, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 245323122a4776e49a5a426fc721f1bf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -743,6 +761,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatStrength: 0.1
   floatSpeed: 1
+--- !u!114 &139994563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139994557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887bcdd08647fd443aed486495294e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 0.9372189, b: 0, a: 1}
+  scaleMultiplier: 1.2
+  transitionSpeed: 5
 --- !u!1 &268643148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,6 +1955,7 @@ GameObject:
   - component: {fileID: 828275152}
   - component: {fileID: 828275151}
   - component: {fileID: 828275154}
+  - component: {fileID: 828275155}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -2056,6 +2090,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatStrength: 0.1
   floatSpeed: 1
+--- !u!114 &828275155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828275148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887bcdd08647fd443aed486495294e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 0.94763035, b: 0, a: 1}
+  scaleMultiplier: 1.2
+  transitionSpeed: 5
 --- !u!1 &889372580
 GameObject:
   m_ObjectHideFlags: 0
