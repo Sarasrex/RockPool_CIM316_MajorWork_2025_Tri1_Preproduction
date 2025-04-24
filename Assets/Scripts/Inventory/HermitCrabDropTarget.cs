@@ -57,7 +57,12 @@ public class HermitCrabDropTarget : MonoBehaviour
 
         Debug.Log("[" + hermitName + "] happiness changed by " + delta);
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
-        CommunityCompassManager.Instance.UpdateCommunityHappiness();
+
+        // Update community compass when happiness changes
+        if (CommunityCompassManager.Instance != null)
+        {
+            CommunityCompassManager.Instance.UpdateCommunityHappiness();
+        }
 
         // Determine dialogue category
         DialogueTriggerType trigger;

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +12,7 @@ public class CommunityCompassManager : MonoBehaviour
     private bool hasWon = false;
 
     [Header("Settings")]
-    [Range(0f, 1f)] public float winThreshold = 1f;
+    [Range(0f, 1f)] public float winThreshold = 1f; // e.g. 1 = 100 average happiness
 
     void Awake()
     {
@@ -50,20 +49,17 @@ public class CommunityCompassManager : MonoBehaviour
         float average = total / hermits.Length;
         Debug.Log("Updated community average: " + average);
 
-        // Normalise to 0–1 range assuming 100 is max happiness
-        float normalisedAverage = average / 100f;
-
         if (communitySlider != null)
         {
-            communitySlider.value = normalisedAverage;
+            communitySlider.value = average;
         }
         else
         {
             Debug.LogWarning("Community Slider not assigned!");
         }
 
-        // Win condition check (based on slider fill)
-        if (!hasWon && Mathf.Approximately(normalisedAverage, winThreshold))
+        // Win condition: Check if average happiness meets threshold (converted to 0–100 scale)
+        if (!hasWon && average >= winThreshold * 100f)
         {
             hasWon = true;
             TriggerWinCondition();
