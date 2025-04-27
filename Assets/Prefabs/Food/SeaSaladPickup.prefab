@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4518794965813650893}
   - component: {fileID: 6436402594128141816}
   m_Layer: 0
-  m_Name: SeasSaladPickup
+  m_Name: SeaSaladPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
