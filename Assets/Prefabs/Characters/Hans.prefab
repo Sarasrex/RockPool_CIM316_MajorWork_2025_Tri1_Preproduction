@@ -216,7 +216,7 @@ MonoBehaviour:
   - StoneStackHome
   - GlassHeartHome
   - UsbStickHome
-  happiness: 0
+  happiness: 50
 --- !u!212 &1867411016120523660
 SpriteRenderer:
   m_ObjectHideFlags: 0

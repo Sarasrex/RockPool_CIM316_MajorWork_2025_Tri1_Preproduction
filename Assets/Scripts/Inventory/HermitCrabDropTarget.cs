@@ -22,18 +22,13 @@ public class HermitCrabDropTarget : MonoBehaviour
     [Header("Happiness")]
     [Range(0, 100)] public float happiness = 0f;
 
-    
-    /* Removing Awake now that basic system in place. Will need to save preferences / stage hermit progress at different times of the narrative
-      
     public void Awake()
     {
         happiness = 0f;
     }
-    */
 
     public void ReceiveItem(string itemName, string itemCategory)
     {
-
         if (!string.IsNullOrEmpty(acceptedCategory) && acceptedCategory != itemCategory)
             return;
 
@@ -61,10 +56,13 @@ public class HermitCrabDropTarget : MonoBehaviour
         }
 
         Debug.Log("[" + hermitName + "] happiness changed by " + delta);
-
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
 
-  
+        // Update community compass when happiness changes
+        if (CommunityCompassManager.Instance != null)
+        {
+            CommunityCompassManager.Instance.UpdateCommunityHappiness();
+        }
 
         // Determine dialogue category
         DialogueTriggerType trigger;
@@ -120,12 +118,6 @@ public class HermitCrabDropTarget : MonoBehaviour
 
         CancelInvoke(nameof(HideBubble));
         Invoke(nameof(HideBubble), 3.5f);
-
-        // Update community compass when happiness changes
-        if (CommunityCompassManager.Instance != null)
-        {
-            CommunityCompassManager.Instance.UpdateCommunityHappiness();
-        }
     }
 
     private void HideBubble()

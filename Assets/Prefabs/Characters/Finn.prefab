@@ -82,7 +82,7 @@ MonoBehaviour:
   - CoralSpoonHome
   - GlassHeartHome
   - UsbStickHome
-  happiness: 0
+  happiness: 50
 --- !u!212 &6556888981990370314
 SpriteRenderer:
   m_ObjectHideFlags: 0

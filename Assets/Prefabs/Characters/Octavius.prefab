@@ -320,7 +320,7 @@ MonoBehaviour:
   - CoralSpoonHome
   - StoneStackHome
   - GlassHeartHome
-  happiness: 0
+  happiness: 50
 --- !u!212 &7978961573142684705
 SpriteRenderer:
   m_ObjectHideFlags: 0
