@@ -10,6 +10,9 @@ public class HermitCrabDropTarget : MonoBehaviour
     public TMP_Text bubbleText;
     public AudioSource audioSource;
 
+    public AudioClip positiveAudioClip; // played when a hermit likes drop
+    public AudioClip negativeAudioClip; // played when a hermit doesnt like a drop
+
     public string hermitName;
     public string acceptedCategory; // "Food", "Home", or leave blank for any
 
@@ -21,6 +24,8 @@ public class HermitCrabDropTarget : MonoBehaviour
 
     [Header("Happiness")]
     [Range(0, 100)] public float happiness = 0f;
+
+    
 
     public void Awake()
     {
@@ -39,24 +44,57 @@ public class HermitCrabDropTarget : MonoBehaviour
         Debug.Log("[" + hermitName + "] Disliked Homes: " + string.Join(", ", dislikedHomes));
 
         int delta = 0;
+        bool liked = false;
+        bool disliked = false;
 
         if (itemCategory == "Food")
         {
             if (System.Array.Exists(likedFoods, item => item == itemName))
+            {
                 delta = 15;
+                liked = true;
+            }
+                
             else if (System.Array.Exists(dislikedFoods, item => item == itemName))
+            {
                 delta = -15;
+                disliked = true;
+            }
+                
         }
         else if (itemCategory == "Home")
         {
             if (System.Array.Exists(likedHomes, item => item == itemName))
+            {
                 delta = 20;
+                liked = true;
+            }
+                
             else if (System.Array.Exists(dislikedHomes, item => item == itemName))
+            {
                 delta = -20;
+                disliked = true;
+            }
+                
         }
 
         Debug.Log("[" + hermitName + "] happiness changed by " + delta);
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
+
+
+        // Play audio based on result
+        if (audioSource != null)
+        {
+            if (liked && positiveAudioClip != null)
+            {
+                audioSource.PlayOneShot(positiveAudioClip);
+            }
+            else if (disliked && negativeAudioClip != null)
+            {
+                audioSource.PlayOneShot(negativeAudioClip);
+            }
+        }
+
 
         // Update community compass when happiness changes
         if (CommunityCompassManager.Instance != null)

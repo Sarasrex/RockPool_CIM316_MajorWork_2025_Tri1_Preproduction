@@ -185,6 +185,8 @@ MonoBehaviour:
   speechBubble: {fileID: 7658056738310753254}
   bubbleText: {fileID: 7703276132142561525}
   audioSource: {fileID: 0}
+  positiveAudioClip: {fileID: 0}
+  negativeAudioClip: {fileID: 0}
   hermitName: Hans
   acceptedCategory: 
   likedFoods:
@@ -258,7 +260,7 @@ SpriteRenderer:
   m_SortingLayerID: -274928381
   m_SortingLayer: 4
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: ae057416eab42664fb407335b2af8eda, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b53420abb9f55d4380b462a7e631574, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
