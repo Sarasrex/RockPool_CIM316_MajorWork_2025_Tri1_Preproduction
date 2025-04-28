@@ -7471,8 +7471,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba8649eec29a36468200fead68c48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatStrength: 0.005
-  floatSpeed: 1
+  floatStrengthY: 0.01
+  floatStrengthX: 0.05
+  floatStrengthZ: 0
+  floatSpeedY: 0.5
+  floatSpeedX: 0.05
+  floatSpeedZ: 0
 --- !u!114 &835308429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10324,7 +10328,7 @@ PrefabInstance:
     - target: {fileID: 1851916671475937810, guid: 77527d2238c9e864293dcf5aa6777931,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1851916671475937810, guid: 77527d2238c9e864293dcf5aa6777931,
         type: 3}
@@ -12945,13 +12949,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402842502}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.020204606, z: 0.99979585, w: 0}
-  m_LocalPosition: {x: 9, y: 30.6, z: 84}
-  m_LocalScale: {x: 32.6614, y: 3.0096402, z: 26.68}
+  m_LocalRotation: {x: 0.004363274, y: 0, z: 0, w: 0.9999905}
+  m_LocalPosition: {x: 14, y: 9.2, z: 29}
+  m_LocalScale: {x: 12, y: 12, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 2.315, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0.5, y: 0, z: 0}
 --- !u!114 &1402842507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12964,8 +12968,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba8649eec29a36468200fead68c48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatStrength: 10
-  floatSpeed: 0.1
+  floatStrengthY: 0.1
+  floatStrengthX: 0
+  floatStrengthZ: 0
+  floatSpeedY: 1
+  floatSpeedX: 1
+  floatSpeedZ: 1
 --- !u!1 &1406696593
 GameObject:
   m_ObjectHideFlags: 0
@@ -13808,8 +13816,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba8649eec29a36468200fead68c48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatStrength: 0.003
-  floatSpeed: 1
+  floatStrengthY: 0.01
+  floatStrengthX: 0.05
+  floatStrengthZ: 0
+  floatSpeedY: 0.5
+  floatSpeedX: 0.05
+  floatSpeedZ: 1
 --- !u!114 &1503392085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14190,7 +14202,7 @@ PrefabInstance:
     - target: {fileID: 1851916671475937810, guid: 77527d2238c9e864293dcf5aa6777931,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1851916671475937810, guid: 77527d2238c9e864293dcf5aa6777931,
         type: 3}
@@ -14356,7 +14368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 465, y: 65}
+  m_AnchoredPosition: {x: 461.7, y: 45.2}
   m_SizeDelta: {x: 700, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1507606536
@@ -15023,7 +15035,7 @@ PrefabInstance:
     - target: {fileID: 1851916671475937810, guid: 77527d2238c9e864293dcf5aa6777931,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1851916671475937810, guid: 77527d2238c9e864293dcf5aa6777931,
         type: 3}
@@ -18124,8 +18136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba8649eec29a36468200fead68c48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatStrength: 0.005
-  floatSpeed: 1
+  floatStrengthY: 0.01
+  floatStrengthX: 0.05
+  floatStrengthZ: 0
+  floatSpeedY: 0.5
+  floatSpeedX: 0.05
+  floatSpeedZ: 0
 --- !u!1 &2001552695
 GameObject:
   m_ObjectHideFlags: 0
@@ -19448,7 +19464,7 @@ PrefabInstance:
     - target: {fileID: 1851916671475937810, guid: 77527d2238c9e864293dcf5aa6777931,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1851916671475937810, guid: 77527d2238c9e864293dcf5aa6777931,
         type: 3}
@@ -20316,7 +20332,7 @@ SceneRoots:
   - {fileID: 976403111}
   - {fileID: 8492990}
   - {fileID: 1261686825}
-  - {fileID: 1402842506}
   - {fileID: 599668098}
   - {fileID: 1017261627}
   - {fileID: 927312263}
+  - {fileID: 1402842506}

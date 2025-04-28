@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class FloatingEffect : MonoBehaviour
 {
-    public float floatStrength = 0.1f; // How much it moves up and down
-    public float floatSpeed = 1f; // Speed of the movement
+    [Header("Floating Strength")]
+    public float floatStrengthY = 0.1f; // How much it moves up and down
+    public float floatStrengthX = 0f;   // How much it moves left and right
+    public float floatStrengthZ = 0f;   // How much it moves forward and backward
+
+    [Header("Floating Speed")]
+    public float floatSpeedY = 1f; // Speed of Y movement
+    public float floatSpeedX = 1f; // Speed of X movement
+    public float floatSpeedZ = 1f; // Speed of Z movement
 
     private Vector3 startPosition;
 
@@ -16,8 +23,10 @@ public class FloatingEffect : MonoBehaviour
 
     void Update()
     {
-        // Apply floating effect using a sine wave
-        float newY = startPosition.y + Mathf.Sin(Time.time * floatSpeed) * floatStrength;
-        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+        float newY = startPosition.y + Mathf.Sin(Time.time * floatSpeedY) * floatStrengthY;
+        float newX = startPosition.x + Mathf.Sin(Time.time * floatSpeedX) * floatStrengthX;
+        float newZ = startPosition.z + Mathf.Sin(Time.time * floatSpeedZ) * floatStrengthZ;
+
+        transform.position = new Vector3(newX, newY, newZ);
     }
 }
