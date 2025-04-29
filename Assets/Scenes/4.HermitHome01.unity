@@ -14224,12 +14224,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba8649eec29a36468200fead68c48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatStrengthY: 0.01
-  floatStrengthX: 0.05
+  floatStrengthY: 0.005
+  floatStrengthX: 0
   floatStrengthZ: 0
-  floatSpeedY: 0.5
-  floatSpeedX: 0.05
-  floatSpeedZ: 1
+  floatSpeedY: 0.8
+  floatSpeedX: 0
+  floatSpeedZ: 0
 --- !u!114 &1503392085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18481,10 +18481,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatStrengthY: 0.01
-  floatStrengthX: 0.05
+  floatStrengthX: 0
   floatStrengthZ: 0
-  floatSpeedY: 0.5
-  floatSpeedX: 0.05
+  floatSpeedY: 0.8
+  floatSpeedX: 0
   floatSpeedZ: 0
 --- !u!1 &2001552695
 GameObject:
