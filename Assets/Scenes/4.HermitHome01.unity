@@ -2120,6 +2120,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1953186054}
     m_Modifications:
+    - target: {fileID: 3396932539712939907, guid: e3e401c8e8310104abad784a34654c19,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3478954029276048034, guid: e3e401c8e8310104abad784a34654c19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6021,7 +6026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleSprite: {fileID: 1239522294}
-  moveSpeed: 9
+  moveSpeed: 12
   riseDistance: 45
   delayBeforeLoad: 4
   bubbleAudioSource: {fileID: 1866505730}
