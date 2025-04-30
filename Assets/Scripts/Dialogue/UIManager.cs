@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// Handles all major UI updates, including:
+// - Dialogue display
+// - Item collection icons
+// - Panel visibility for inventory and compass
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static UIManager Instance; // Singleton reference to access UIManager globally
 
     [Header("Shared Dialogue UI")]
-    public GameObject dialoguePanel;
-    public TMP_Text nameText;
-    public TMP_Text dialogueText;
-    public AudioSource audioSource;
-    public Animator characterAnimator;
+    public GameObject dialoguePanel;          // The whole dialogue box
+    public TMP_Text nameText;                 // Name of the speaking character
+    public TMP_Text dialogueText;             // Their spoken text
+    public AudioSource audioSource;           // Audio for dialogue clips
+    public Animator characterAnimator;        // Character animation triggers
 
     [Header("Treasure (Home) Icons")]
+    // These icons represent Home items and are activated when collected
     public GameObject goldCoinHomeIcon;
     public GameObject mirrorShellHomeIcon;
     public GameObject boardNoseHomeIcon;
@@ -29,6 +34,7 @@ public class UIManager : MonoBehaviour
     public GameObject usbStickHomeIcon;
 
     [Header("Food Icons")]
+    // These icons represent Food items and are activated when collected
     public GameObject seaweedSnarlRollIcon;
     public GameObject squidlyChewIcon;
     public GameObject driftChipDipIcon;
@@ -44,22 +50,21 @@ public class UIManager : MonoBehaviour
     public GameObject starsIcon;
 
     [Header("Initial UI Panels")]
-    public GameObject inventoryPanel;
-    public GameObject compassPanel;
+    public GameObject inventoryPanel;         // Inventory UI panel
+    public GameObject compassPanel;           // Compass UI panel
 
-
+    // Initialise singleton and hide default UI panels at game start
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        // Turn off UI panels at runtime instead of in editor
+        // Hide panels on start (assumes editor might have them enabled for layout)
         if (inventoryPanel != null) inventoryPanel.SetActive(false);
         if (compassPanel != null) compassPanel.SetActive(false);
     }
 
-
-    // Show collected item icons based on category
+    // Turns on the UI icon matching a collected item
     public void ShowItem(string itemName, string itemCategory)
     {
         switch (itemCategory)
@@ -97,23 +102,27 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // Legacy fallback (for global use if needed)
+    // Optional global method to show dialogue (may be replaced by individual hermit systems)
     public void ShowDialogue(string speakerName, DialogueLine line)
     {
         dialoguePanel.SetActive(true);
         nameText.text = speakerName;
         dialogueText.text = line.text;
 
+        // Play dialogue audio clip
         if (line.audioClip != null && audioSource != null)
             audioSource.PlayOneShot(line.audioClip);
 
+        // Trigger animation if one is defined
         if (!string.IsNullOrEmpty(line.animationTrigger) && characterAnimator != null)
             characterAnimator.SetTrigger(line.animationTrigger);
 
+        // Hide dialogue automatically after a few seconds
         CancelInvoke(nameof(HideDialogue));
         Invoke(nameof(HideDialogue), 3.5f);
     }
 
+    // Hides the dialogue UI panel
     public void HideDialogue()
     {
         dialoguePanel.SetActive(false);

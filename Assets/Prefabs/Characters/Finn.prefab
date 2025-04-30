@@ -51,6 +51,8 @@ MonoBehaviour:
   speechBubble: {fileID: 8438819403849935501}
   bubbleText: {fileID: 1847791381419533016}
   audioSource: {fileID: 0}
+  positiveAudioClip: {fileID: 0}
+  negativeAudioClip: {fileID: 0}
   hermitName: Finn
   acceptedCategory: 
   likedFoods:
@@ -82,7 +84,7 @@ MonoBehaviour:
   - CoralSpoonHome
   - GlassHeartHome
   - UsbStickHome
-  happiness: 50
+  happiness: 0
 --- !u!212 &6556888981990370314
 SpriteRenderer:
   m_ObjectHideFlags: 0

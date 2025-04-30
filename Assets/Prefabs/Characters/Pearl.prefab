@@ -51,6 +51,8 @@ MonoBehaviour:
   speechBubble: {fileID: 8630010941780784466}
   bubbleText: {fileID: 6726251277296656520}
   audioSource: {fileID: 0}
+  positiveAudioClip: {fileID: 0}
+  negativeAudioClip: {fileID: 0}
   hermitName: Pearl
   acceptedCategory: 
   likedFoods:
@@ -82,7 +84,7 @@ MonoBehaviour:
   - CoralSpoonHome
   - StoneStackHome
   - GlassHeartHome
-  happiness: 50
+  happiness: 0
 --- !u!212 &3905650956756017523
 SpriteRenderer:
   m_ObjectHideFlags: 0

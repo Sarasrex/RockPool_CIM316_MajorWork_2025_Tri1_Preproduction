@@ -1,49 +1,68 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+// This script allows a UI item (like food or home) to be dragged around the screen
+// and dropped onto a hermit crab to trigger interactions.
+
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public string itemName;
-    public string itemCategory; // "Food" or "Home"
+    public string itemName;            // Name of the item (used in ReceiveItem logic)
+    public string itemCategory;        // "Food" or "Home" — determines preference matching
 
-    private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
-    private Transform originalParent;
-    private Vector2 originalPosition;
+    private RectTransform rectTransform;   // Cached reference to the item's RectTransform
+    private CanvasGroup canvasGroup;       // Used to disable raycasts while dragging
+    private Transform originalParent;      // Stores the parent so we can reset it
+    private Vector2 originalPosition;      // Stores the anchored position to reset after drag
 
+    // Set up cached references on awake
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
+    // Called when dragging starts
     public void OnBeginDrag(PointerEventData eventData)
     {
         originalParent = transform.parent;
         originalPosition = rectTransform.anchoredPosition;
-        transform.SetParent(transform.root, true); // Ensure it's under the canvas root
 
+        // Reparent to root canvas so it renders above other UI elements
+        transform.SetParent(transform.root, true);
+
+        // Disable raycasts so drop targets can receive input
         canvasGroup.blocksRaycasts = false;
-        transform.SetAsLastSibling(); // This ensures it renders on top
+
+        // Make sure the item renders above everything else
+        transform.SetAsLastSibling();
     }
 
+    // Called continuously while dragging
+    public void OnDrag(PointerEventData eventData)
+    {
+        // Move the item based on mouse delta
+        rectTransform.anchoredPosition += eventData.delta;
+    }
 
+    // Called when dragging ends
     public void OnEndDrag(PointerEventData eventData)
     {
+        // Re-enable raycasts
         canvasGroup.blocksRaycasts = true;
 
-        // 1. Cast a ray from the camera to the world
+        // Cast a 3D ray from the camera to detect a hermit crab in world space
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         int crabLayerMask = Physics.DefaultRaycastLayers;
 
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f, crabLayerMask))
         {
+            // Check if the hit object has a HermitCrabDropTarget script
             HermitCrabDropTarget crab = hit.collider.GetComponent<HermitCrabDropTarget>();
             if (crab != null)
             {
                 Debug.Log("Hit crab: " + crab.hermitName);
-                crab.ReceiveItem(itemName, itemCategory);
+                crab.ReceiveItem(itemName, itemCategory); // Give the item to the crab
             }
             else
             {
@@ -55,20 +74,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             Debug.Log("No 3D collider hit at drop point.");
         }
 
-        // 2. Reset UI item back to its original position
+        // Reset the UI item back to where it started
         rectTransform.SetParent(originalParent);
         rectTransform.anchoredPosition = originalPosition;
     }
-
-
-
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        rectTransform.anchoredPosition += eventData.delta;
-    }
-
-
-
 }
-

@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// This script handles what happens when a hermit crab receives a dropped item.
+// It adjusts happiness, plays audio feedback, shows dialogue, and updates the community compass.
+
 public class HermitCrabDropTarget : MonoBehaviour
 {
     [Header("Speech Bubble References")]
-    public GameObject speechBubble;
-    public TMP_Text bubbleText;
-    public AudioSource audioSource;
+    public GameObject speechBubble;       // Speech bubble GameObject shown on interaction
+    public TMP_Text bubbleText;           // Text component for dialogue
+    public AudioSource audioSource;       // Audio source for dialogue and feedback sounds
 
-    public AudioClip positiveAudioClip; // played when a hermit likes drop
-    public AudioClip negativeAudioClip; // played when a hermit doesnt like a drop
+    public AudioClip positiveAudioClip;   // Audio clip when hermit likes the item
+    public AudioClip negativeAudioClip;   // Audio clip when hermit dislikes the item
 
-    public string hermitName;
-    public string acceptedCategory; // "Food", "Home", or leave blank for any
+    public string hermitName;             // Used for debugging and logs
+    public string acceptedCategory;       // Restricts item type (e.g., "Food", "Home") if set
 
     [Header("Preferences")]
     public string[] likedFoods;
@@ -23,20 +26,22 @@ public class HermitCrabDropTarget : MonoBehaviour
     public string[] dislikedHomes;
 
     [Header("Happiness")]
-    [Range(0, 100)] public float happiness = 0f;
+    [Range(0, 100)] public float happiness = 0f; // Current happiness (0–100 range)
 
-    
-
+    // Sets default happiness (can be replaced with saved data later)
     public void Awake()
     {
         happiness = 0f;
     }
 
+    // Called when an item is dropped on this hermit
     public void ReceiveItem(string itemName, string itemCategory)
     {
+        // Reject items that don't match this hermit's category preference
         if (!string.IsNullOrEmpty(acceptedCategory) && acceptedCategory != itemCategory)
             return;
 
+        // Log preferences and item for debugging
         Debug.Log("[" + hermitName + "] received '" + itemName + "' (" + itemCategory + ")");
         Debug.Log("[" + hermitName + "] Liked Foods: " + string.Join(", ", likedFoods));
         Debug.Log("[" + hermitName + "] Disliked Foods: " + string.Join(", ", dislikedFoods));
@@ -47,6 +52,7 @@ public class HermitCrabDropTarget : MonoBehaviour
         bool liked = false;
         bool disliked = false;
 
+        // Check food preferences
         if (itemCategory == "Food")
         {
             if (System.Array.Exists(likedFoods, item => item == itemName))
@@ -54,14 +60,13 @@ public class HermitCrabDropTarget : MonoBehaviour
                 delta = 15;
                 liked = true;
             }
-                
             else if (System.Array.Exists(dislikedFoods, item => item == itemName))
             {
                 delta = -15;
                 disliked = true;
             }
-                
         }
+        // Check home preferences
         else if (itemCategory == "Home")
         {
             if (System.Array.Exists(likedHomes, item => item == itemName))
@@ -69,40 +74,33 @@ public class HermitCrabDropTarget : MonoBehaviour
                 delta = 20;
                 liked = true;
             }
-                
             else if (System.Array.Exists(dislikedHomes, item => item == itemName))
             {
                 delta = -20;
                 disliked = true;
             }
-                
         }
 
+        // Apply the change and clamp within range
         Debug.Log("[" + hermitName + "] happiness changed by " + delta);
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
 
-
-        // Play audio based on result
+        // Play feedback audio
         if (audioSource != null)
         {
             if (liked && positiveAudioClip != null)
-            {
                 audioSource.PlayOneShot(positiveAudioClip);
-            }
             else if (disliked && negativeAudioClip != null)
-            {
                 audioSource.PlayOneShot(negativeAudioClip);
-            }
         }
 
-
-        // Update community compass when happiness changes
+        // IMPORTANT: Update the community compass after happiness changes
         if (CommunityCompassManager.Instance != null)
         {
             CommunityCompassManager.Instance.UpdateCommunityHappiness();
         }
 
-        // Determine dialogue category
+        // Determine emotional response type
         DialogueTriggerType trigger;
         if (System.Array.Exists(likedFoods, item => item == itemName) ||
             System.Array.Exists(likedHomes, item => item == itemName))
@@ -119,6 +117,7 @@ public class HermitCrabDropTarget : MonoBehaviour
             trigger = DialogueTriggerType.Munching;
         }
 
+        // Retrieve matching dialogue line
         HermitDialogue dialogue = GetComponent<HermitDialogue>();
         if (dialogue == null)
         {
@@ -145,19 +144,23 @@ public class HermitCrabDropTarget : MonoBehaviour
             return;
         }
 
+        // Show speech bubble with chosen line
         Debug.Log("[" + hermitName + "] Showing speech bubble: " + line.text);
         bubbleText.text = line.text;
         speechBubble.SetActive(true);
 
+        // Play line-specific audio clip if available
         if (audioSource != null && line.audioClip != null)
         {
             audioSource.PlayOneShot(line.audioClip);
         }
 
+        // Hide the speech bubble after a few seconds
         CancelInvoke(nameof(HideBubble));
         Invoke(nameof(HideBubble), 3.5f);
     }
 
+    // Hides the speech bubble
     private void HideBubble()
     {
         if (speechBubble != null)
