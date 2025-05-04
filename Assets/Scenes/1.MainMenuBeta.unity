@@ -774,7 +774,6 @@ GameObject:
   m_Component:
   - component: {fileID: 262777224}
   - component: {fileID: 262777226}
-  - component: {fileID: 262777225}
   m_Layer: 0
   m_Name: CreditButtonPurpleCoralImage
   m_TagString: Untagged
@@ -798,21 +797,6 @@ Transform:
   - {fileID: 1664962827}
   m_Father: {fileID: 1485866815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -28.095}
---- !u!114 &262777225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262777223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887bcdd08647fd443aed486495294e31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  glowColor: {r: 0.344907, g: 0, b: 0.8784314, a: 1}
-  scaleMultiplier: 1.05
-  transitionSpeed: 1
 --- !u!212 &262777226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2728,7 +2712,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1099808053}
   - component: {fileID: 1099808052}
-  - component: {fileID: 1099808054}
   m_Layer: 0
   m_Name: OptionsButtonPurpleCoralImage
   m_TagString: Untagged
@@ -2804,21 +2787,6 @@ Transform:
   - {fileID: 792713797}
   m_Father: {fileID: 1485866815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -28.095}
---- !u!114 &1099808054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099808051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887bcdd08647fd443aed486495294e31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  glowColor: {r: 0.344907, g: 0, b: 0.8784314, a: 1}
-  scaleMultiplier: 1.05
-  transitionSpeed: 1
 --- !u!1 &1181113890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,11 +3659,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
