@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8924814242341229913}
   - component: {fileID: 2732415998552980159}
   - component: {fileID: 997794843946590112}
+  - component: {fileID: -4535329873528305633}
   m_Layer: 0
   m_Name: GlassHeartHomePickup
   m_TagString: Barnacle
@@ -120,3 +121,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: GlassHeartHome
   itemCategory: Home
+--- !u!114 &-4535329873528305633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677608036047056725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb75d79bcb97644595ea4b7f8d34773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growDuration: 3

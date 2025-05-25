@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5054282291963799921}
   - component: {fileID: 529754855782833452}
   - component: {fileID: 5409273580051559571}
+  - component: {fileID: -1453822449924155741}
   m_Layer: 0
   m_Name: CrunchMunchPickup
   m_TagString: Barnacle
@@ -120,3 +121,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: CrunchMunch
   itemCategory: Food
+--- !u!114 &-1453822449924155741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454496511591831124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb75d79bcb97644595ea4b7f8d34773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growDuration: 3

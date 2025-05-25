@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3293006554150296233}
   - component: {fileID: 153954289674146157}
   - component: {fileID: 7983348456635985533}
+  - component: {fileID: 1181011181327470494}
   m_Layer: 0
   m_Name: CharStickHomePickup
   m_TagString: Barnacle
@@ -120,3 +121,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: CharStickHome
   itemCategory: Home
+--- !u!114 &1181011181327470494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260973396547475057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb75d79bcb97644595ea4b7f8d34773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growDuration: 3

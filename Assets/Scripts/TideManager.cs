@@ -28,17 +28,19 @@ public class TideManager : MonoBehaviour
     {
         while (true)
         {
-            // Wait before next tide shift
             yield return new WaitForSeconds(waitTime);
 
             float targetY = isHighTide ? lowY : highY;
-            yield return StartCoroutine(MoveWater(targetY));
 
             if (!isHighTide)
             {
-                ReplaceBarnacles();
+                // Start barnacles shortly after tide starts rising
+                StartCoroutine(ReplaceBarnaclesDelayed(3f));
             }
-            else
+
+            yield return StartCoroutine(MoveWater(targetY));
+
+            if (isHighTide)
             {
                 DestroyBarnacles();
             }
@@ -46,6 +48,7 @@ public class TideManager : MonoBehaviour
             isHighTide = !isHighTide;
         }
     }
+
 
     IEnumerator MoveWater(float targetY)
     {
@@ -61,17 +64,26 @@ public class TideManager : MonoBehaviour
         }
     }
 
-    void ReplaceBarnacles()
+    IEnumerator ReplaceBarnaclesDelayed(float delay)
     {
-        // Choose a wave at random
+        yield return new WaitForSeconds(delay);
+        yield return StartCoroutine(ReplaceBarnacles());
+    }
+
+
+    IEnumerator ReplaceBarnacles()
+    {
         Transform[] chosenWave = GetRandomWave();
 
         foreach (Transform point in chosenWave)
         {
             int rand = Random.Range(0, barnaclePrefabs.Length);
             Instantiate(barnaclePrefabs[rand], point.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(1f); // Delay between spawns
         }
     }
+
 
     Transform[] GetRandomWave()
     {

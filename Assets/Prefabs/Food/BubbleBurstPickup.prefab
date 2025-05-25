@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7217240922276753086}
   - component: {fileID: 6891572876746285484}
   - component: {fileID: 1713535332180525478}
+  - component: {fileID: -3755114318138964558}
   m_Layer: 0
   m_Name: BubbleBurstPickup
   m_TagString: Barnacle
@@ -120,3 +121,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: BubbleBurst
   itemCategory: Food
+--- !u!114 &-3755114318138964558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722890088184896344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb75d79bcb97644595ea4b7f8d34773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growDuration: 3

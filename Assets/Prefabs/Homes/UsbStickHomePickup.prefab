@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2722976561246388690}
   - component: {fileID: 7202458642353164484}
   - component: {fileID: 8998914597401960378}
+  - component: {fileID: 2306640324601685956}
   m_Layer: 0
   m_Name: UsbStickHomePickup
   m_TagString: Barnacle
@@ -120,3 +121,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: UsbStickHome
   itemCategory: Home
+--- !u!114 &2306640324601685956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874351976253993096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb75d79bcb97644595ea4b7f8d34773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growDuration: 3

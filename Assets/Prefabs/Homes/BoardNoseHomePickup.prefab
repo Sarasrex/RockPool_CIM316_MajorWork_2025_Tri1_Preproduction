@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7634693910044196836}
   - component: {fileID: 8761081796892110927}
   - component: {fileID: 2985179239102745829}
+  - component: {fileID: 8980320716428232871}
   m_Layer: 0
   m_Name: BoardNoseHomePickup
   m_TagString: Barnacle
@@ -120,3 +121,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: BoardNoseHome
   itemCategory: Home
+--- !u!114 &8980320716428232871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056652126961390960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb75d79bcb97644595ea4b7f8d34773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growDuration: 3
