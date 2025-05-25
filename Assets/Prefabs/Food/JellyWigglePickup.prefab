@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2708416575304723671}
   m_Layer: 0
   m_Name: JellyWigglePickup
-  m_TagString: Untagged
+  m_TagString: Barnacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

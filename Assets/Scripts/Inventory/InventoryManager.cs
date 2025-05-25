@@ -30,6 +30,7 @@ public class InventoryManager : MonoBehaviour
     public bool hasJellyWiggle = false;
     public bool hasBubbleBurst = false;
     public bool hasBeachBanana = false;
+    public bool hasCrunchMunch = false;
     public bool hasBubbleBounce = false;
     public bool hasNoriNibble = false;
     public bool hasSnailSlurp = false;
@@ -66,6 +67,7 @@ public class InventoryManager : MonoBehaviour
     public const string PlumDrop = "PlumDrop";
     public const string Stars = "Stars";
 
+    public Dictionary<string, int> itemCounts = new Dictionary<string, int>();
 
     void Awake()
     {
@@ -76,9 +78,15 @@ public class InventoryManager : MonoBehaviour
     // Collect an item
     public void CollectItem(string itemName, string itemCategory)
     {
+        // Count tracking
+        if (itemCounts.ContainsKey(itemName))
+            itemCounts[itemName]++;
+        else
+            itemCounts[itemName] = 1;
+
+        // Boolean tracking for compatibility
         switch (itemCategory)
         {
-            // Homes (upgrade)
             case "Home":
                 if (itemName == GoldCoinHome) hasGoldCoinHome = true;
                 if (itemName == MirrorShellHome) hasMirrorShellHome = true;
@@ -94,7 +102,6 @@ public class InventoryManager : MonoBehaviour
                 if (itemName == UsbStickHome) hasUsbStickHome = true;
                 break;
 
-            // Food
             case "Food":
                 if (itemName == SeaweedSnarlRoll) hasSeaweedSnarlRoll = true;
                 if (itemName == SquidlyChew) hasSquidlyChew = true;
@@ -103,16 +110,71 @@ public class InventoryManager : MonoBehaviour
                 if (itemName == JellyWiggle) hasJellyWiggle = true;
                 if (itemName == BubbleBurst) hasBubbleBurst = true;
                 if (itemName == BeachBanana) hasBeachBanana = true;
+                if (itemName == CrunchMunch) hasCrunchMunch = true;
                 if (itemName == BubbleBounce) hasBubbleBounce = true;
                 if (itemName == NoriNibble) hasNoriNibble = true;
                 if (itemName == SnailSlurp) hasSnailSlurp = true;
                 if (itemName == PlumDrop) hasPlumDrop = true;
                 if (itemName == Stars) hasStars = true;
                 break;
-
         }
 
-        // Update UI
-        UIManager.Instance.ShowItem(itemName, itemCategory);
+        // Update UI and pass the count
+        UIManager.Instance.ShowItem(itemName, itemCategory, itemCounts[itemName]);
     }
+
+    public void UseItem(string itemName, string itemCategory)
+    {
+        if (itemCounts.ContainsKey(itemName) && itemCounts[itemName] > 0)
+        {
+            itemCounts[itemName]--;
+
+            // Optional: set boolean to false if count is now 0
+            if (itemCounts[itemName] == 0)
+            {
+                switch (itemCategory)
+                {
+                    case "Home":
+                        if (itemName == GoldCoinHome) hasGoldCoinHome = false;
+                        if (itemName == MirrorShellHome) hasMirrorShellHome = false;
+                        if (itemName == BoardNoseHome) hasBoardNoseHome = false;
+                        if (itemName == RockBowlHome) hasRockBowlHome = false;
+                        if (itemName == SnorkelHome) hasSnorkelHome = false;
+                        if (itemName == ShellPurseHome) hasShellPurseHome = false;
+                        if (itemName == LostCompassHome) hasLostCompassHome = false;
+                        if (itemName == CharStickHome) hasCharStickHome = false;
+                        if (itemName == CoralSpoonHome) hasCoralSpoonHome = false;
+                        if (itemName == StoneStackHome) hasStoneStackHome = false;
+                        if (itemName == GlassHeartHome) hasGlassHeartHome = false;
+                        if (itemName == UsbStickHome) hasUsbStickHome = false;
+                        break;
+
+                    case "Food":
+                        if (itemName == SeaweedSnarlRoll) hasSeaweedSnarlRoll = false;
+                        if (itemName == SquidlyChew) hasSquidlyChew = false;
+                        if (itemName == DriftChipDip) hasDriftChipDip = false;
+                        if (itemName == SeaSalad) hasSeaSalad = false;
+                        if (itemName == JellyWiggle) hasJellyWiggle = false;
+                        if (itemName == BubbleBurst) hasBubbleBurst = false;
+                        if (itemName == BeachBanana) hasBeachBanana = false;
+                        if (itemName == CrunchMunch) hasCrunchMunch = false;
+                        if (itemName == BubbleBounce) hasBubbleBounce = false;
+                        if (itemName == NoriNibble) hasNoriNibble = false;
+                        if (itemName == SnailSlurp) hasSnailSlurp = false;
+                        if (itemName == PlumDrop) hasPlumDrop = false;
+                        if (itemName == Stars) hasStars = false;
+                        break;
+                }
+            }
+
+            // Update the UI
+            UIManager.Instance.ShowItem(itemName, itemCategory, itemCounts[itemName]);
+        }
+        else
+        {
+            Debug.LogWarning($"Tried to use item '{itemName}' but none are available.");
+        }
+    }
+
 }
+

@@ -17,6 +17,9 @@ public class CollectibleItem : MonoBehaviour
         InventoryManager.Instance.CollectItem(itemName, itemCategory);
 
         // Hide the item after collection
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+
+        Destroy(gameObject);
+        
     }
 }

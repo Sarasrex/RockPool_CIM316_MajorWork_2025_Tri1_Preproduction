@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2887575098247558758}
   m_Layer: 0
   m_Name: SquidlyChewPickup
-  m_TagString: Untagged
+  m_TagString: Barnacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

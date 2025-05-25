@@ -52,6 +52,9 @@ public class HermitCrabDropTarget : MonoBehaviour
         bool liked = false;
         bool disliked = false;
 
+        InventoryManager.Instance.UseItem(itemName, itemCategory);
+
+
         // Check food preferences
         if (itemCategory == "Food")
         {
