@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4.HermitHome01.unity
     guid: 01bdd37da298b5b4180b9b5d676ebadd
+  - enabled: 1
+    path: Assets/Scenes/5.Merchant_Priscilla.unity
+    guid: ea6c5c65ac5188f468e8e9a784eeb5db
   - enabled: 0
     path: Assets/Scenes/5.HermitHome02.unity
     guid: 7f70ff8536ebc6d41bc745b757cae7c8
