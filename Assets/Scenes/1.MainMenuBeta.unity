@@ -3108,6 +3108,7 @@ GameObject:
   - component: {fileID: 1240872875}
   - component: {fileID: 1240872878}
   - component: {fileID: 1240872879}
+  - component: {fileID: 1240872880}
   m_Layer: 5
   m_Name: StartGameButton
   m_TagString: Untagged
@@ -3179,16 +3180,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240872878}
-        m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
-        m_MethodName: LoadSceneByName
-        m_Mode: 5
+      - m_Target: {fileID: 1240872873}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 2.Foyer
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1240872876
@@ -3256,6 +3257,18 @@ MonoBehaviour:
   glowColor: {r: 0.514151, g: 1, b: 0.9949852, a: 1}
   scaleMultiplier: 1.1
   transitionSpeed: 2
+--- !u!114 &1240872880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240872873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138a4ba5fff5b8c499eb8a683b96af62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1293938950
 GameObject:
   m_ObjectHideFlags: 0
