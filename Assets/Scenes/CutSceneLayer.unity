@@ -2133,7 +2133,7 @@ GameObject:
   - component: {fileID: 387197789}
   - component: {fileID: 387197790}
   m_Layer: 0
-  m_Name: CutScene_Finn
+  m_Name: Cutscene_Finn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5527,7 +5527,7 @@ GameObject:
   - component: {fileID: 931666045}
   - component: {fileID: 931666046}
   m_Layer: 0
-  m_Name: CutScene_Hans
+  m_Name: Cutscene_Hans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5983,7 +5983,7 @@ GameObject:
   - component: {fileID: 1089015592}
   - component: {fileID: 1089015593}
   m_Layer: 0
-  m_Name: CutScene_CaptainClaw
+  m_Name: Cutscene_CaptainClaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7469,7 +7469,7 @@ GameObject:
   - component: {fileID: 1316554659}
   - component: {fileID: 1316554660}
   m_Layer: 0
-  m_Name: CutScene_Pearl
+  m_Name: Cutscene_Pearl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7522,7 +7522,7 @@ GameObject:
   - component: {fileID: 1376401188}
   - component: {fileID: 1376401189}
   m_Layer: 0
-  m_Name: CutScene_Priscilla
+  m_Name: Cutscene_Priscilla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7964,6 +7964,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479943928}
   m_CullTransparentMesh: 1
+--- !u!1 &1504831604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504831605}
+  - component: {fileID: 1504831606}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1504831605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504831604}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1504831606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504831604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b35174d518b5f446aad345ae4f607b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutscene_Intro: {fileID: 2076012326}
+  cutscene_CaptainClaw: {fileID: 1089015591}
+  cutscene_Pearl: {fileID: 1316554658}
+  cutscene_Finn: {fileID: 387197788}
+  cutscene_Hans: {fileID: 931666044}
+  cutscene_Priscilla: {fileID: 1376401187}
+  finalCutscene: {fileID: 1583454327}
 --- !u!1 &1566283960
 GameObject:
   m_ObjectHideFlags: 0
@@ -10774,12 +10825,12 @@ GameObject:
   - component: {fileID: 2076012327}
   - component: {fileID: 2076012328}
   m_Layer: 0
-  m_Name: CutScene_Intro
+  m_Name: Cutscene_Intro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2076012327
 Transform:
   m_ObjectHideFlags: 0
@@ -10959,3 +11010,4 @@ SceneRoots:
   - {fileID: 1297793784}
   - {fileID: 1597382234}
   - {fileID: 514208060}
+  - {fileID: 1504831605}

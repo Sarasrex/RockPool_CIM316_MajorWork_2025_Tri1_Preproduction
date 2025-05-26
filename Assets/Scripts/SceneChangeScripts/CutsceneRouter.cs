@@ -28,7 +28,7 @@ public class CutsceneRouter : MonoBehaviour
         switch (cutsceneID)
         {
             case "Intro": cutscene_Intro.SetActive(true); break;
-            case "Claw": cutscene_CaptainClaw.SetActive(true); break;
+            case "CaptainClaw": cutscene_CaptainClaw.SetActive(true); break;
             case "Pearl": cutscene_Pearl.SetActive(true); break;
             case "Finn": cutscene_Finn.SetActive(true); break;
             case "Hans": cutscene_Hans.SetActive(true); break;

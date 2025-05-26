@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/5.Merchant_Priscilla.unity
     guid: ea6c5c65ac5188f468e8e9a784eeb5db
+  - enabled: 1
+    path: Assets/Scenes/CutSceneLayer.unity
+    guid: 82a6b3720fd8ed04da70b358eefc4703
   - enabled: 0
     path: Assets/Scenes/5.HermitHome02.unity
     guid: 7f70ff8536ebc6d41bc745b757cae7c8

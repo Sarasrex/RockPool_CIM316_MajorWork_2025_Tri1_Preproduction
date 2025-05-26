@@ -9,15 +9,7 @@ public class StartGameCutsceneCheck : MonoBehaviour
 
     public void StartGame()
     {
-        if (!CutsceneTracker.HasSeen("Intro"))
-        {
-            CutsceneRouter.cutsceneID = "Intro";
-            CutsceneTracker.MarkSeen("Intro");
-            sceneSwitcher.LoadSceneByName("CutSceneLayer");
-        }
-        else
-        {
-            sceneSwitcher.LoadSceneByName("Foyer");
-        }
+        Debug.Log(" Loading CutSceneLayer from main menu.");
+        sceneSwitcher.LoadSceneByName("CutSceneLayer");
     }
 }

@@ -674,6 +674,7 @@ GameObject:
   - component: {fileID: 786499573}
   - component: {fileID: 786499574}
   - component: {fileID: 786499575}
+  - component: {fileID: 786499576}
   m_Layer: 5
   m_Name: MapArea2_HermitHome
   m_TagString: Untagged
@@ -745,6 +746,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 786499576}
+        m_TargetAssemblyTypeName: CutsceneTrigger, Assembly-CSharp
+        m_MethodName: SetCutsceneID
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 786499574}
         m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
         m_MethodName: LoadSceneByName
@@ -754,7 +767,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 4.HermitHome01
+          m_StringArgument: CutSceneLayer
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &786499571
@@ -840,6 +853,19 @@ MonoBehaviour:
   floatSpeedY: 5
   floatSpeedX: 0
   floatSpeedZ: 0
+--- !u!114 &786499576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786499568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd37a458cdea5d4d9179b886141a5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneID: CaptainClaw
 --- !u!1 &940398727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1100,7 @@ GameObject:
   - component: {fileID: 1012153053}
   - component: {fileID: 1012153052}
   - component: {fileID: 1012153051}
+  - component: {fileID: 1012153057}
   m_Layer: 5
   m_Name: MapArea4_Merchant_Priscilla
   m_TagString: Untagged
@@ -1190,6 +1217,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1012153057}
+        m_TargetAssemblyTypeName: CutsceneTrigger, Assembly-CSharp
+        m_MethodName: SetCutsceneID
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1012153052}
         m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
         m_MethodName: LoadSceneByName
@@ -1199,7 +1238,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 5.Merchant_Priscilla
+          m_StringArgument: CutSceneLayer
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1012153055
@@ -1240,6 +1279,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012153049}
   m_CullTransparentMesh: 1
+--- !u!114 &1012153057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012153049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd37a458cdea5d4d9179b886141a5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneID: Priscilla
 --- !u!1 &1262627513
 GameObject:
   m_ObjectHideFlags: 0
