@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -104,44 +105,62 @@ public class UIManager : MonoBehaviour
         if (compassPanel != null) compassPanel.SetActive(false);
     }
 
-    // Upgraded to support item counts
+    // Unified method to show and manage item state
     public void ShowItem(string itemName, string itemCategory, int count)
     {
+        GameObject itemIcon = null;
+        TMP_Text countText = null;
+
         switch (itemCategory)
         {
             case "Home":
-                if (itemName == "GoldCoinHome") { goldCoinHomeIcon.SetActive(true); goldCoinHomeCountText.text = "" + count; }
-                if (itemName == "MirrorShellHome") { mirrorShellHomeIcon.SetActive(true); mirrorShellHomeCountText.text = "" + count; }
-                if (itemName == "BoardNoseHome") { boardNoseHomeIcon.SetActive(true); boardNoseHomeCountText.text = "" + count; }
-                if (itemName == "RockBowlHome") { rockBowlHomeIcon.SetActive(true); rockBowlHomeCountText.text = "" + count; }
-                if (itemName == "SnorkelHome") { snorkelHomeIcon.SetActive(true); snorkelHomeCountText.text = "" + count; }
-                if (itemName == "ShellPurseHome") { shellPurseHomeIcon.SetActive(true); shellPurseHomeCountText.text = "" + count; }
-                if (itemName == "LostCompassHome") { lostCompassHomeIcon.SetActive(true); lostCompassHomeCountText.text = "" + count; }
-                if (itemName == "CharStickHome") { charStickHomeIcon.SetActive(true); charStickHomeCountText.text = "" + count; }
-                if (itemName == "CoralSpoonHome") { coralSpoonHomeIcon.SetActive(true); coralSpoonHomeCountText.text = "" + count; }
-                if (itemName == "StoneStackHome") { stoneStackHomeIcon.SetActive(true); stoneStackHomeCountText.text = "" + count; }
-                if (itemName == "GlassHeartHome") { glassHeartHomeIcon.SetActive(true); glassHeartHomeCountText.text = "" + count; }
-                if (itemName == "UsbStickHome") { usbStickHomeIcon.SetActive(true); usbStickHomeCountText.text = "" + count; }
+                if (itemName == "GoldCoinHome") { itemIcon = goldCoinHomeIcon; countText = goldCoinHomeCountText; }
+                if (itemName == "MirrorShellHome") { itemIcon = mirrorShellHomeIcon; countText = mirrorShellHomeCountText; }
+                if (itemName == "BoardNoseHome") { itemIcon = boardNoseHomeIcon; countText = boardNoseHomeCountText; }
+                if (itemName == "RockBowlHome") { itemIcon = rockBowlHomeIcon; countText = rockBowlHomeCountText; }
+                if (itemName == "SnorkelHome") { itemIcon = snorkelHomeIcon; countText = snorkelHomeCountText; }
+                if (itemName == "ShellPurseHome") { itemIcon = shellPurseHomeIcon; countText = shellPurseHomeCountText; }
+                if (itemName == "LostCompassHome") { itemIcon = lostCompassHomeIcon; countText = lostCompassHomeCountText; }
+                if (itemName == "CharStickHome") { itemIcon = charStickHomeIcon; countText = charStickHomeCountText; }
+                if (itemName == "CoralSpoonHome") { itemIcon = coralSpoonHomeIcon; countText = coralSpoonHomeCountText; }
+                if (itemName == "StoneStackHome") { itemIcon = stoneStackHomeIcon; countText = stoneStackHomeCountText; }
+                if (itemName == "GlassHeartHome") { itemIcon = glassHeartHomeIcon; countText = glassHeartHomeCountText; }
+                if (itemName == "UsbStickHome") { itemIcon = usbStickHomeIcon; countText = usbStickHomeCountText; }
                 break;
 
             case "Food":
-                if (itemName == "SeaweedSnarlRoll") { seaweedSnarlRollIcon.SetActive(true); seaweedSnarlRollCountText.text = "" + count; }
-                if (itemName == "SquidlyChew") { squidlyChewIcon.SetActive(true); squidlyChewCountText.text = "" + count; }
-                if (itemName == "DriftChipDip") { driftChipDipIcon.SetActive(true); driftChipDipCountText.text = "" + count; }
-                if (itemName == "SeaSalad") { seaSaladIcon.SetActive(true); seaSaladCountText.text = "" + count; }
-                if (itemName == "JellyWiggle") { jellyWiggleIcon.SetActive(true); jellyWiggleCountText.text = "" + count; }
-                if (itemName == "BubbleBurst") { bubbleBurstIcon.SetActive(true); bubbleBurstCountText.text = "" + count; }
-                if (itemName == "BeachBanana") { beachBananaIcon.SetActive(true); beachBananaCountText.text = "" + count; }
-                if (itemName == "CrunchMunch") { crunchMunchIcon.SetActive(true); crunchMunchCountText.text = "" + count; }
-                if (itemName == "BubbleBounce") { bubbleBounceIcon.SetActive(true); bubbleBounceCountText.text = "" + count; }
-                if (itemName == "NoriNibble") { noriNibbleIcon.SetActive(true); noriNibbleCountText.text = "" + count; }
-                if (itemName == "SnailSlurp") { snailSlurpIcon.SetActive(true); snailSlurpCountText.text = "" + count; }
-                if (itemName == "PlumDrop") { plumDropIcon.SetActive(true); plumDropCountText.text = "" + count; }
-                if (itemName == "Stars") { starsIcon.SetActive(true); starsCountText.text = "" + count; }
+                if (itemName == "SeaweedSnarlRoll") { itemIcon = seaweedSnarlRollIcon; countText = seaweedSnarlRollCountText; }
+                if (itemName == "SquidlyChew") { itemIcon = squidlyChewIcon; countText = squidlyChewCountText; }
+                if (itemName == "DriftChipDip") { itemIcon = driftChipDipIcon; countText = driftChipDipCountText; }
+                if (itemName == "SeaSalad") { itemIcon = seaSaladIcon; countText = seaSaladCountText; }
+                if (itemName == "JellyWiggle") { itemIcon = jellyWiggleIcon; countText = jellyWiggleCountText; }
+                if (itemName == "BubbleBurst") { itemIcon = bubbleBurstIcon; countText = bubbleBurstCountText; }
+                if (itemName == "BeachBanana") { itemIcon = beachBananaIcon; countText = beachBananaCountText; }
+                if (itemName == "CrunchMunch") { itemIcon = crunchMunchIcon; countText = crunchMunchCountText; }
+                if (itemName == "BubbleBounce") { itemIcon = bubbleBounceIcon; countText = bubbleBounceCountText; }
+                if (itemName == "NoriNibble") { itemIcon = noriNibbleIcon; countText = noriNibbleCountText; }
+                if (itemName == "SnailSlurp") { itemIcon = snailSlurpIcon; countText = snailSlurpCountText; }
+                if (itemName == "PlumDrop") { itemIcon = plumDropIcon; countText = plumDropCountText; }
+                if (itemName == "Stars") { itemIcon = starsIcon; countText = starsCountText; }
                 break;
         }
 
-        // Left text option in case tean want to add anything there
+        if (itemIcon != null)
+        {
+            itemIcon.SetActive(true);
+            if (countText != null)
+                countText.text = count.ToString();
+
+            // Apply visual and interaction feedback
+            Image iconImage = itemIcon.GetComponent<Image>();
+            DraggableItem draggable = itemIcon.GetComponent<DraggableItem>();
+
+            if (iconImage != null)
+                iconImage.color = new Color(1f, 1f, 1f, count <= 0 ? 0.4f : 1f);
+
+            if (draggable != null)
+                draggable.enabled = count > 0;
+        }
     }
 
     public void ShowDialogue(string speakerName, DialogueLine line)

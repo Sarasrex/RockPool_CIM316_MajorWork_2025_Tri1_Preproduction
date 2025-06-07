@@ -24,6 +24,16 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     // Called when dragging starts
     public void OnBeginDrag(PointerEventData eventData)
     {
+        int count = InventoryManager.Instance.itemCounts.ContainsKey(itemName)
+        ? InventoryManager.Instance.itemCounts[itemName]
+    :   0;
+
+        if (count <= 0)
+        {
+            Debug.Log($" Cannot drag '{itemName}' because count is 0.");
+            return;
+        }
+
         originalParent = transform.parent;
         originalPosition = rectTransform.anchoredPosition;
 
