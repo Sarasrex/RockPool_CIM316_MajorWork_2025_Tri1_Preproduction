@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7764706, g: 0.599833, b: 0.44313726, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 1851916671475937810}
   - component: {fileID: 8874552499564050137}
   - component: {fileID: -7536684125753853684}
+  - component: {fileID: 530433227555969987}
   m_Layer: 5
   m_Name: HermitSlider
   m_TagString: Untagged
@@ -177,7 +178,7 @@ RectTransform:
   m_GameObject: {fileID: 3002144570442610894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4999999, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3389703571040582006}
@@ -235,9 +236,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8241692229750327589}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 50
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -254,7 +255,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crab: {fileID: 0}
-  happinessSlider: {fileID: 0}
+  happinessSlider: {fileID: 8874552499564050137}
+--- !u!225 &530433227555969987
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002144570442610894}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &3483544120001046930
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +331,7 @@ RectTransform:
   m_GameObject: {fileID: 5274985739140645701}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 11, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5083307759112597922}
@@ -356,7 +369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2cd739f2290d97f42b78a36e4fd16b60, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

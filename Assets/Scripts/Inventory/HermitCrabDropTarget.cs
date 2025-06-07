@@ -31,7 +31,7 @@ public class HermitCrabDropTarget : MonoBehaviour
     // Sets default happiness (can be replaced with saved data later)
     public void Awake()
     {
-        happiness = 0f;
+        // happiness = 0f;    removed for testing - will need data to save player prefs instead of restarting to 0 anyway
     }
 
     // Called when an item is dropped on this hermit

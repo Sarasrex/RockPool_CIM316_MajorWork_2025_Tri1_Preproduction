@@ -8198,7 +8198,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1975139277}
+    m_TransformParent: {fileID: 1522228737}
     m_Modifications:
     - target: {fileID: 2469490227871364275, guid: e48751046df9fd040b6d3e1e0a163fae,
         type: 3}
@@ -8208,12 +8208,12 @@ PrefabInstance:
     - target: {fileID: 6698728063656597324, guid: e48751046df9fd040b6d3e1e0a163fae,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6698728063656597324, guid: e48751046df9fd040b6d3e1e0a163fae,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6698728063656597324, guid: e48751046df9fd040b6d3e1e0a163fae,
         type: 3}
@@ -8223,17 +8223,17 @@ PrefabInstance:
     - target: {fileID: 6698728063656597324, guid: e48751046df9fd040b6d3e1e0a163fae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -959.98
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 6698728063656597324, guid: e48751046df9fd040b6d3e1e0a163fae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -556.36
+      value: -27.9
       objectReference: {fileID: 0}
     - target: {fileID: 6698728063656597324, guid: e48751046df9fd040b6d3e1e0a163fae,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.95
+      value: -4.4687185
       objectReference: {fileID: 0}
     - target: {fileID: 6698728063656597324, guid: e48751046df9fd040b6d3e1e0a163fae,
         type: 3}
@@ -10717,6 +10717,7 @@ Transform:
   - {fileID: 23252723}
   - {fileID: 2053336136}
   - {fileID: 314789465}
+  - {fileID: 1137205278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1523808804
@@ -15344,7 +15345,6 @@ RectTransform:
   - {fileID: 96379592}
   - {fileID: 601155772}
   - {fileID: 634077613}
-  - {fileID: 1137205278}
   - {fileID: 304116842}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0.024}

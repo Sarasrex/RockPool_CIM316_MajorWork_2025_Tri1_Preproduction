@@ -2,81 +2,87 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Tracks overall hermit happiness and updates the community compass UI.
-// Triggers a win condition when the average happiness reaches the defined threshold.
+// This script tracks how happy all the hermit crabs are,
+// updates the community happiness slider on the screen,
+// and shows a win screen when the group is happy enough.
 public class CommunityCompassManager : MonoBehaviour
 {
-    public static CommunityCompassManager Instance; // Singleton reference
+    public static CommunityCompassManager Instance; // Allows other scripts to call this one easily (like a shared controller)
 
-    public HermitCrabDropTarget[] hermits;  // Array of all hermits in the scene
-    public Slider communitySlider;          // UI slider representing community happiness
+    private HermitCrabDropTarget[] hermits;  // Automatically filled when the game starts
+    public Slider communitySlider;          // The compass UI slider showing overall happiness
 
-    public GameObject winPanel;             // Shown when win condition is met
-    private bool hasWon = false;            // Prevents win condition from triggering twice
+    public GameObject winPanel;             // The panel that pops up when the community wins
+    private bool hasWon = false;            // Prevents the win screen from showing more than once
 
     [Header("Settings")]
-    [Range(0f, 1f)] public float winThreshold = 1f; // 1 means 100 average happiness across all hermits
+    [Range(0f, 1f)] public float winThreshold = 1f; // How full the compass needs to be to win (1 = 100%)
 
-    // Set up singleton
+    // This runs early — before anything else. It sets up this script so it's easy to access from other scripts.
     void Awake()
     {
         if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        else Destroy(gameObject); // If another one already exists, remove this one
     }
 
-    // Start with a slight delay to allow other objects to initialise
+    // This runs at the start of the game
     void Start()
     {
+        hermits = FindObjectsOfType<HermitCrabDropTarget>(); // Finds all hermits in the scene
+        Debug.Log("Hermit found " + hermits.Length + " hermits in the scene.");
         StartCoroutine(DelayedUpdate());
     }
 
-    // Waits one frame before updating, useful if hermits are instantiated at runtime
+
+    // This waits just a moment to let everything load, then checks the initial happiness
     IEnumerator DelayedUpdate()
     {
-        yield return null;
-        UpdateCommunityHappiness();
+        yield return null; // Wait one frame
+        UpdateCommunityHappiness(); // Now check happiness across the hermits
     }
 
-    /// <summary>
-    /// Calculates the average happiness of all hermits and updates the compass UI
-    /// </summary>
-    /// <param name="delta"> Incoming data from hermit drops </param>
+    // This method adds up all the hermits' happiness levels,
+    // finds the average, updates the slider, and checks if you've won
     public void UpdateCommunityHappiness()
     {
         if (hermits == null || hermits.Length == 0)
         {
-            Debug.LogWarning("No hermits found in CommunityCompassManager!");
-            return;
+            Debug.LogWarning("No hermits assigned to the compass manager!");
+            return; // Stop here if the list of hermits is empty
         }
+
 
         float total = 0f;
 
-        // Sum all hermit happiness values
+        // Go through each hermit and add up their happiness
         foreach (var crab in hermits)
         {
-            Debug.Log(crab.hermitName + " happiness: " + crab.happiness);
+            Debug.Log(" " + crab.hermitName + " happiness: " + crab.happiness);
             total += crab.happiness;
         }
 
-        // Calculate average
-        float average = total / (float)hermits.Length;
-        Debug.Log("Updated community average: " + average);
+        // Work out the average (total happiness divided by number of hermits)
+        float average = total / hermits.Length;
+        float normalisedAverage = average / 100f; // Turn it into a value between 0 and 1 (since happiness is out of 100)
 
-        // Update the UI slider with the new average
+        Debug.Log("Updated community average: " + average);
+        Debug.Log("Normalised for slider: " + normalisedAverage);
+
+        // Set the slider to match the community's average happiness
         if (communitySlider != null)
         {
-            communitySlider.value = average;
+            communitySlider.value = normalisedAverage;
         }
 
-        // Check if the average happiness meets the win threshold
-        if (!hasWon && average >= winThreshold * 100f)
+        // Check if the average happiness is enough to win
+        if (!hasWon && normalisedAverage >= winThreshold)
         {
             hasWon = true;
-            TriggerWinCondition();
+            TriggerWinCondition(); // Show the win screen
         }
     }
 
-    // Activates the win panel and logs win condition
+    // This shows the win panel when the group is happy enough
     private void TriggerWinCondition()
     {
         if (winPanel != null)
