@@ -1101,6 +1101,7 @@ MonoBehaviour:
   compassPanel: {fileID: 1758998422}
   inventoryPanel: {fileID: 96379591}
   mapPanel: {fileID: 0}
+  tutorialController: {fileID: 0}
 --- !u!114 &52708339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2953,10 +2954,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hello and welcome explorer <3. What would you like to purchase today?  '
+  m_text: Priscilla would like to trade with you
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2da6d8b1b3792c94784a319388d69c92, type: 2}
-  m_sharedMaterial: {fileID: 7852447738768029391, guid: 2da6d8b1b3792c94784a319388d69c92,
+  m_fontAsset: {fileID: 11400000, guid: 01e648f4be73a61419d2ef1b448d9aa5, type: 2}
+  m_sharedMaterial: {fileID: 2731419570393542055, guid: 01e648f4be73a61419d2ef1b448d9aa5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
