@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 7978961573142684705}
   - component: {fileID: 1774746910874717802}
   - component: {fileID: 3265421401214024337}
-  - component: {fileID: 3798358233794439634}
   m_Layer: 8
   m_Name: Octavius
   m_TagString: Untagged
@@ -363,7 +362,7 @@ SpriteRenderer:
   m_SortingLayerID: -274928381
   m_SortingLayer: 4
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: c5b9440eb2fe8ef439f400afd29b424f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -371,7 +370,7 @@ SpriteRenderer:
   m_Size: {x: 3.21, y: 2.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1774746910874717802
@@ -483,28 +482,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.21, y: 2.64, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3798358233794439634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2804330125334879511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834cc52ecd6431c42a7ece5d85f59ddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flipDirection: 1
-  moveRadius: 2
-  moveSpeed: 0.5
-  waitTime: 5
-  roamCenter: {x: 0, y: 0}
-  groundY: 1
-  personalSpace: 5
-  hermitLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &7933987036501342916
 GameObject:
   m_ObjectHideFlags: 0

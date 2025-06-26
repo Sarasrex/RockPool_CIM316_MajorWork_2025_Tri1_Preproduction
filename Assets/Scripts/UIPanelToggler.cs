@@ -9,31 +9,57 @@ public class UIPanelToggler : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject mapPanel;
 
+    [Header("Tutorial (Optional)")]
+    public FoyerTutorialController tutorialController;
+
     public void ToggleCompassPanel()
     {
-        TogglePanel(compassPanel);
+        bool isActive = TogglePanel(compassPanel);
+
+        if (tutorialController != null)
+        {
+            if (isActive)
+                tutorialController.OnCompassOpened();
+            else
+                tutorialController.OnCompassClosed();
+        }
     }
 
     public void ToggleInventoryPanel()
     {
-        TogglePanel(inventoryPanel);
+        bool isActive = TogglePanel(inventoryPanel);
+
+        if (tutorialController != null)
+        {
+            if (isActive)
+                tutorialController.OnInventoryOpened();
+            else
+                tutorialController.OnInventoryClosed();
+        }
     }
 
     public void ToggleMapPanel()
     {
-        TogglePanel(mapPanel);
+        bool isActive = TogglePanel(mapPanel);
+
+        if (tutorialController != null && !isActive) // Assuming scene load happens elsewhere
+        {
+            tutorialController.OnMapClicked();
+        }
     }
 
-    private void TogglePanel(GameObject panel)
+    private bool TogglePanel(GameObject panel)
     {
         if (panel != null)
         {
             bool isActive = panel.activeSelf;
             panel.SetActive(!isActive);
+            return !isActive;
         }
         else
         {
             Debug.LogWarning("Panel not assigned.");
+            return false;
         }
     }
 }
