@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0.GameCoverBeta.unity
     guid: ee9ea025219b2a443983106a8d482c56
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/1.MainMenu.unity
     guid: b07de289d58adc342a559bded8a75d81
   - enabled: 1

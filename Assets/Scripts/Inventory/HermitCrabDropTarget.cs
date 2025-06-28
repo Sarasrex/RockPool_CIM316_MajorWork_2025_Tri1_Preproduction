@@ -160,7 +160,7 @@ public class HermitCrabDropTarget : MonoBehaviour
 
         // Hide the speech bubble after a few seconds
         CancelInvoke(nameof(HideBubble));
-        Invoke(nameof(HideBubble), 3.5f);
+        Invoke(nameof(HideBubble), 8f);
     }
 
     // Hides the speech bubble

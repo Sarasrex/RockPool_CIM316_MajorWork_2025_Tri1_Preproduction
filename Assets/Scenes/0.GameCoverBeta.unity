@@ -765,7 +765,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A digitalised chilfrens book brought to you by Dani, Iffah, Liam, Mikaela
+  m_text: A digitalised childrens book brought to you by Dani, Iffah, Liam, Mikaela
     & Sangeeta
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 01e648f4be73a61419d2ef1b448d9aa5, type: 2}
