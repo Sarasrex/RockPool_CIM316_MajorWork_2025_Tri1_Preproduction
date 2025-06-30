@@ -28,6 +28,21 @@ public class HermitCrabDropTarget : MonoBehaviour
     [Header("Happiness")]
     [Range(0, 100)] public float happiness = 0f; // Current happiness (0–100 range)
 
+    [Header("Sprite Swaps")]
+    public SpriteRenderer spriteRenderer;
+
+    [System.Serializable]
+    public class HomeSprite
+    {
+        public string homeName;
+        public Sprite newSprite;
+    }
+
+    public List<HomeSprite> homeSprites = new List<HomeSprite>();
+
+
+
+
     // Sets default happiness (can be replaced with saved data later)
     public void Awake()
     {
@@ -119,6 +134,22 @@ public class HermitCrabDropTarget : MonoBehaviour
         {
             trigger = DialogueTriggerType.Munching;
         }
+
+        // === New: Swap sprite if this is a liked home ===
+        if (itemCategory == "Home" && liked)
+        {
+            foreach (HomeSprite hs in homeSprites)
+            {
+                if (hs.homeName == itemName && hs.newSprite != null)
+                {
+                    spriteRenderer.sprite = hs.newSprite;
+                    Debug.Log("[" + hermitName + "] Sprite changed to: " + hs.newSprite.name);
+                    break;
+                }
+            }
+        }
+
+
 
         // Retrieve matching dialogue line
         HermitDialogue dialogue = GetComponent<HermitDialogue>();

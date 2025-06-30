@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FloatingEffect : MonoBehaviour
 {
+    [Header("Floating Control")]
+    public bool enableFloating = true;
+
     [Header("Floating Strength")]
     public float floatStrengthY = 0.1f;
     public float floatStrengthX = 0f;
@@ -14,15 +17,18 @@ public class FloatingEffect : MonoBehaviour
     public float floatSpeedX = 1f;
     public float floatSpeedZ = 1f;
 
+    [Header("Rotation Control")]
+    public bool enableRotation = true;
+
     [Header("Rotation Mod (Degrees)")]
     public float rotationStrengthX = 0f;
     public float rotationStrengthY = 0f;
     public float rotationStrengthZ = 0f;
 
     [Header("Rotation Speed")]
-    public float rotationSpeedX = 1f;
-    public float rotationSpeedY = 1f;
-    public float rotationSpeedZ = 1f;
+    public float rotationSpeedX = 0f;
+    public float rotationSpeedY = 0f;
+    public float rotationSpeedZ = 0f;
 
     private Vector3 startPosition;
 
@@ -34,15 +40,21 @@ public class FloatingEffect : MonoBehaviour
     void Update()
     {
         // Floating
-        float newY = startPosition.y + Mathf.Sin(Time.time * floatSpeedY) * floatStrengthY;
-        float newX = startPosition.x + Mathf.Sin(Time.time * floatSpeedX) * floatStrengthX;
-        float newZ = startPosition.z + Mathf.Sin(Time.time * floatSpeedZ) * floatStrengthZ;
-        transform.position = new Vector3(newX, newY, newZ);
+        if (enableFloating)
+        {
+            float newY = startPosition.y + Mathf.Sin(Time.time * floatSpeedY) * floatStrengthY;
+            float newX = startPosition.x + Mathf.Sin(Time.time * floatSpeedX) * floatStrengthX;
+            float newZ = startPosition.z + Mathf.Sin(Time.time * floatSpeedZ) * floatStrengthZ;
+            transform.position = new Vector3(newX, newY, newZ);
+        }
 
         // Rotation
-        float rotX = Mathf.Sin(Time.time * rotationSpeedX) * rotationStrengthX;
-        float rotY = Mathf.Sin(Time.time * rotationSpeedY) * rotationStrengthY;
-        float rotZ = Mathf.Sin(Time.time * rotationSpeedZ) * rotationStrengthZ;
-        transform.rotation = Quaternion.Euler(rotX, rotY, rotZ);
+        if (enableRotation)
+        {
+            float rotX = Mathf.Sin(Time.time * rotationSpeedX) * rotationStrengthX;
+            float rotY = Mathf.Sin(Time.time * rotationSpeedY) * rotationStrengthY;
+            float rotZ = Mathf.Sin(Time.time * rotationSpeedZ) * rotationStrengthZ;
+            transform.rotation = Quaternion.Euler(rotX, rotY, rotZ);
+        }
     }
 }

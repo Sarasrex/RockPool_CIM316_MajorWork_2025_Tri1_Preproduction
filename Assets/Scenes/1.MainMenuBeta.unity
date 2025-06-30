@@ -758,12 +758,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba8649eec29a36468200fead68c48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableFloating: 1
   floatStrengthY: 3
   floatStrengthX: 0
   floatStrengthZ: 0
   floatSpeedY: 0.5
   floatSpeedX: 1
   floatSpeedZ: 1
+  enableRotation: 1
+  rotationStrengthX: 0
+  rotationStrengthY: 0
+  rotationStrengthZ: 0
+  rotationSpeedX: 0
+  rotationSpeedY: 0
+  rotationSpeedZ: 0
 --- !u!1 &276368664
 GameObject:
   m_ObjectHideFlags: 0
@@ -4388,12 +4396,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba8649eec29a36468200fead68c48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableFloating: 1
   floatStrengthY: 5
   floatStrengthX: 0
   floatStrengthZ: 2
   floatSpeedY: 0.5
   floatSpeedX: 0
   floatSpeedZ: 0.1
+  enableRotation: 0
+  rotationStrengthX: 0
+  rotationStrengthY: 0
+  rotationStrengthZ: 0
+  rotationSpeedX: 0
+  rotationSpeedY: 0
+  rotationSpeedZ: 0
 --- !u!64 &1787116208
 MeshCollider:
   m_ObjectHideFlags: 0

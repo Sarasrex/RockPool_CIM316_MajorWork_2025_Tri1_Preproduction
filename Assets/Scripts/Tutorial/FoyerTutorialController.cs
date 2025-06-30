@@ -10,6 +10,7 @@ public class FoyerTutorialController : MonoBehaviour
     public GameObject arrowMap;
 
     [Header("Speech Bubbles (Octavius Children)")]
+    public GameObject canvasHelloYouInstructions;
     public GameObject canvasInventoryInstructions;
     public GameObject canvasOrbComment;
     public GameObject canvasCompassInstructions;
@@ -26,6 +27,7 @@ public class FoyerTutorialController : MonoBehaviour
     {
         // Initial tutorial setup
         arrowInventory.SetActive(true);
+        canvasHelloYouInstructions.SetActive(true);
         canvasInventoryInstructions.SetActive(false);
         canvasOrbComment.SetActive(false);
         canvasCompassInstructions.SetActive(false);
@@ -41,6 +43,7 @@ public class FoyerTutorialController : MonoBehaviour
         if (currentStep != TutorialStep.Inventory) return;
 
         arrowInventory.SetActive(false);
+        canvasHelloYouInstructions.SetActive(false);
         canvasInventoryInstructions.SetActive(true);
     }
 

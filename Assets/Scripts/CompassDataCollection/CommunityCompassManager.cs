@@ -15,6 +15,8 @@ public class CommunityCompassManager : MonoBehaviour
     public GameObject winPanel;             // The panel that pops up when the community wins
     private bool hasWon = false;            // Prevents the win screen from showing more than once
 
+    public CompassAnimationController compassAnimationController;
+
     [Header("Settings")]
     [Range(0f, 1f)] public float winThreshold = 1f; // How full the compass needs to be to win (1 = 100%)
 
@@ -51,7 +53,6 @@ public class CommunityCompassManager : MonoBehaviour
             return; // Stop here if the list of hermits is empty
         }
 
-
         float total = 0f;
 
         // Go through each hermit and add up their happiness
@@ -72,6 +73,12 @@ public class CommunityCompassManager : MonoBehaviour
         if (communitySlider != null)
         {
             communitySlider.value = normalisedAverage;
+        }
+
+        // Update the compass animation based on the value
+        if (compassAnimationController != null)
+        {
+            compassAnimationController.UpdateCompassVisual(normalisedAverage);
         }
 
         // Check if the average happiness is enough to win
