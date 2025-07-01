@@ -35,7 +35,6 @@ public class CommunityCompassManager : MonoBehaviour
         StartCoroutine(DelayedUpdate());
     }
 
-
     // This waits just a moment to let everything load, then checks the initial happiness
     IEnumerator DelayedUpdate()
     {
@@ -89,17 +88,38 @@ public class CommunityCompassManager : MonoBehaviour
         }
     }
 
-    // This shows the win panel when the group is happy enough
+    // This shows the win panel and hides hermit sliders when the group is happy enough
     private void TriggerWinCondition()
     {
         if (winPanel != null)
         {
             winPanel.SetActive(true);
             Debug.Log("Win condition reached — win panel activated.");
+
+            // Hide all hermit sliders
+            HideHermitSliders();
         }
         else
         {
             Debug.LogWarning("Win Panel not assigned in inspector.");
+        }
+    }
+
+    // This hides the HermitSlider_ GameObjects under each hermit's Canvas
+    private void HideHermitSliders()
+    {
+        foreach (var crab in hermits)
+        {
+            Transform sliderTransform = crab.transform.Find("Canvas/HermitSlider_" + crab.hermitName);
+            if (sliderTransform != null)
+            {
+                sliderTransform.gameObject.SetActive(false);
+                Debug.Log("Hid slider for " + crab.hermitName);
+            }
+            else
+            {
+                Debug.LogWarning("Could not find slider for " + crab.hermitName);
+            }
         }
     }
 }

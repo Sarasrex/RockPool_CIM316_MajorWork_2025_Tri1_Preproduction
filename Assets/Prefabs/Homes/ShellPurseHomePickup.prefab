@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5773944020472593330}
   - component: {fileID: 8352207285815558608}
   - component: {fileID: 1176821982762475272}
-  - component: {fileID: 5694187386898608028}
+  - component: {fileID: -3182692216057133944}
   m_Layer: 0
   m_Name: ShellPurseHomePickup
   m_TagString: Barnacle
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: ShellPurseHome
   itemCategory: Home
---- !u!114 &5694187386898608028
+--- !u!114 &-3182692216057133944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7513235924502395674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb75d79bcb97644595ea4b7f8d34773, type: 3}
+  m_Script: {fileID: 11500000, guid: 65da00c349c24f24daf5e0235981bc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growDuration: 3
+  enableGrowIn: 1
+  growDuration: 1
+  enablePulse: 1
+  pulseSpeed: 2
+  pulseStrength: 0.1

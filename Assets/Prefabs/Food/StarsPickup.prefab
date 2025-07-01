@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7570976076222646785}
   - component: {fileID: 5071229021558355655}
   - component: {fileID: 2626308637111190362}
-  - component: {fileID: 5800045966837751441}
+  - component: {fileID: -5242418693267119623}
   m_Layer: 0
   m_Name: StarsPickup
   m_TagString: Barnacle
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stars
   itemCategory: Food
---- !u!114 &5800045966837751441
+--- !u!114 &-5242418693267119623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3532618482460002261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb75d79bcb97644595ea4b7f8d34773, type: 3}
+  m_Script: {fileID: 11500000, guid: 65da00c349c24f24daf5e0235981bc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growDuration: 3
+  enableGrowIn: 1
+  growDuration: 1
+  enablePulse: 1
+  pulseSpeed: 2
+  pulseStrength: 0.1

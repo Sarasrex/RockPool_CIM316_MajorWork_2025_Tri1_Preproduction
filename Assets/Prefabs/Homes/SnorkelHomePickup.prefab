@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3835397274011302950}
   - component: {fileID: 8441360314377812564}
   - component: {fileID: 3082128115097608834}
-  - component: {fileID: -2833598179946381381}
+  - component: {fileID: 1299384456502583863}
   m_Layer: 0
   m_Name: SnorkelHomePickup
   m_TagString: Barnacle
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: SnorkelHome
   itemCategory: Home
---- !u!114 &-2833598179946381381
+--- !u!114 &1299384456502583863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2143690512315696859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb75d79bcb97644595ea4b7f8d34773, type: 3}
+  m_Script: {fileID: 11500000, guid: 65da00c349c24f24daf5e0235981bc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growDuration: 3
+  enableGrowIn: 1
+  growDuration: 1
+  enablePulse: 1
+  pulseSpeed: 2
+  pulseStrength: 0.1

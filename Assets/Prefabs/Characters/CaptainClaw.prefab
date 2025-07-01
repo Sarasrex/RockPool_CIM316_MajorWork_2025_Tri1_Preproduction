@@ -24,14 +24,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860118110639184924}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: -26, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -986.84, y: -552.66, z: 11.6}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5243094290068334769}
   - {fileID: 4268834649277814793}
-  m_Father: {fileID: 3478954029276048034}
+  - {fileID: 4587903839678247316}
+  m_Father: {fileID: 5243094290068334769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &987326061526087108
 GameObject:
@@ -64,8 +64,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4587903839678247316}
-  m_Father: {fileID: 5133327272625795378}
+  - {fileID: 5133327272625795378}
+  m_Father: {fileID: 3478954029276048034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -288,16 +288,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3847812910333363228}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -23.2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5243094290068334769}
+  m_Father: {fileID: 5133327272625795378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 532, y: -276}
+  m_AnchoredPosition: {x: 3037.6802, y: 553.31995}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &551041247086305300
@@ -409,7 +409,6 @@ GameObject:
   - component: {fileID: 5520286411383089218}
   - component: {fileID: 6737250549679163418}
   - component: {fileID: 7142703677056744127}
-  - component: {fileID: 3396932539712939907}
   - component: {fileID: 3986880974761175368}
   m_Layer: 8
   m_Name: CaptainClaw
@@ -431,7 +430,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5133327272625795378}
+  - {fileID: 5243094290068334769}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5520286411383089218
@@ -449,6 +448,8 @@ MonoBehaviour:
   speechBubble: {fileID: 860118110639184924}
   bubbleText: {fileID: 6841882555653915956}
   audioSource: {fileID: 0}
+  positiveAudioClip: {fileID: 0}
+  negativeAudioClip: {fileID: 0}
   hermitName: CaptainClaw
   acceptedCategory: 
   likedFoods:
@@ -481,6 +482,8 @@ MonoBehaviour:
   - StoneStackHome
   - UsbStickHome
   happiness: 0
+  spriteRenderer: {fileID: 7142703677056744127}
+  homeSprites: []
 --- !u!114 &6737250549679163418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,27 +631,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3396932539712939907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4135051670731269697}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834cc52ecd6431c42a7ece5d85f59ddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveRadius: 2
-  moveSpeed: 0.5
-  waitTime: 5
-  roamCenter: {x: 0, y: 0}
-  groundY: 1
-  personalSpace: 5
-  hermitLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!65 &3986880974761175368
 BoxCollider:
   m_ObjectHideFlags: 0

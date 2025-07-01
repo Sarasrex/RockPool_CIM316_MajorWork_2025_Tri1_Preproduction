@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2672999656211645511}
+  - {fileID: 5504394822085522074}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5412676517454655994
@@ -85,6 +85,8 @@ MonoBehaviour:
   - GlassHeartHome
   - UsbStickHome
   happiness: 0
+  spriteRenderer: {fileID: 0}
+  homeSprites: []
 --- !u!212 &6556888981990370314
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -280,16 +282,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2650767485524826774}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.3699999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5504394822085522074}
+  m_Father: {fileID: 2672999656211645511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 875, y: -323}
+  m_AnchoredPosition: {x: 1842.76, y: 216.82}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2512502258661610969
@@ -420,8 +422,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5123348220334769794}
-  m_Father: {fileID: 2672999656211645511}
+  - {fileID: 2672999656211645511}
+  m_Father: {fileID: 1281059973573159645}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -516,13 +518,13 @@ Transform:
   m_GameObject: {fileID: 8438819403849935501}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.7599998, y: 0.06000001, z: -1.3699999}
+  m_LocalPosition: {x: -967.76, y: -539.82, z: -1.3699999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5504394822085522074}
   - {fileID: 8187486860126108642}
-  m_Father: {fileID: 1281059973573159645}
+  - {fileID: 5123348220334769794}
+  m_Father: {fileID: 5504394822085522074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9159391404993309011
 GameObject:
