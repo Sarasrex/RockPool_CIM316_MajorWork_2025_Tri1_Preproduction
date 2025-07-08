@@ -136,5 +136,5 @@ MonoBehaviour:
   enableGrowIn: 1
   growDuration: 1
   enablePulse: 1
-  pulseSpeed: 2
+  pulseSpeed: 1
   pulseStrength: 0.1
