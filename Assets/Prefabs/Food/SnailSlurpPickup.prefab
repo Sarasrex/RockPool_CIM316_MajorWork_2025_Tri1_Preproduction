@@ -121,9 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: SnailSlurp
   itemCategory: Food
-  collectSound: {fileID: 0}
-  foodSound: {fileID: 8300000, guid: f27f4627d22764c45bc404a0b4a20402, type: 3}
-  homeSound: {fileID: 0}
 --- !u!114 &-5150155851679463888
 MonoBehaviour:
   m_ObjectHideFlags: 0

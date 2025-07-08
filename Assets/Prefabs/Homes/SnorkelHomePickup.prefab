@@ -121,9 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: SnorkelHome
   itemCategory: Home
-  collectSound: {fileID: 0}
-  foodSound: {fileID: 0}
-  homeSound: {fileID: 8300000, guid: f83fdbf59bc314430a8f694edbef60f2, type: 3}
 --- !u!114 &1299384456502583863
 MonoBehaviour:
   m_ObjectHideFlags: 0
