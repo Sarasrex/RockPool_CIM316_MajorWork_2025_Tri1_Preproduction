@@ -11,27 +11,76 @@ public class CompassAnimationController : MonoBehaviour
     public GameObject CompassAnimation_MediumFull;
     public GameObject CompassAnimation_Full;
 
+    [Tooltip("Duration of the scale transition in seconds")]
+    public float transitionDuration = 0.3f;
+
+    private GameObject currentVisual;
+    private Coroutine transitionCoroutine;
+
     public void UpdateCompassVisual(float normalisedValue)
     {
-        // Hide all first
-        CompassAnimation_Low.SetActive(false);
-        CompassAnimation_LowMedium.SetActive(false);
-        CompassAnimation_Medium.SetActive(false);
-        CompassAnimation_MediumFull.SetActive(false);
-        CompassAnimation_Full.SetActive(false);
+        GameObject nextVisual = GetTargetVisual(normalisedValue);
 
-        // Show the correct one based on percentage
-        float percentage = normalisedValue * 100f;
+        if (currentVisual == nextVisual) return;
 
-        if (percentage < 20f)
-            CompassAnimation_Low.SetActive(true);
-        else if (percentage < 40f)
-            CompassAnimation_LowMedium.SetActive(true);
-        else if (percentage < 60f)
-            CompassAnimation_Medium.SetActive(true);
-        else if (percentage < 80f)
-            CompassAnimation_MediumFull.SetActive(true);
+        if (transitionCoroutine != null)
+            StopCoroutine(transitionCoroutine);
+
+        transitionCoroutine = StartCoroutine(TransitionVisual(currentVisual, nextVisual));
+        currentVisual = nextVisual;
+    }
+
+    GameObject GetTargetVisual(float value)
+    {
+        float percent = value * 100f;
+
+        if (percent < 20f)
+            return CompassAnimation_Low;
+        else if (percent < 40f)
+            return CompassAnimation_LowMedium;
+        else if (percent < 60f)
+            return CompassAnimation_Medium;
+        else if (percent < 80f)
+            return CompassAnimation_MediumFull;
         else
-            CompassAnimation_Full.SetActive(true);
+            return CompassAnimation_Full;
+    }
+
+    IEnumerator TransitionVisual(GameObject fromObj, GameObject toObj)
+    {
+        // Step 1: Shrink out the current visual
+        if (fromObj != null)
+        {
+            Vector3 originalScale = fromObj.transform.localScale;
+            float t = 0f;
+            while (t < transitionDuration)
+            {
+                t += Time.deltaTime;
+                float scale = Mathf.Lerp(1f, 0f, t / transitionDuration);
+                fromObj.transform.localScale = new Vector3(scale, scale, scale);
+                yield return null;
+            }
+            fromObj.SetActive(false);
+            fromObj.transform.localScale = originalScale; // reset scale in case it's used later
+        }
+
+        // Step 2: Grow in the next visual
+        if (toObj != null)
+        {
+            toObj.SetActive(true);
+            Vector3 originalScale = toObj.transform.localScale;
+            toObj.transform.localScale = Vector3.zero;
+
+            float t = 0f;
+            while (t < transitionDuration)
+            {
+                t += Time.deltaTime;
+                float scale = Mathf.Lerp(0f, 1f, t / transitionDuration);
+                toObj.transform.localScale = new Vector3(scale, scale, scale);
+                yield return null;
+            }
+
+            toObj.transform.localScale = originalScale;
+        }
     }
 }
