@@ -9,15 +9,16 @@ using TMPro;
 public class HermitCrabDropTarget : MonoBehaviour
 {
     [Header("Speech Bubble References")]
-    public GameObject speechBubble;       // Speech bubble GameObject shown on interaction
-    public TMP_Text bubbleText;           // Text component for dialogue
-    public AudioSource audioSource;       // Audio source for dialogue and feedback sounds
+    public GameObject speechBubble;
+    public TMP_Text bubbleText;
+    public AudioSource audioSource;
 
-    public AudioClip positiveAudioClip;   // Audio clip when hermit likes the item
-    public AudioClip negativeAudioClip;   // Audio clip when hermit dislikes the item
+    public AudioClip positiveAudioClip;
+    public AudioClip negativeAudioClip;
 
-    public string hermitName;             // Used for debugging and logs
-    public string acceptedCategory;       // Restricts item type (e.g., "Food", "Home") if set
+    [Header("Hermit Info")]
+    public string hermitName;
+    public string acceptedCategory;
 
     [Header("Preferences")]
     public string[] likedFoods;
@@ -26,7 +27,7 @@ public class HermitCrabDropTarget : MonoBehaviour
     public string[] dislikedHomes;
 
     [Header("Happiness")]
-    [Range(0, 100)] public float happiness = 0f; // Current happiness (0–100 range)
+    [Range(0, 100)] public float happiness = 0f;
 
     [Header("Sprite Swaps")]
     public SpriteRenderer spriteRenderer;
@@ -40,118 +41,79 @@ public class HermitCrabDropTarget : MonoBehaviour
 
     public List<HomeSprite> homeSprites = new List<HomeSprite>();
 
-
-
-
-    // Sets default happiness (can be replaced with saved data later)
-    public void Awake()
+    void Awake()
     {
-        // happiness = 0f;    removed for testing - will need data to save player prefs instead of restarting to 0 anyway
+        // Optional: Load saved happiness here if using PlayerPrefs later
     }
 
-    // Called when an item is dropped on this hermit
     public void ReceiveItem(string itemName, string itemCategory)
     {
-        // Reject items that don't match this hermit's category preference
         if (!string.IsNullOrEmpty(acceptedCategory) && acceptedCategory != itemCategory)
             return;
 
-        // Log preferences and item for debugging
         Debug.Log("[" + hermitName + "] received '" + itemName + "' (" + itemCategory + ")");
-        Debug.Log("[" + hermitName + "] Liked Foods: " + string.Join(", ", likedFoods));
-        Debug.Log("[" + hermitName + "] Disliked Foods: " + string.Join(", ", dislikedFoods));
-        Debug.Log("[" + hermitName + "] Liked Homes: " + string.Join(", ", likedHomes));
-        Debug.Log("[" + hermitName + "] Disliked Homes: " + string.Join(", ", dislikedHomes));
 
         int delta = 0;
         bool liked = false;
         bool disliked = false;
 
+        // Spend the item from inventory
         InventoryManager.Instance.UseItem(itemName, itemCategory);
 
-
-        // Check food preferences
+        // Preference checks
         if (itemCategory == "Food")
         {
-            if (System.Array.Exists(likedFoods, item => item == itemName))
-            {
-                delta = 15;
-                liked = true;
-            }
-            else if (System.Array.Exists(dislikedFoods, item => item == itemName))
-            {
-                delta = -15;
-                disliked = true;
-            }
+            if (System.Array.Exists(likedFoods, item => item == itemName)) { delta = 15; liked = true; }
+            else if (System.Array.Exists(dislikedFoods, item => item == itemName)) { delta = -15; disliked = true; }
         }
-        // Check home preferences
         else if (itemCategory == "Home")
         {
-            if (System.Array.Exists(likedHomes, item => item == itemName))
-            {
-                delta = 20;
-                liked = true;
-            }
-            else if (System.Array.Exists(dislikedHomes, item => item == itemName))
-            {
-                delta = -20;
-                disliked = true;
-            }
+            if (System.Array.Exists(likedHomes, item => item == itemName)) { delta = 20; liked = true; }
+            else if (System.Array.Exists(dislikedHomes, item => item == itemName)) { delta = -20; disliked = true; }
         }
 
-        // Apply the change and clamp within range
-        Debug.Log("[" + hermitName + "] happiness changed by " + delta);
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
+        Debug.Log("[" + hermitName + "] happiness changed by " + delta);
 
-        // Play feedback audio
+        // Play appropriate sound
         if (audioSource != null)
         {
-            if (liked && positiveAudioClip != null)
-                audioSource.PlayOneShot(positiveAudioClip);
-            else if (disliked && negativeAudioClip != null)
-                audioSource.PlayOneShot(negativeAudioClip);
+            if (liked && positiveAudioClip != null) audioSource.PlayOneShot(positiveAudioClip);
+            else if (disliked && negativeAudioClip != null) audioSource.PlayOneShot(negativeAudioClip);
         }
 
-        // IMPORTANT: Update the community compass after happiness changes
+        // Update community happiness
         if (CommunityCompassManager.Instance != null)
-        {
             CommunityCompassManager.Instance.UpdateCommunityHappiness();
-        }
 
-        // Determine emotional response type
-        DialogueTriggerType trigger;
-        if (System.Array.Exists(likedFoods, item => item == itemName) ||
-            System.Array.Exists(likedHomes, item => item == itemName))
-        {
-            trigger = DialogueTriggerType.InAgreement;
-        }
-        else if (System.Array.Exists(dislikedFoods, item => item == itemName) ||
-                 System.Array.Exists(dislikedHomes, item => item == itemName))
-        {
-            trigger = DialogueTriggerType.Disapproves;
-        }
-        else
-        {
-            trigger = DialogueTriggerType.Munching;
-        }
+        // Determine dialogue trigger
+        DialogueTriggerType trigger = DialogueTriggerType.Munching;
+        if (liked) trigger = DialogueTriggerType.InAgreement;
+        else if (disliked) trigger = DialogueTriggerType.Disapproves;
 
-        // === New: Swap sprite if this is a liked home ===
-        if (itemCategory == "Home" && liked)
+        // === Sprite Change if liked home ===
+        if (itemCategory == "Home")
         {
-            foreach (HomeSprite hs in homeSprites)
+            if (liked)
             {
-                if (hs.homeName == itemName && hs.newSprite != null)
+                foreach (HomeSprite hs in homeSprites)
                 {
-                    spriteRenderer.sprite = hs.newSprite;
-                    Debug.Log("[" + hermitName + "] Sprite changed to: " + hs.newSprite.name);
-                    break;
+                    if (hs.homeName == itemName && hs.newSprite != null)
+                    {
+                        spriteRenderer.sprite = hs.newSprite;
+                        Debug.Log("[" + hermitName + "] Sprite changed to: " + hs.newSprite.name);
+                        break;
+                    }
                 }
             }
+            // Optional: Reset or hide sprite if disliked or neutral
+            // else
+            // {
+            //     spriteRenderer.sprite = null; // Or set to a default shell sprite
+            // }
         }
 
-
-
-        // Retrieve matching dialogue line
+        // Show Dialogue
         HermitDialogue dialogue = GetComponent<HermitDialogue>();
         if (dialogue == null)
         {
@@ -160,46 +122,32 @@ public class HermitCrabDropTarget : MonoBehaviour
         }
 
         DialogueLine line = dialogue.GetRandomLineByTrigger(trigger);
-        if (line == null)
+        if (line == null || string.IsNullOrEmpty(line.text))
         {
-            Debug.LogError("[" + hermitName + "] DialogueLine is null for trigger: " + trigger);
-            return;
-        }
-
-        if (string.IsNullOrEmpty(line.text))
-        {
-            Debug.LogError("[" + hermitName + "] DialogueLine text is null or empty.");
+            Debug.LogError("[" + hermitName + "] DialogueLine is null or empty.");
             return;
         }
 
         if (bubbleText == null || speechBubble == null)
         {
-            Debug.LogError("[" + hermitName + "] bubbleText or speechBubble is not assigned.");
+            Debug.LogError("[" + hermitName + "] bubbleText or speechBubble not assigned.");
             return;
         }
 
-        // Show speech bubble with chosen line
-        Debug.Log("[" + hermitName + "] Showing speech bubble: " + line.text);
         bubbleText.text = line.text;
         speechBubble.SetActive(true);
+        Debug.Log("[" + hermitName + "] Showing speech bubble: " + line.text);
 
-        // Play line-specific audio clip if available
         if (audioSource != null && line.audioClip != null)
-        {
             audioSource.PlayOneShot(line.audioClip);
-        }
 
-        // Hide the speech bubble after a few seconds
         CancelInvoke(nameof(HideBubble));
         Invoke(nameof(HideBubble), 8f);
     }
 
-    // Hides the speech bubble
-    private void HideBubble()
+    void HideBubble()
     {
         if (speechBubble != null)
-        {
             speechBubble.SetActive(false);
-        }
     }
 }
