@@ -88,6 +88,7 @@ MonoBehaviour:
   happiness: 0
   spriteRenderer: {fileID: 0}
   homeSprites: []
+  reactionController: {fileID: 0}
 --- !u!212 &3905650956756017523
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -129,12 +130,12 @@ SpriteRenderer:
   m_SortingLayerID: -274928381
   m_SortingLayer: 4
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: b858ebbc9b530e44cb94e1f4b22ae2dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b532357e1144bb749a90ae7eb0d97dc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.92, y: 3.26}
+  m_Size: {x: 3.84, y: 4.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -511,7 +512,7 @@ Transform:
   m_GameObject: {fileID: 7486354878296075328}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58, y: 0.12, z: 0.039}
+  m_LocalPosition: {x: 0.61, y: 0.43, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

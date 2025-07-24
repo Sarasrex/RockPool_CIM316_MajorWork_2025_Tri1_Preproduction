@@ -4,7 +4,8 @@ using UnityEngine;
 using TMPro;
 
 // This script handles what happens when a hermit crab receives a dropped item.
-// It adjusts happiness, plays audio feedback, shows dialogue, and updates the community compass.
+// It adjusts happiness, plays audio feedback, shows dialogue, updates the community compass,
+// swaps home sprites, and triggers visual reaction animations.
 
 public class HermitCrabDropTarget : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class HermitCrabDropTarget : MonoBehaviour
     }
 
     public List<HomeSprite> homeSprites = new List<HomeSprite>();
+
+    [Header("Reaction Controller")]
+    public HermitReactionController reactionController;
 
     void Awake()
     {
@@ -82,16 +86,17 @@ public class HermitCrabDropTarget : MonoBehaviour
             else if (disliked && negativeAudioClip != null) audioSource.PlayOneShot(negativeAudioClip);
         }
 
+        // Play Munch Reaction when liked food is given
+        if (liked && itemCategory == "Food" && reactionController != null)
+        {
+            reactionController.PlayReaction("Munch");
+        }
+
         // Update community happiness
         if (CommunityCompassManager.Instance != null)
             CommunityCompassManager.Instance.UpdateCommunityHappiness();
 
-        // Determine dialogue trigger
-        DialogueTriggerType trigger = DialogueTriggerType.Munching;
-        if (liked) trigger = DialogueTriggerType.InAgreement;
-        else if (disliked) trigger = DialogueTriggerType.Disapproves;
-
-        // === Sprite Change if liked home ===
+        // Sprite Change if liked home
         if (itemCategory == "Home")
         {
             if (liked)
@@ -106,12 +111,12 @@ public class HermitCrabDropTarget : MonoBehaviour
                     }
                 }
             }
-            // Optional: Reset or hide sprite if disliked or neutral
-            // else
-            // {
-            //     spriteRenderer.sprite = null; // Or set to a default shell sprite
-            // }
         }
+
+        // Determine dialogue trigger
+        DialogueTriggerType trigger = DialogueTriggerType.Munching;
+        if (liked) trigger = DialogueTriggerType.InAgreement;
+        else if (disliked) trigger = DialogueTriggerType.Disapproves;
 
         // Show Dialogue
         HermitDialogue dialogue = GetComponent<HermitDialogue>();
