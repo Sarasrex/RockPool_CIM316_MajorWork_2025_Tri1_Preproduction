@@ -78,7 +78,10 @@ public class TideManager : MonoBehaviour
         foreach (Transform point in chosenWave)
         {
             int rand = Random.Range(0, barnaclePrefabs.Length);
-            Instantiate(barnaclePrefabs[rand], point.position, Quaternion.identity);
+            //Instantiate(barnaclePrefabs[rand], point.position, Quaternion.identity);
+
+            Instantiate(barnaclePrefabs[rand], point.position, point.rotation);
+
 
             yield return new WaitForSeconds(1f); // Delay between spawns
         }

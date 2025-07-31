@@ -9,7 +9,7 @@ public class GrowAndPulse : MonoBehaviour
 
     [Header("Pulse Settings")]
     public bool enablePulse = true;
-    public float pulseSpeed = 2f;
+    public float pulseSpeed = 0.5f;
     public float pulseStrength = 0.1f;
 
     private Vector3 originalScale;
