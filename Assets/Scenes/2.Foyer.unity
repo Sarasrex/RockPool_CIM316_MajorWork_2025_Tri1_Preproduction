@@ -3383,7 +3383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 542, y: -430}
+  m_AnchoredPosition: {x: 852.9, y: -428.5}
   m_SizeDelta: {x: 950.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &304116843
@@ -3408,8 +3408,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Welcome to Octavius's Home
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 01e648f4be73a61419d2ef1b448d9aa5, type: 2}
-  m_sharedMaterial: {fileID: 2731419570393542055, guid: 01e648f4be73a61419d2ef1b448d9aa5,
+  m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
+  m_sharedMaterial: {fileID: -214090951566820834, guid: e54aec3aadee0e74bbb30411c8e180a6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3440,7 +3440,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -5791,7 +5791,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '" Ooooo a floating orb! "'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 01e648f4be73a61419d2ef1b448d9aa5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
   m_sharedMaterial: {fileID: 2731419570393542055, guid: 01e648f4be73a61419d2ef1b448d9aa5,
     type: 2}
   m_fontSharedMaterials: []
@@ -5856,7 +5856,7 @@ MonoBehaviour:
   m_margin: {x: 28.218964, y: 26.751108, z: 168.55493, w: 21.888416}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &574409082
@@ -13095,7 +13095,7 @@ MonoBehaviour:
   m_text: "\" A Rockpool treasure map! \nUse this to travel to \nother locations.
     \""
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 01e648f4be73a61419d2ef1b448d9aa5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
   m_sharedMaterial: {fileID: 2731419570393542055, guid: 01e648f4be73a61419d2ef1b448d9aa5,
     type: 2}
   m_fontSharedMaterials: []
@@ -13160,7 +13160,7 @@ MonoBehaviour:
   m_margin: {x: 28.218964, y: 26.751108, z: 168.55493, w: 21.888416}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1363080210
@@ -14042,7 +14042,7 @@ MonoBehaviour:
   m_text: '" Collect treasures in your chest. Visit the Hermit Home to share these
     treasures with your new hermit friends. "'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 01e648f4be73a61419d2ef1b448d9aa5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
   m_sharedMaterial: {fileID: 2731419570393542055, guid: 01e648f4be73a61419d2ef1b448d9aa5,
     type: 2}
   m_fontSharedMaterials: []
@@ -14107,7 +14107,7 @@ MonoBehaviour:
   m_margin: {x: 28.218964, y: 26.751108, z: 168.55493, w: 21.888416}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1430530013
@@ -14276,8 +14276,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '" Hello you. Look. Arrows! "'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 01e648f4be73a61419d2ef1b448d9aa5, type: 2}
-  m_sharedMaterial: {fileID: 2731419570393542055, guid: 01e648f4be73a61419d2ef1b448d9aa5,
+  m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
+  m_sharedMaterial: {fileID: -214090951566820834, guid: e54aec3aadee0e74bbb30411c8e180a6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -18547,7 +18547,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.10395133, b: 0.6792453, a: 1}
+  m_BackGroundColor: {r: 0.13725491, g: 0.30588236, b: 0.4509804, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -21053,7 +21053,7 @@ MonoBehaviour:
   m_text: "\" This is our Compass. \nIt changes colour to express how everyone in
     the rockpool is feeling. \""
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 01e648f4be73a61419d2ef1b448d9aa5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
   m_sharedMaterial: {fileID: 2731419570393542055, guid: 01e648f4be73a61419d2ef1b448d9aa5,
     type: 2}
   m_fontSharedMaterials: []
@@ -21118,7 +21118,7 @@ MonoBehaviour:
   m_margin: {x: 27.806015, y: 26.868876, z: 168.14212, w: 21.888416}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2045549600
