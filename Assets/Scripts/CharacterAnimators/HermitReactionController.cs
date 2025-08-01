@@ -3,64 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Handles visual reactions like munching, talking, sleeping, bumping, etc. by toggling body and reaction sprites.
+/// Central reaction controller to trigger Animator-based reactions (like munching, sleeping, etc).
 /// </summary>
 public class HermitReactionController : MonoBehaviour
 {
     [Header("Core Visuals")]
-    public GameObject bodySprite; // Default idle sprite GameObject
+    public GameObject bodySprite; // Optional: used if you want to swap visuals manually later
 
-    [System.Serializable]
-    public class Reaction
-    {
-        public string reactionName;         // e.g. "Munch"
-        public GameObject reactionObject;   // GameObject with the reaction animation
-        public float duration = 2f;         // Duration to show it
-    }
-
-    [Header("Reaction Library")]
-    public List<Reaction> reactions = new List<Reaction>();
-
-    private Coroutine currentReactionCoroutine;
+    [Header("Animator")]
+    public Animator hermitAnimator;  // Reference to the crab's Animator
 
     public void PlayReaction(string reactionName)
     {
-        // Find the matching reaction
-        Reaction match = reactions.Find(r => r.reactionName == reactionName);
-
-        if (match != null && match.reactionObject != null)
+        if (hermitAnimator == null)
         {
-            if (currentReactionCoroutine != null)
-                StopCoroutine(currentReactionCoroutine);
-
-            currentReactionCoroutine = StartCoroutine(PlayReactionRoutine(match));
-        }
-        else
-        {
-            Debug.LogWarning($"[HermitReactionController] Reaction '{reactionName}' not found or not assigned.");
-        }
-    }
-
-    private IEnumerator PlayReactionRoutine(Reaction reaction)
-    {
-        Debug.Log($"[HermitReactionController] Playing reaction: {reaction.reactionName}");
-
-        if (bodySprite != null)
-        {
-            bodySprite.SetActive(false);
+            Debug.LogWarning($"[HermitReactionController] No Animator assigned on {gameObject.name}.");
+            return;
         }
 
-        reaction.reactionObject.SetActive(true);
-
-        yield return new WaitForSeconds(reaction.duration);
-
-        reaction.reactionObject.SetActive(false);
-
-        if (bodySprite != null)
-        {
-            bodySprite.SetActive(true);
-        }
-
-        currentReactionCoroutine = null;
+        // Use Animator trigger
+        hermitAnimator.SetTrigger(reactionName);
+        Debug.Log($"[HermitReactionController] Triggered animation: {reactionName}");
     }
 }
