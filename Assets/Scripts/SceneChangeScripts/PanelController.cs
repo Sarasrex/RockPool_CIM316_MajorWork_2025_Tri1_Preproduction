@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+/// This script is for the cutscenes and next panel buttons
+
 public class PanelController : MonoBehaviour
 {
     public GameObject[] panels;
