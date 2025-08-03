@@ -31,11 +31,16 @@ public class HermitCrabDropTarget : MonoBehaviour
     public string[] likedHomes;
     public string[] dislikedHomes;
 
+    [Header("Sleep Settings")]
+    [SerializeField] private float sleepTextInterval = 20f;
+    private Coroutine sleepDialogueCoroutine;
+
     [Header("Happiness")]
     [Range(0, 100)] public float happiness = 0f;
 
     [Header("Sprite Swaps")]
     public SpriteRenderer spriteRenderer;
+
 
     [System.Serializable]
     public class HomeSprite
@@ -105,9 +110,18 @@ public class HermitCrabDropTarget : MonoBehaviour
             else if (disliked && negativeAudioClip != null) audioSource.PlayOneShot(negativeAudioClip);
         }
 
+        if (sleepDialogueCoroutine != null)
+        {
+            StopCoroutine(sleepDialogueCoroutine);
+            sleepDialogueCoroutine = null;
+        }
+
         // Reset sleep timer
         lastInteractionTime = Time.time;
         isSleeping = false;
+        
+      
+
 
         // If liked food, trigger munch animation, sound, and dialogue
         if (liked && itemCategory == "Food")
@@ -187,6 +201,10 @@ public class HermitCrabDropTarget : MonoBehaviour
         if (audioSource != null && sleepAudioClip != null)
             audioSource.PlayOneShot(sleepAudioClip);
 
+        // Start sleep dialogue loop
+        if (sleepDialogueCoroutine == null)
+            sleepDialogueCoroutine = StartCoroutine(SleepDialogueLoop());
+
         HermitDialogue dialogue = GetComponent<HermitDialogue>();
         if (dialogue != null)
         {
@@ -206,6 +224,35 @@ public class HermitCrabDropTarget : MonoBehaviour
 
         Debug.Log($"[{hermitName}] fell asleep due to inactivity.");
     }
+
+    private IEnumerator SleepDialogueLoop()
+    {
+        yield return new WaitForSeconds(sleepTextInterval); // Wait before first line
+
+        HermitDialogue dialogue = GetComponent<HermitDialogue>();
+        while (isSleeping)
+        {
+            if (dialogue != null)
+            {
+                DialogueLine line = dialogue.GetRandomLineByTrigger(DialogueTriggerType.Sleeping);
+                if (line != null && speechBubble != null && bubbleText != null)
+                {
+                    bubbleText.text = line.text;
+                    speechBubble.SetActive(true);
+
+                    if (audioSource != null && line.audioClip != null)
+                        audioSource.PlayOneShot(line.audioClip);
+
+                    CancelInvoke(nameof(HideBubble));
+                    Invoke(nameof(HideBubble), 8f);
+                }
+            }
+
+            yield return new WaitForSeconds(sleepTextInterval);
+        }
+    }
+
+
 
     // Optional method to trigger a "Hello" greeting manually
     public void TriggerHello()

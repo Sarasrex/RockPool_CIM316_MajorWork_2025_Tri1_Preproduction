@@ -4110,6 +4110,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6737250549679163418, guid: e3e401c8e8310104abad784a34654c19,
+        type: 3}
+      propertyPath: dialogueGroups.Array.data[3].lines.Array.data[1].text
+      value: '"Zzz...Snrrrk... Me gold... gimme back me goooooold...zzzz"'
+      objectReference: {fileID: 0}
     - target: {fileID: 6741493014737520805, guid: e3e401c8e8310104abad784a34654c19,
         type: 3}
       propertyPath: m_Sprite
@@ -18093,6 +18098,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pearl
       objectReference: {fileID: 0}
+    - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
+        type: 3}
+      propertyPath: dialogueGroups.Array.data[3].lines.Array.data[1].text
+      value: "\u201CZzz...hmm... partnerships, not hierarchies... zzz\u2026\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
+        type: 3}
+      propertyPath: dialogueGroups.Array.data[3].lines.Array.data[3].text
+      value: "\u201CZzz...not silly.... just different... zzz\u2026\u201D"
+      objectReference: {fileID: 0}
     - target: {fileID: 771410266320755598, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: audioSource
@@ -23499,6 +23514,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -97.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5628845111189526585, guid: d7dbdcddbdc76694aa95d546c9e9507c,
+        type: 3}
+      propertyPath: dialogueGroups.Array.data[3].lines.Array.data[1].text
+      value: "\u201CZzz... slow-cooked dreams... just a pinch more...\u201D"
+      objectReference: {fileID: 0}
     - target: {fileID: 6117558595394691420, guid: d7dbdcddbdc76694aa95d546c9e9507c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25498,6 +25518,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245596323370609811, guid: 22964ef60b4b7554ca5290f82860fdac,
+        type: 3}
+      propertyPath: dialogueGroups.Array.data[3].lines.Array.data[1].text
+      value: "\u201CZzz... team huddle... we\u2019ve got this...zzz\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245596323370609811, guid: 22964ef60b4b7554ca5290f82860fdac,
+        type: 3}
+      propertyPath: dialogueGroups.Array.data[3].lines.Array.data[3].text
+      value: "\u201CZzz..still runnin\u2019... never slowin\u2019 down... zzz\u2026\u201D"
       objectReference: {fileID: 0}
     - target: {fileID: 3278132259890872181, guid: 22964ef60b4b7554ca5290f82860fdac,
         type: 3}
