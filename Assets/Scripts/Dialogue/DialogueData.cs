@@ -6,7 +6,7 @@ using UnityEngine;
 public class DialogueLine
 {
     [TextArea(2, 4)] public string text;
-    public AudioClip audioClip;
+    public AudioSource audioSource; // updated from AudioClip
     public string animationTrigger;
 }
 

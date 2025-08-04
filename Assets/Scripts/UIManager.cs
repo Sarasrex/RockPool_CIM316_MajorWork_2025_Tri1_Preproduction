@@ -169,8 +169,9 @@ public class UIManager : MonoBehaviour
         nameText.text = speakerName;
         dialogueText.text = line.text;
 
-        if (line.audioClip != null && audioSource != null)
-            audioSource.PlayOneShot(line.audioClip);
+        // Play audio directly from the DialogueLine's assigned AudioSource
+        if (line.audioSource != null)
+            line.audioSource.Play();
 
         if (!string.IsNullOrEmpty(line.animationTrigger) && characterAnimator != null)
             characterAnimator.SetTrigger(line.animationTrigger);

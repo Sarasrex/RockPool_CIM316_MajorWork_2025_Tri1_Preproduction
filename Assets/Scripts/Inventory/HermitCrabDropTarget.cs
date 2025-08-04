@@ -12,14 +12,13 @@ public class HermitCrabDropTarget : MonoBehaviour
     [Header("Speech Bubble References")]
     public GameObject speechBubble;
     public TMP_Text bubbleText;
-    public AudioSource audioSource;
 
-    [Header("Audio Clips")]
-    public AudioClip positiveAudioClip;
-    public AudioClip negativeAudioClip;
-    public AudioClip munchAudioClip;
-    public AudioClip sleepAudioClip;
-    public AudioClip helloAudioClip;
+    [Header("Audio Sources")]
+    public AudioSource positiveAudioSource;   // Plays when hermit likes the item
+    public AudioSource negativeAudioSource;   // Plays when hermit dislikes the item
+    public AudioSource munchAudioSource;      // Munching sound when eating
+    public AudioSource sleepAudioSource;      // Sleeping sound when inactive
+    public AudioSource helloAudioSource;      // Hello greeting sound
 
     [Header("Hermit Info")]
     public string hermitName;
@@ -40,7 +39,6 @@ public class HermitCrabDropTarget : MonoBehaviour
 
     [Header("Sprite Swaps")]
     public SpriteRenderer spriteRenderer;
-
 
     [System.Serializable]
     public class HomeSprite
@@ -103,13 +101,7 @@ public class HermitCrabDropTarget : MonoBehaviour
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
         Debug.Log("[" + hermitName + "] happiness changed by " + delta);
 
-        // Play general sound feedback
-        if (audioSource != null)
-        {
-            // if (liked && positiveAudioClip != null) audioSource.PlayOneShot(positiveAudioClip);
-           // else if (disliked && negativeAudioClip != null) audioSource.PlayOneShot(negativeAudioClip);
-        }
-
+        // Stop any ongoing sleep dialogue if the hermit was asleep
         if (sleepDialogueCoroutine != null)
         {
             StopCoroutine(sleepDialogueCoroutine);
@@ -119,9 +111,6 @@ public class HermitCrabDropTarget : MonoBehaviour
         // Reset sleep timer
         lastInteractionTime = Time.time;
         isSleeping = false;
-        
-      
-
 
         // If liked food, trigger munch animation, sound, and dialogue
         if (liked && itemCategory == "Food")
@@ -129,8 +118,8 @@ public class HermitCrabDropTarget : MonoBehaviour
             if (reactionController != null)
                 reactionController.PlayReaction("Munch");
 
-            if (audioSource != null && munchAudioClip != null)
-                audioSource.PlayOneShot(munchAudioClip);
+            if (munchAudioSource != null)
+                munchAudioSource.Play();
 
             HermitDialogue dialogue = GetComponent<HermitDialogue>();
             if (dialogue != null)
@@ -141,8 +130,8 @@ public class HermitCrabDropTarget : MonoBehaviour
                     bubbleText.text = line.text;
                     speechBubble.SetActive(true);
 
-                    if (audioSource != null && line.audioClip != null)
-                        audioSource.PlayOneShot(line.audioClip);
+                    if (line.audioSource != null)
+                        line.audioSource.Play();
 
                     CancelInvoke(nameof(HideBubble));
                     Invoke(nameof(HideBubble), 8f);
@@ -182,8 +171,8 @@ public class HermitCrabDropTarget : MonoBehaviour
                     bubbleText.text = line.text;
                     speechBubble.SetActive(true);
 
-                    if (audioSource != null && line.audioClip != null)
-                        audioSource.PlayOneShot(line.audioClip);
+                    if (line.audioSource != null)
+                        line.audioSource.Play();
 
                     CancelInvoke(nameof(HideBubble));
                     Invoke(nameof(HideBubble), 8f);
@@ -198,8 +187,8 @@ public class HermitCrabDropTarget : MonoBehaviour
         if (reactionController != null)
             reactionController.PlayReaction("Sleeping");
 
-        if (audioSource != null && sleepAudioClip != null)
-            audioSource.PlayOneShot(sleepAudioClip);
+        if (sleepAudioSource != null)
+            sleepAudioSource.Play();
 
         // Start sleep dialogue loop
         if (sleepDialogueCoroutine == null)
@@ -214,8 +203,8 @@ public class HermitCrabDropTarget : MonoBehaviour
                 bubbleText.text = line.text;
                 speechBubble.SetActive(true);
 
-                if (audioSource != null && line.audioClip != null)
-                    audioSource.PlayOneShot(line.audioClip);
+                if (line.audioSource != null)
+                    line.audioSource.Play();
 
                 CancelInvoke(nameof(HideBubble));
                 Invoke(nameof(HideBubble), 8f);
@@ -225,6 +214,7 @@ public class HermitCrabDropTarget : MonoBehaviour
         Debug.Log($"[{hermitName}] fell asleep due to inactivity.");
     }
 
+    // Dialogue loop that repeats while hermit is asleep
     private IEnumerator SleepDialogueLoop()
     {
         yield return new WaitForSeconds(sleepTextInterval); // Wait before first line
@@ -240,8 +230,8 @@ public class HermitCrabDropTarget : MonoBehaviour
                     bubbleText.text = line.text;
                     speechBubble.SetActive(true);
 
-                    if (audioSource != null && line.audioClip != null)
-                        audioSource.PlayOneShot(line.audioClip);
+                    if (line.audioSource != null)
+                        line.audioSource.Play();
 
                     CancelInvoke(nameof(HideBubble));
                     Invoke(nameof(HideBubble), 8f);
@@ -252,16 +242,14 @@ public class HermitCrabDropTarget : MonoBehaviour
         }
     }
 
-
-
     // Optional method to trigger a "Hello" greeting manually
     public void TriggerHello()
     {
         if (reactionController != null)
             reactionController.PlayReaction("Hello");
 
-        if (audioSource != null && helloAudioClip != null)
-            audioSource.PlayOneShot(helloAudioClip);
+        if (helloAudioSource != null)
+            helloAudioSource.Play();
 
         HermitDialogue dialogue = GetComponent<HermitDialogue>();
         if (dialogue != null)
@@ -272,8 +260,8 @@ public class HermitCrabDropTarget : MonoBehaviour
                 bubbleText.text = line.text;
                 speechBubble.SetActive(true);
 
-                if (audioSource != null && line.audioClip != null)
-                    audioSource.PlayOneShot(line.audioClip);
+                if (line.audioSource != null)
+                    line.audioSource.Play();
 
                 CancelInvoke(nameof(HideBubble));
                 Invoke(nameof(HideBubble), 8f);
