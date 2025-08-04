@@ -106,8 +106,8 @@ public class HermitCrabDropTarget : MonoBehaviour
         // Play general sound feedback
         if (audioSource != null)
         {
-            if (liked && positiveAudioClip != null) audioSource.PlayOneShot(positiveAudioClip);
-            else if (disliked && negativeAudioClip != null) audioSource.PlayOneShot(negativeAudioClip);
+            // if (liked && positiveAudioClip != null) audioSource.PlayOneShot(positiveAudioClip);
+           // else if (disliked && negativeAudioClip != null) audioSource.PlayOneShot(negativeAudioClip);
         }
 
         if (sleepDialogueCoroutine != null)
