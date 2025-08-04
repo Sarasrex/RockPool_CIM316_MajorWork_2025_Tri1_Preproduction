@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1983260c24b704ec1850b560a9becc75, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -688,7 +688,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bcd06848af45f42eeb6f63605066045e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1326,13 +1326,16 @@ MonoBehaviour:
   - triggerType: 3
     lines:
     - text: "\u201CMmm... tastes like victory and smoked sea bass!\u201D"
-      audioClip: {fileID: 0}
+      audioClip: {fileID: 8300000, guid: 707c91885113a48859e1495414f02a50, type: 3}
       animationTrigger: 
     - text: "\u201CAye, this stew be the treasure of the tides.\u201D"
-      audioClip: {fileID: 0}
+      audioClip: {fileID: 8300000, guid: bcd06848af45f42eeb6f63605066045e, type: 3}
       animationTrigger: 
     - text: "\u201CMmm, Just like Old Mates soul saving soup\u201D"
-      audioClip: {fileID: 0}
+      audioClip: {fileID: 8300000, guid: f16b248860ca040c4b5c3887fa64fe40, type: 3}
+      animationTrigger: 
+    - text: "\u201CMmm, Just like Old Mates soul saving soup\u201D"
+      audioClip: {fileID: 8300000, guid: 1983260c24b704ec1850b560a9becc75, type: 3}
       animationTrigger: 
   - triggerType: 5
     lines:
@@ -1755,7 +1758,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 707c91885113a48859e1495414f02a50, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1883,7 +1886,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f16b248860ca040c4b5c3887fa64fe40, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
