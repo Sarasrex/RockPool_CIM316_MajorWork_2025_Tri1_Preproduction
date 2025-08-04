@@ -16,6 +16,8 @@ public class CharacterRoaming : MonoBehaviour
     [Header("Sprite Settings")]
     public Transform spriteTransform;
 
+    [HideInInspector] public bool isAsleep = false;
+
     private Vector3 originPosition;
     private Vector3 targetPosition;
     private bool isMoving;
@@ -29,6 +31,8 @@ public class CharacterRoaming : MonoBehaviour
 
     void Update()
     {
+        if (isAsleep) return;
+
         if (isMoving)
         {
             Vector3 moveDirection = (targetPosition - transform.position).normalized;

@@ -110,7 +110,9 @@ public class HermitCrabDropTarget : MonoBehaviour
 
         // Reset sleep timer
         lastInteractionTime = Time.time;
-        isSleeping = false;
+        // isSleeping = false;
+        SetCrabSleepState(false);
+
 
         // If liked food, trigger munch animation, sound, and dialogue
         if (liked && itemCategory == "Food")
@@ -208,6 +210,8 @@ public class HermitCrabDropTarget : MonoBehaviour
 
                 CancelInvoke(nameof(HideBubble));
                 Invoke(nameof(HideBubble), 8f);
+                SetCrabSleepState(true);
+
             }
         }
 
@@ -275,4 +279,18 @@ public class HermitCrabDropTarget : MonoBehaviour
         if (speechBubble != null)
             speechBubble.SetActive(false);
     }
+    
+    void SetCrabSleepState(bool asleep)
+    {
+        isSleeping = asleep;
+
+        CharacterRoaming roaming = GetComponent<CharacterRoaming>();
+        if (roaming != null)
+            roaming.isAsleep = asleep;
+    }
+
+
+
+
+
 }
