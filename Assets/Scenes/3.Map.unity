@@ -301,7 +301,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0947dff07a9923f448a37a684d5182b8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7c30f97d0584346ba9cc23dd727132ab, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -940,7 +940,7 @@ MonoBehaviour:
   overrideTimeManually: 0
   dayAudioSource: {fileID: 100579116}
   nightAudioSource: {fileID: 1437743476}
-  crossfadeSpeed: 0.1
+  crossfadeSpeed: 0.15
 --- !u!4 &773957781
 Transform:
   m_ObjectHideFlags: 0
