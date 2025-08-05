@@ -14,7 +14,7 @@ public class CharacterRoaming : MonoBehaviour
     public Vector2 zRange = new Vector2(-3f, 3f);
 
     [Header("Sprite Settings")]
-    public Transform spriteTransform;
+    public Transform spriteTransform; // Assign the visual body (e.g. Pearl_Body) here
 
     [HideInInspector] public bool isAsleep = false;
 
@@ -22,6 +22,8 @@ public class CharacterRoaming : MonoBehaviour
     private Vector3 targetPosition;
     private bool isMoving;
     private float pauseTimer;
+
+    private const float stopDistance = 0.05f;
 
     void Start()
     {
@@ -35,20 +37,27 @@ public class CharacterRoaming : MonoBehaviour
 
         if (isMoving)
         {
-            Vector3 moveDirection = (targetPosition - transform.position).normalized;
-            transform.position += moveDirection * moveSpeed * Time.deltaTime;
+            Vector3 moveDirection = (targetPosition - transform.position);
+            moveDirection.y = 0f; // Prevent vertical movement
 
-            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            if (moveDirection.magnitude < stopDistance)
             {
                 isMoving = false;
                 pauseTimer = pauseTime;
+                return;
             }
 
-            if (spriteTransform != null && moveDirection.x != 0)
+            Vector3 moveStep = moveDirection.normalized * moveSpeed * Time.deltaTime;
+            transform.position += moveStep;
+
+            // Flip only the sprite visual (not the whole transform)
+            if (spriteTransform != null)
             {
-                Vector3 newScale = spriteTransform.localScale;
-                newScale.x = Mathf.Sign(moveDirection.x) * Mathf.Abs(newScale.x);
-                spriteTransform.localScale = newScale;
+                SpriteRenderer sr = spriteTransform.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    sr.flipX = moveDirection.x < 0;
+                }
             }
         }
         else

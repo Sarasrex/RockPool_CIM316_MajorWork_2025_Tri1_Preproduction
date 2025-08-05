@@ -14,11 +14,11 @@ public class HermitCrabDropTarget : MonoBehaviour
     public TMP_Text bubbleText;
 
     [Header("Audio Sources")]
-    public AudioSource positiveAudioSource;   // Plays when hermit likes the item
-    public AudioSource negativeAudioSource;   // Plays when hermit dislikes the item
-    public AudioSource munchAudioSource;      // Munching sound when eating
-    public AudioSource sleepAudioSource;      // Sleeping sound when inactive
-    public AudioSource helloAudioSource;      // Hello greeting sound
+    public AudioSource positiveAudioSource;
+    public AudioSource negativeAudioSource;
+    public AudioSource munchAudioSource;
+    public AudioSource sleepAudioSource;
+    public AudioSource helloAudioSource;
 
     [Header("Hermit Info")]
     public string hermitName;
@@ -52,7 +52,6 @@ public class HermitCrabDropTarget : MonoBehaviour
     [Header("Reaction Controller")]
     public HermitReactionController reactionController;
 
-    // Inactivity handling
     private float lastInteractionTime;
     private bool isSleeping = false;
 
@@ -63,7 +62,6 @@ public class HermitCrabDropTarget : MonoBehaviour
 
     void Update()
     {
-        // If no interaction for over 60 seconds, trigger sleeping
         if (!isSleeping && Time.time - lastInteractionTime > 60f)
         {
             TriggerSleepingReaction();
@@ -71,7 +69,6 @@ public class HermitCrabDropTarget : MonoBehaviour
         }
     }
 
-    // Called when an item is dropped onto the hermit crab
     public void ReceiveItem(string itemName, string itemCategory)
     {
         if (!string.IsNullOrEmpty(acceptedCategory) && acceptedCategory != itemCategory)
@@ -83,10 +80,12 @@ public class HermitCrabDropTarget : MonoBehaviour
         bool liked = false;
         bool disliked = false;
 
-        // Spend the item from inventory
         InventoryManager.Instance.UseItem(itemName, itemCategory);
 
-        // Check preferences and adjust happiness
+        lastInteractionTime = Time.time;
+        SetCrabSleepState(false);
+
+
         if (itemCategory == "Food")
         {
             if (System.Array.Exists(likedFoods, item => item == itemName)) { delta = 15; liked = true; }
@@ -101,20 +100,25 @@ public class HermitCrabDropTarget : MonoBehaviour
         happiness = Mathf.Clamp(happiness + delta, 0, 100);
         Debug.Log("[" + hermitName + "] happiness changed by " + delta);
 
-        // Stop any ongoing sleep dialogue if the hermit was asleep
         if (sleepDialogueCoroutine != null)
         {
             StopCoroutine(sleepDialogueCoroutine);
             sleepDialogueCoroutine = null;
         }
 
-        // Reset sleep timer
-        lastInteractionTime = Time.time;
-        // isSleeping = false;
-        SetCrabSleepState(false);
 
 
-        // If liked food, trigger munch animation, sound, and dialogue
+        if (liked && positiveAudioSource != null)
+        {
+            Debug.Log("Playing positive sound for: " + hermitName);
+            positiveAudioSource.Play();
+        }
+        else if (disliked && negativeAudioSource != null)
+        {
+            Debug.Log("Playing negative sound for: " + hermitName);
+            negativeAudioSource.Play();
+        }
+
         if (liked && itemCategory == "Food")
         {
             if (reactionController != null)
@@ -141,11 +145,52 @@ public class HermitCrabDropTarget : MonoBehaviour
             }
         }
 
-        // Update the community happiness system
+        if (liked && itemCategory == "Home")
+        {
+            if (reactionController != null)
+                reactionController.PlayReaction("Excited"); // <-- Replace with your actual reaction name, like "Cheer", "HomeSwap", etc.
+
+            HermitDialogue dialogue = GetComponent<HermitDialogue>();
+            if (dialogue != null)
+            {
+                DialogueLine line = dialogue.GetRandomLineByTrigger(DialogueTriggerType.InAgreement);
+                if (line != null && speechBubble != null && bubbleText != null)
+                {
+                    bubbleText.text = line.text;
+                    speechBubble.SetActive(true);
+
+                    if (line.audioSource != null)
+                        line.audioSource.Play();
+
+                    CancelInvoke(nameof(HideBubble));
+                    Invoke(nameof(HideBubble), 8f);
+                }
+            }
+        }
+
+        if (disliked && itemCategory == "Food")
+        {
+            HermitDialogue dialogue = GetComponent<HermitDialogue>();
+            if (dialogue != null)
+            {
+                DialogueLine line = dialogue.GetRandomLineByTrigger(DialogueTriggerType.Disapproves);
+                if (line != null && speechBubble != null && bubbleText != null)
+                {
+                    bubbleText.text = line.text;
+                    speechBubble.SetActive(true);
+
+                    if (line.audioSource != null)
+                        line.audioSource.Play();
+
+                    CancelInvoke(nameof(HideBubble));
+                    Invoke(nameof(HideBubble), 8f);
+                }
+            }
+        }
+
         if (CommunityCompassManager.Instance != null)
             CommunityCompassManager.Instance.UpdateCommunityHappiness();
 
-        // Change shell sprite if liked home item
         if (itemCategory == "Home" && liked)
         {
             foreach (HomeSprite hs in homeSprites)
@@ -159,7 +204,6 @@ public class HermitCrabDropTarget : MonoBehaviour
             }
         }
 
-        // Handle agreement/disapproval dialogue for non-food items
         if (itemCategory != "Food")
         {
             DialogueTriggerType trigger = liked ? DialogueTriggerType.InAgreement : DialogueTriggerType.Disapproves;
@@ -183,7 +227,6 @@ public class HermitCrabDropTarget : MonoBehaviour
         }
     }
 
-    // Triggered automatically after 60s of inactivity
     void TriggerSleepingReaction()
     {
         if (reactionController != null)
@@ -192,7 +235,6 @@ public class HermitCrabDropTarget : MonoBehaviour
         if (sleepAudioSource != null)
             sleepAudioSource.Play();
 
-        // Start sleep dialogue loop
         if (sleepDialogueCoroutine == null)
             sleepDialogueCoroutine = StartCoroutine(SleepDialogueLoop());
 
@@ -211,17 +253,15 @@ public class HermitCrabDropTarget : MonoBehaviour
                 CancelInvoke(nameof(HideBubble));
                 Invoke(nameof(HideBubble), 8f);
                 SetCrabSleepState(true);
-
             }
         }
 
         Debug.Log($"[{hermitName}] fell asleep due to inactivity.");
     }
 
-    // Dialogue loop that repeats while hermit is asleep
     private IEnumerator SleepDialogueLoop()
     {
-        yield return new WaitForSeconds(sleepTextInterval); // Wait before first line
+        yield return new WaitForSeconds(sleepTextInterval);
 
         HermitDialogue dialogue = GetComponent<HermitDialogue>();
         while (isSleeping)
@@ -246,7 +286,6 @@ public class HermitCrabDropTarget : MonoBehaviour
         }
     }
 
-    // Optional method to trigger a "Hello" greeting manually
     public void TriggerHello()
     {
         if (reactionController != null)
@@ -273,13 +312,12 @@ public class HermitCrabDropTarget : MonoBehaviour
         }
     }
 
-    // Hides the dialogue bubble after a short delay
     void HideBubble()
     {
         if (speechBubble != null)
             speechBubble.SetActive(false);
     }
-    
+
     void SetCrabSleepState(bool asleep)
     {
         isSleeping = asleep;
@@ -287,10 +325,12 @@ public class HermitCrabDropTarget : MonoBehaviour
         CharacterRoaming roaming = GetComponent<CharacterRoaming>();
         if (roaming != null)
             roaming.isAsleep = asleep;
+
+        if (!asleep && reactionController != null)
+        {
+            // Tell animator to play WakeUp
+            reactionController.PlayReaction("WakeUp");
+        }
     }
-
-
-
-
 
 }

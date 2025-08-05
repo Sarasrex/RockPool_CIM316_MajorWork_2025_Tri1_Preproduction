@@ -23,6 +23,10 @@ public class FoyerTutorialController : MonoBehaviour
     private enum TutorialStep { Inventory, Compass, Map, Done }
     private TutorialStep currentStep = TutorialStep.Inventory;
 
+    [Header("Octavius Reaction Controller")]
+    public HermitReactionController octaviusReactionController;
+
+
     void Start()
     {
         // Initial tutorial setup
@@ -34,7 +38,12 @@ public class FoyerTutorialController : MonoBehaviour
         canvasMapInstructions.SetActive(false);
         arrowCompass.SetActive(false);
         arrowMap.SetActive(false);
+
+        // Play Octavius Hello animation
+        if (octaviusReactionController != null)
+            octaviusReactionController.PlayReaction("Hello");
     }
+
 
     public void OnInventoryOpened()
     {
@@ -45,6 +54,10 @@ public class FoyerTutorialController : MonoBehaviour
         arrowInventory.SetActive(false);
         canvasHelloYouInstructions.SetActive(false);
         canvasInventoryInstructions.SetActive(true);
+
+        // Octavius reacts positively
+        if (octaviusReactionController != null)
+            octaviusReactionController.PlayReaction("Positive");
     }
 
     public void OnInventoryClosed()
@@ -60,6 +73,10 @@ public class FoyerTutorialController : MonoBehaviour
 
         arrowCompass.SetActive(true);
         currentStep = TutorialStep.Compass;
+
+        // Octavius reacts positively again
+        if (octaviusReactionController != null)
+            octaviusReactionController.PlayReaction("Positive");
     }
 
     public void OnCompassOpened()
@@ -70,6 +87,10 @@ public class FoyerTutorialController : MonoBehaviour
         canvasOrbComment.SetActive(false);
         arrowCompass.SetActive(false);
         canvasCompassInstructions.SetActive(true);
+
+        // Another Octavius reaction!
+        if (octaviusReactionController != null)
+            octaviusReactionController.PlayReaction("Positive");
     }
 
     public void OnCompassClosed()
