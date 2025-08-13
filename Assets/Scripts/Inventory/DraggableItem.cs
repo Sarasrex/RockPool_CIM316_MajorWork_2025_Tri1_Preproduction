@@ -13,12 +13,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private CanvasGroup canvasGroup;       // Used to disable raycasts while dragging
     private Transform originalParent;      // Stores the parent so we can reset it
     private Vector2 originalPosition;      // Stores the anchored position to reset after drag
+    private Canvas parentCanvas;           // Cached reference to the parent Canvas
 
     // Set up cached references on awake
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        parentCanvas = GetComponentInParent<Canvas>();
     }
 
     // Called when dragging starts
@@ -26,7 +28,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         int count = InventoryManager.Instance.itemCounts.ContainsKey(itemName)
         ? InventoryManager.Instance.itemCounts[itemName]
-    :   0;
+        : 0;
 
         if (count <= 0)
         {
@@ -45,13 +47,16 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         // Make sure the item renders above everything else
         transform.SetAsLastSibling();
+
+        // Position immediately under cursor at drag start
+        UpdateDragPosition(eventData);
     }
 
     // Called continuously while dragging
     public void OnDrag(PointerEventData eventData)
     {
-        // Move the item based on mouse delta
-        rectTransform.anchoredPosition += eventData.delta;
+        // Position the item under the mouse cursor correctly for any canvas scaling / aspect ratio
+        UpdateDragPosition(eventData);
     }
 
     // Called when dragging ends
@@ -61,7 +66,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvasGroup.blocksRaycasts = true;
 
         // Cast a 3D ray from the camera to detect a hermit crab in world space
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(eventData.position);
         int crabLayerMask = Physics.DefaultRaycastLayers;
 
         RaycastHit hit;
@@ -87,5 +92,22 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Reset the UI item back to where it started
         rectTransform.SetParent(originalParent);
         rectTransform.anchoredPosition = originalPosition;
+    }
+
+    // Correctly updates the icon’s position so it stays locked to the mouse across resolutions/WebGL
+    private void UpdateDragPosition(PointerEventData eventData)
+    {
+        if (parentCanvas == null)
+            return;
+
+        Vector2 localPoint;
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            parentCanvas.transform as RectTransform,
+            eventData.position,
+            parentCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : parentCanvas.worldCamera,
+            out localPoint))
+        {
+            rectTransform.anchoredPosition = localPoint;
+        }
     }
 }

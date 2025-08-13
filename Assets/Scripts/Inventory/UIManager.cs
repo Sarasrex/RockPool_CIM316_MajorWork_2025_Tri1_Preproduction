@@ -96,6 +96,13 @@ public class UIManager : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject compassPanel;
 
+    [Header("Colours")]
+    [Tooltip("Colour to use when an item has 0 count (dark translucent brown).")]
+    [SerializeField] private Color emptyColour = new Color(0.26f, 0.18f, 0.12f, 0.55f);
+
+    // Cache each icon's original/default colour so we can restore it
+    private readonly Dictionary<GameObject, Color> defaultIconColours = new Dictionary<GameObject, Color>();
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -148,15 +155,22 @@ public class UIManager : MonoBehaviour
         if (itemIcon != null)
         {
             itemIcon.SetActive(true);
-            if (countText != null)
-                countText.text = count.ToString();
+            if (countText != null) countText.text = count.ToString();
 
             // Apply visual and interaction feedback
             Image iconImage = itemIcon.GetComponent<Image>();
             DraggableItem draggable = itemIcon.GetComponent<DraggableItem>();
 
             if (iconImage != null)
-                iconImage.color = new Color(1f, 1f, 1f, count <= 0 ? 0.4f : 1f);
+            {
+                // Cache the icon's default colour the first time we see it
+                if (!defaultIconColours.ContainsKey(itemIcon))
+                {
+                    defaultIconColours[itemIcon] = iconImage.color; // whatever you set in the Scene is treated as "default"
+                }
+
+                iconImage.color = (count > 0) ? defaultIconColours[itemIcon] : emptyColour;
+            }
 
             if (draggable != null)
                 draggable.enabled = count > 0;
