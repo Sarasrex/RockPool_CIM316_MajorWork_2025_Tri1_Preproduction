@@ -5209,6 +5209,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1127512521
       objectReference: {fileID: 0}
+    - target: {fileID: 6741493014737520805, guid: e3e401c8e8310104abad784a34654c19,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6841882555653915956, guid: e3e401c8e8310104abad784a34654c19,
         type: 3}
       propertyPath: m_text
@@ -23888,6 +23893,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1127512521
       objectReference: {fileID: 0}
+    - target: {fileID: 2192648021860437475, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2764486974103891703, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -24283,8 +24293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e1cdc13f48a3f419fed63c5e941325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  pauseTime: 1
+  moveSpeed: 0.1
+  pauseTime: 5
   xRange: {x: -5, y: 4}
   yRange: {x: 0, y: 0}
   zRange: {x: -3, y: 10}
@@ -28848,8 +28858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e1cdc13f48a3f419fed63c5e941325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
-  pauseTime: 1
+  moveSpeed: 0.1
+  pauseTime: 5
   xRange: {x: -4, y: 6}
   yRange: {x: 0, y: 0}
   zRange: {x: -6, y: 12}
@@ -29731,6 +29741,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1127512521
       objectReference: {fileID: 0}
+    - target: {fileID: 536227309185243463, guid: d7dbdcddbdc76694aa95d546c9e9507c,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1010699474925669414, guid: d7dbdcddbdc76694aa95d546c9e9507c,
         type: 3}
       propertyPath: m_Size.x
@@ -29852,7 +29867,7 @@ PrefabInstance:
     - target: {fileID: 2906944019154266248, guid: d7dbdcddbdc76694aa95d546c9e9507c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.233
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 2906944019154266248, guid: d7dbdcddbdc76694aa95d546c9e9507c,
         type: 3}
@@ -32012,6 +32027,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: 1127512521
+      objectReference: {fileID: 0}
+    - target: {fileID: 345649233458854125, guid: 22964ef60b4b7554ca5290f82860fdac,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 813170367541307701, guid: 22964ef60b4b7554ca5290f82860fdac,
         type: 3}
@@ -35369,8 +35389,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.6132076, g: 0.29994565, b: 0.020247431, a: 1}
-  m_Intensity: 50
+  m_Color: {r: 1, g: 0.67569816, b: 0, a: 1}
+  m_Intensity: 20
   m_Range: 75
   m_SpotAngle: 179
   m_InnerSpotAngle: 100.853226
@@ -35810,8 +35830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e1cdc13f48a3f419fed63c5e941325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  pauseTime: 1
+  moveSpeed: 0.1
+  pauseTime: 5
   xRange: {x: -5, y: 8}
   yRange: {x: 0, y: 0}
   zRange: {x: 0, y: 8}
@@ -42683,8 +42703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e1cdc13f48a3f419fed63c5e941325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  pauseTime: 1
+  moveSpeed: 0.1
+  pauseTime: 5
   xRange: {x: -4, y: 10}
   yRange: {x: 0, y: 0}
   zRange: {x: -4, y: 13}
