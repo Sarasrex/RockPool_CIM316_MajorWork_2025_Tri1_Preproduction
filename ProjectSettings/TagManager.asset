@@ -12,8 +12,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - HermitCrab_Home_Shell
+  - HermitCrab_Body
   - HermitCrab
   - 
   - 
@@ -51,9 +51,15 @@ TagManager:
   - name: UI Panels
     uniqueID: 1848193543
     locked: 0
-  - name: HermitCrabs (Top-most)
-    uniqueID: 4020038915
-    locked: 0
   - name: DragUI
     uniqueID: 1407711675
+    locked: 0
+  - name: HermitCrab_ShellHome
+    uniqueID: 1127512521
+    locked: 0
+  - name: HermitCrab_Body
+    uniqueID: 4147207741
+    locked: 0
+  - name: HermitCrabs (Top-most)
+    uniqueID: 4020038915
     locked: 0

@@ -32,8 +32,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2764486974103891703}
   - {fileID: 6801253881436767795}
+  - {fileID: 2764486974103891703}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &771410266320755598
@@ -50,9 +50,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speechBubble: {fileID: 8630010941780784466}
   bubbleText: {fileID: 6726251277296656520}
-  audioSource: {fileID: 0}
-  positiveAudioClip: {fileID: 0}
-  negativeAudioClip: {fileID: 0}
+  positiveAudioSource: {fileID: 0}
+  negativeAudioSource: {fileID: 0}
+  munchAudioSource: {fileID: 0}
+  sleepAudioSource: {fileID: 0}
+  helloAudioSource: {fileID: 0}
   hermitName: Pearl
   acceptedCategory: 
   likedFoods:
@@ -84,6 +86,7 @@ MonoBehaviour:
   - CoralSpoonHome
   - StoneStackHome
   - GlassHeartHome
+  sleepTextInterval: 20
   happiness: 0
   spriteRenderer: {fileID: 0}
   homeSprites: []
@@ -104,77 +107,77 @@ MonoBehaviour:
   - triggerType: 0
     lines:
     - text: "\u201CHeeey sugarplum!\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CBack again? I knew we had a connection.\u201D "
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201COkay, spill, where did you get that vibe?.\u201D "
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CDo we have matching shell energy right now?\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201COoo! Did you bring drama or dessert?\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 2
     lines:
     - text: "\u201COof! Close, but you\u2019ve totally got this.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CMmm... not quite the vibe\u2014but we\u2019re nearly there!\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CLet\u2019s give that choice a lil\u2019 makeover.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 1
     lines:
     - text: "\u201CYES! Iconic!\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CNow that\u2019s the sparkle I love to see!\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CYou totally aced that!\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 4
     lines:
     - text: "\u201CZzz... one day, they\u2019ll see what I can really do\u2026\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CHmm... partnerships, not hierarchies... zzz\u2026\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CZzz... app idea 42:...\u2026\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CNot silly.... just different... zzz\u2026\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 3
     lines:
     - text: "\u201CMmm... seaweed never goes out of style.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CWho needs a prince when you have plankton crisps?\u201D\r"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 5
     lines:
     - text: "\u201CSometimes healing looks like shiny new accessories.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CLove is my aesthetic and also my brand.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CCurrently ideating\u2014think sparkles meet activism.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CIf it\u2019s not fabulous, I\u2019m not interested.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
 --- !u!65 &7863887499222831146
 BoxCollider:
