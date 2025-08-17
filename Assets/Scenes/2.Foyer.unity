@@ -6215,6 +6215,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592468805}
   m_CullTransparentMesh: 1
+--- !u!1 &594471054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594471057}
+  - component: {fileID: 594471056}
+  - component: {fileID: 594471055}
+  m_Layer: 0
+  m_Name: '@bootstrap'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &594471055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594471054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af78150d002193a43ba8599206ca9f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubbleSprite: {fileID: 1137205278}
+  moveSpeed: 15
+  riseDistance: 45
+  delayBeforeLoad: 1.5
+  bubbleAudioSource: {fileID: 1206302938}
+--- !u!114 &594471056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594471054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b522ab61efc45f4988dceaa71bed6fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &594471057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594471054}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -57.978214, y: 16.751984, z: -47.54651}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &597047949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7382,7 +7444,6 @@ GameObject:
   - component: {fileID: 674978587}
   - component: {fileID: 674978586}
   - component: {fileID: 674978585}
-  - component: {fileID: 674978583}
   - component: {fileID: 674978582}
   m_Layer: 5
   m_Name: MapButton
@@ -7425,18 +7486,6 @@ MonoBehaviour:
   glowColor: {r: 1, g: 0.9815198, b: 0, a: 1}
   scaleMultiplier: 1.05
   transitionSpeed: 5
---- !u!114 &674978583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674978580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b522ab61efc45f4988dceaa71bed6fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &674978585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7493,9 +7542,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 674978583}
-        m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
-        m_MethodName: LoadSceneByName
+      - m_Target: {fileID: 594471055}
+        m_TargetAssemblyTypeName: SimpleSceneTransition, Assembly-CSharp
+        m_MethodName: TransitionToScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8737,14 +8786,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5a39dbce6253348b766b358a10038d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showOnlyOnce: 1
+  playerPrefsKey: Tutorial_Foyer_Seen
   arrowInventory: {fileID: 940584638}
   arrowCompass: {fileID: 428715193}
   arrowMap: {fileID: 946191979}
-  canvasHelloYouInstructions: {fileID: 1505627830}
-  canvasInventoryInstructions: {fileID: 280127785}
-  canvasOrbComment: {fileID: 1825890744}
-  canvasCompassInstructions: {fileID: 138127073}
-  canvasMapInstructions: {fileID: 3343519}
+  panelHelloYou: {fileID: 0}
+  panelInventory: {fileID: 0}
+  panelOrbComment: {fileID: 0}
+  panelCompass: {fileID: 0}
+  panelMap: {fileID: 0}
   inventoryPanel: {fileID: 427354878}
   compassPanel: {fileID: 1758998422}
   octaviusReactionController: {fileID: 1077804821}
@@ -22761,3 +22812,4 @@ SceneRoots:
   - {fileID: 1143002605}
   - {fileID: 1522228737}
   - {fileID: 1368759727}
+  - {fileID: 594471057}

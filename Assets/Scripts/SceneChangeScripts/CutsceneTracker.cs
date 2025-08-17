@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+/// Tiny PlayerPrefs helper so I can mark a cutscene as seen and skip it next time.
 public static class CutsceneTracker
 {
     public static bool HasSeen(string id)
     {
-        return UnityEngine.PlayerPrefs.GetInt("CutsceneSeen_" + id, 0) == 1;
+        return PlayerPrefs.GetInt("CutsceneSeen_" + id, 0) == 1;
     }
 
     public static void MarkSeen(string id)
     {
-        UnityEngine.PlayerPrefs.SetInt("CutsceneSeen_" + id, 1);
+        PlayerPrefs.SetInt("CutsceneSeen_" + id, 1);
+        PlayerPrefs.Save();
     }
 }
