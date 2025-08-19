@@ -13,7 +13,7 @@ public class SceneSwitcher : MonoBehaviour
         // Ensure only one lives across scenes.
         if (_instance != null && _instance != this) { Destroy(gameObject); return; }
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         // Try finding the transition manager once at boot; if I add one later, I'll refresh it on demand.
         transitionManager = FindObjectOfType<SimpleSceneTransition>();

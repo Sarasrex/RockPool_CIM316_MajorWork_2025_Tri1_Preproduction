@@ -2,38 +2,41 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// Bubble rise transition I’m using between scenes.
-/// Notes:
-/// - Prevents double triggers
-/// - Resets bubble position after load so it’s reusable
-/// - Delay is treated as TOTAL time; if rise already takes longer, no extra wait
 public class SimpleSceneTransition : MonoBehaviour
 {
     [Header("Visual")]
-    public Transform bubbleSprite;       // UI/World transform that rises upward
-    public float moveSpeed = 500f;       // units/sec (Canvas pixels if under Screen Space UI)
-    public float riseDistance = 1500f;   // how far to move before loading the scene
+    public Transform bubbleSprite;
+    public float moveSpeed = 500f;
+    public float riseDistance = 1500f;
 
     [Header("Timing")]
     [Tooltip("Target total time from trigger to load. If <= (riseDistance/moveSpeed), I skip extra waiting.")]
-    public float delayBeforeLoad = 1.5f;
+    public float delayBeforeLoad = 1f;
 
     [Header("Audio")]
-    public AudioSource bubbleAudioSource; // optional whoosh/pop SFX
+    public AudioSource bubbleAudioSource;
 
     private Vector3 startPosition;
     private string targetSceneName;
     private bool isTransitioning;
+    private Coroutine transitionCo;
+
+    // Safety: if something goes wrong, we won’t be stuck forever
+    private const float HARD_TIMEOUT = 6f;
 
     private void Awake()
     {
         if (bubbleSprite != null)
             startPosition = bubbleSprite.position;
 
-        DontDestroyOnLoad(gameObject);
-
-        // After each scene loads, I reset the bubble so it’s ready next time.
+        //DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnEnable()
+    {
+        // Safety reset in case we re-enable a stale instance
+        isTransitioning = false;
     }
 
     private void OnDestroy()
@@ -45,53 +48,75 @@ public class SimpleSceneTransition : MonoBehaviour
     {
         ResetBubble();
         isTransitioning = false;
+        transitionCo = null;
     }
 
     public void TransitionToScene(string sceneName)
     {
+        if (string.IsNullOrEmpty(sceneName))
+        {
+            Debug.LogError("[SimpleSceneTransition] Empty scene name.");
+            return;
+        }
+
         if (isTransitioning)
         {
-            Debug.Log("[SimpleSceneTransition] Transition already in progress.");
+            Debug.LogWarning("[SimpleSceneTransition] Transition already in progress; forcing direct load fallback.");
+            ForceDirectLoad(sceneName);
             return;
         }
 
         targetSceneName = sceneName;
         isTransitioning = true;
 
-        if (bubbleAudioSource != null)
-            bubbleAudioSource.Play();
+        if (bubbleAudioSource) bubbleAudioSource.Play();
 
-        StartCoroutine(PlayTransition());
+        transitionCo = StartCoroutine(PlayTransition());
+        StartCoroutine(HardTimeoutWatchdog());
     }
 
     private IEnumerator PlayTransition()
     {
-        float movedDistance = 0f;
+        float moved = 0f;
         float riseTime = (moveSpeed > 0f) ? (riseDistance / moveSpeed) : 0f;
 
-        // Move bubble upwards until target distance is reached.
-        while (movedDistance < riseDistance)
+        while (moved < riseDistance)
         {
             float step = moveSpeed * Time.unscaledDeltaTime;
-            if (bubbleSprite != null)
-            {
-                bubbleSprite.position += new Vector3(0f, step, 0f);
-            }
-            movedDistance += step;
+            if (bubbleSprite) bubbleSprite.position += new Vector3(0f, step, 0f);
+            moved += step;
             yield return null;
         }
 
-        // Ensure total delay target is respected (but never negative).
         float extraWait = Mathf.Max(0f, delayBeforeLoad - riseTime);
-        if (extraWait > 0f)
-            yield return new WaitForSecondsRealtime(extraWait);
+        if (extraWait > 0f) yield return new WaitForSecondsRealtime(extraWait);
 
+        // Normalise time, just in case
+        Time.timeScale = 1f;
         SceneManager.LoadScene(targetSceneName);
+    }
+
+    private IEnumerator HardTimeoutWatchdog()
+    {
+        float t = 0f;
+        while (t < HARD_TIMEOUT && isTransitioning) { t += Time.unscaledDeltaTime; yield return null; }
+        if (isTransitioning)
+        {
+            Debug.LogWarning("[SimpleSceneTransition] Timeout; forcing direct load.");
+            ForceDirectLoad(targetSceneName);
+        }
     }
 
     public void ResetBubble()
     {
-        if (bubbleSprite != null)
-            bubbleSprite.position = startPosition;
+        if (bubbleSprite) bubbleSprite.position = startPosition;
+    }
+
+    private void ForceDirectLoad(string sceneName)
+    {
+        isTransitioning = false;
+        transitionCo = null;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
     }
 }

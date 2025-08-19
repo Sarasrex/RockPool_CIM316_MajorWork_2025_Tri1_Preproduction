@@ -40921,7 +40921,7 @@ GameObject:
   - component: {fileID: 1953387791}
   - component: {fileID: 1953387790}
   m_Layer: 0
-  m_Name: '@bootstrap'
+  m_Name: SceneSwitchManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
