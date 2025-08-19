@@ -212,12 +212,12 @@ GameObject:
   - component: {fileID: 38519885}
   - component: {fileID: 38519884}
   m_Layer: 5
-  m_Name: Cutscene_Level1Close_1of3
+  m_Name: Cutscene_Level1Close_1of2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &38519883
 RectTransform:
   m_ObjectHideFlags: 0
@@ -360,9 +360,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 387197790}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+      - m_Target: {fileID: 387197791}
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -680,8 +680,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Scene Set Up Notes: \nShot 3: Close-up as she places a decorative shell
-    on the ground."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1131,16 +1130,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243683650}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -7.6153827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1316554659}
+  m_Father: {fileID: 639857778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: 320}
+  m_AnchoredPosition: {x: 306.47217, y: 356.92743}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &243683652
@@ -1163,10 +1162,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cutscene 3 - Pearl Arrives with the Current
+  m_text: Pearl arrives with the current
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
+  m_sharedMaterial: {fileID: -214090951566820834, guid: e54aec3aadee0e74bbb30411c8e180a6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1274,7 +1274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47, y: -214}
+  m_AnchoredPosition: {x: -47, y: 233.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &245084203
@@ -1297,10 +1297,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Text Overlay:\n\u201COh my shell! This place has potential.\u201D"
+  m_text: "\u201COh my shell! This place has potential.\u201D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
+  m_sharedMaterial: {fileID: -214090951566820834, guid: e54aec3aadee0e74bbb30411c8e180a6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1715,8 +1716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Scene Set Up Notes: \nShot 2 - Full body pose of Pearl striking a twirl,
-    sparkles around her."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2149,7 +2149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 387197789}
-  - component: {fileID: 387197790}
+  - component: {fileID: 387197791}
   m_Layer: 0
   m_Name: Cutscene_Finn
   m_TagString: Untagged
@@ -2171,9 +2171,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1606459294}
+  - {fileID: 1245107350}
+  - {fileID: 1596477713}
+  - {fileID: 1955922425}
+  - {fileID: 427336164}
   m_Father: {fileID: 1597382234}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &387197790
+--- !u!114 &387197791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2182,7 +2186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 387197788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18db494bc5601f440aedd8612f794de8, type: 3}
+  m_Script: {fileID: 11500000, guid: e5c4da3912cf78b4a8d8914d9e2c86cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panels:
@@ -2191,7 +2195,6 @@ MonoBehaviour:
   - {fileID: 1596477712}
   - {fileID: 1245107347}
   - {fileID: 1606459291}
-  sceneToLoadWhenDone: 4.HermitHome01
 --- !u!1 &394968673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,18 +2483,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427336163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 7.6153827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2012630911}
   - {fileID: 1036236884}
-  m_Father: {fileID: 1606459294}
+  m_Father: {fileID: 387197789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 127.899414, y: 216}
+  m_AnchoredPosition: {x: -315.47217, y: -36.92743}
+  m_SizeDelta: {x: 4324.8994, y: 2407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427336165
 MonoBehaviour:
@@ -3199,8 +3202,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 931666046}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3331,8 +3334,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1316554660}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3462,9 +3465,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2076012328}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+      - m_Target: {fileID: 2076012329}
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3900,6 +3903,7 @@ RectTransform:
   m_Children:
   - {fileID: 582394726}
   - {fileID: 2110857809}
+  - {fileID: 243683651}
   m_Father: {fileID: 1316554659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4162,9 +4166,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 387197790}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+      - m_Target: {fileID: 387197791}
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4294,9 +4298,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2076012328}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+      - m_Target: {fileID: 2076012329}
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4972,7 +4976,7 @@ GameObject:
   - component: {fileID: 765076426}
   - component: {fileID: 765076425}
   m_Layer: 5
-  m_Name: Cutscene_Level1Close_2of3
+  m_Name: Cutscene_Level1Close_2of2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5121,8 +5125,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1316554660}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5764,7 +5768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114, y: -154}
+  m_AnchoredPosition: {x: 114, y: 326.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875962683
@@ -5787,10 +5791,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Text Overlay:  \n\u201CWith love. With flair. And with sequins, of course.\u201D"
+  m_text: "\u201C... well add a few sequins here, of course.\u201D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
+  m_sharedMaterial: {fileID: -214090951566820834, guid: e54aec3aadee0e74bbb30411c8e180a6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6080,9 +6085,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 387197790}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+      - m_Target: {fileID: 387197791}
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6213,8 +6218,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1316554660}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6306,14 +6311,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 931666044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18db494bc5601f440aedd8612f794de8, type: 3}
+  m_Script: {fileID: 11500000, guid: e5c4da3912cf78b4a8d8914d9e2c86cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panels:
   - {fileID: 1609547689}
   - {fileID: 1727282}
   - {fileID: 278374717}
-  sceneToLoadWhenDone: 4.HermitHome01
 --- !u!1 &961267344
 GameObject:
   m_ObjectHideFlags: 0
@@ -6895,14 +6899,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1089015591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18db494bc5601f440aedd8612f794de8, type: 3}
+  m_Script: {fileID: 11500000, guid: e5c4da3912cf78b4a8d8914d9e2c86cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panels:
   - {fileID: 151695333}
   - {fileID: 1198639976}
   - {fileID: 1585140613}
-  sceneToLoadWhenDone: 4.HermitHome01
 --- !u!1 &1098356212
 GameObject:
   m_ObjectHideFlags: 0
@@ -7120,8 +7123,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 931666046}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7386,8 +7389,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1089015593}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8065,7 +8068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1231595508
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8190,19 +8193,19 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245107347}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 7.6153827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1885975072}
   - {fileID: 722394275}
   - {fileID: 961267345}
-  m_Father: {fileID: 1606459294}
+  m_Father: {fileID: 387197789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: 54}
+  m_AnchoredPosition: {x: -315.47217, y: -36.92743}
+  m_SizeDelta: {x: 4157, y: 2245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1245396437
 GameObject:
@@ -8287,9 +8290,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2076012328}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+      - m_Target: {fileID: 2076012329}
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8759,7 +8762,6 @@ Transform:
   - {fileID: 186738590}
   - {fileID: 781768019}
   - {fileID: 639857778}
-  - {fileID: 243683651}
   m_Father: {fileID: 1597382234}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1316554660
@@ -8771,14 +8773,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1316554658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18db494bc5601f440aedd8612f794de8, type: 3}
+  m_Script: {fileID: 11500000, guid: e5c4da3912cf78b4a8d8914d9e2c86cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panels:
   - {fileID: 639857777}
   - {fileID: 781768018}
   - {fileID: 186738589}
-  sceneToLoadWhenDone: 4.HermitHome01
 --- !u!1 &1348677999
 GameObject:
   m_ObjectHideFlags: 0
@@ -9334,8 +9335,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1089015593}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9508,7 +9509,7 @@ MonoBehaviour:
   cutscene_Finn: {fileID: 387197788}
   cutscene_Hans: {fileID: 931666044}
   cutscene_Priscilla: {fileID: 1376401187}
-  cutscene_Final: {fileID: 0}
+  cutscene_Final: {fileID: 1583454327}
   verboseLogs: 1
 --- !u!1 &1566283960
 GameObject:
@@ -9727,8 +9728,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1089015593}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9858,7 +9859,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1583454329}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
         m_MethodName: NextPanel
         m_Mode: 1
@@ -10087,13 +10088,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1583454327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18db494bc5601f440aedd8612f794de8, type: 3}
+  m_Script: {fileID: 11500000, guid: e5c4da3912cf78b4a8d8914d9e2c86cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panels:
   - {fileID: 38519882}
   - {fileID: 765076423}
-  sceneToLoadWhenDone: 0.GameCoverBeta
 --- !u!1 &1585140613
 GameObject:
   m_ObjectHideFlags: 0
@@ -10198,19 +10198,19 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596477712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 7.6153827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 65935957}
   - {fileID: 1566283961}
   - {fileID: 131724733}
-  m_Father: {fileID: 1606459294}
+  m_Father: {fileID: 387197789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.472168, y: 0}
-  m_SizeDelta: {x: 252.5, y: 115}
+  m_AnchoredPosition: {x: -311, y: -36.92743}
+  m_SizeDelta: {x: 4449.5, y: 2306}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596477714
 MonoBehaviour:
@@ -10443,10 +10443,6 @@ RectTransform:
   - {fileID: 908685447}
   - {fileID: 1797216908}
   - {fileID: 210203342}
-  - {fileID: 1245107350}
-  - {fileID: 1596477713}
-  - {fileID: 1955922425}
-  - {fileID: 427336164}
   m_Father: {fileID: 387197789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11704,9 +11700,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 387197790}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+      - m_Target: {fileID: 387197791}
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11837,8 +11833,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 931666046}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12102,7 +12098,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1583454329}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
         m_MethodName: NextPanel
         m_Mode: 1
@@ -12304,7 +12300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1917596527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12521,7 +12517,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955922424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 7.6153827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12529,12 +12525,12 @@ RectTransform:
   - {fileID: 1844901339}
   - {fileID: 1297599748}
   - {fileID: 513363036}
-  m_Father: {fileID: 1606459294}
+  m_Father: {fileID: 387197789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -143.39941, y: 172}
+  m_AnchoredPosition: {x: -315.47217, y: -36.92743}
+  m_SizeDelta: {x: 4053.6006, y: 2363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1955922426
 MonoBehaviour:
@@ -12656,9 +12652,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 387197790}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: NextPanel
+      - m_Target: {fileID: 387197791}
+        m_TargetAssemblyTypeName: PanelController_Cutscene, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12855,7 +12851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2056459676
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12926,13 +12922,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2076012327}
   - component: {fileID: 2076012328}
+  - component: {fileID: 2076012329}
   m_Layer: 0
   m_Name: Cutscene_Intro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2076012327
 Transform:
   m_ObjectHideFlags: 0
@@ -12959,7 +12956,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076012326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18db494bc5601f440aedd8612f794de8, type: 3}
   m_Name: 
@@ -12970,6 +12967,23 @@ MonoBehaviour:
   - {fileID: 1917596526}
   - {fileID: 519529321}
   sceneToLoadWhenDone: 2.Foyer
+--- !u!114 &2076012329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076012326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c4da3912cf78b4a8d8914d9e2c86cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panels:
+  - {fileID: 2056459675}
+  - {fileID: 1231595507}
+  - {fileID: 1917596526}
+  - {fileID: 519529321}
 --- !u!1 &2110857808
 GameObject:
   m_ObjectHideFlags: 0
@@ -13027,8 +13041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Scene Set Up Notes: \nShot 1 : Seaweed parted view with a shimmer of pink
-    light approaching."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

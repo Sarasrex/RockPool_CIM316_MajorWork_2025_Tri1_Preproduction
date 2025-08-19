@@ -97,6 +97,15 @@ public class CutsceneRouter : MonoBehaviour
 
     private void FinishAndReturn(bool skipOnly)
     {
+        // If a hermit should be unlocked after this cutscene, do it now.
+        if (!string.IsNullOrEmpty(CutsceneRequest.NextUnlockHermit) && GameProgress.Instance != null)
+        {
+            if (GameProgress.TryParseHermit(CutsceneRequest.NextUnlockHermit, out var h))
+                GameProgress.Instance.Unlock(h);
+
+            CutsceneRequest.NextUnlockHermit = null; // consume it
+        }
+
         if (string.IsNullOrEmpty(returnScene))
         {
             if (verboseLogs)
@@ -106,4 +115,5 @@ public class CutsceneRouter : MonoBehaviour
 
         SceneSwitcher.Load(returnScene);
     }
+
 }
