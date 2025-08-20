@@ -1561,7 +1561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47, y: -214}
+  m_AnchoredPosition: {x: -47, y: 42}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &262052358
@@ -1584,7 +1584,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'We light our world with the stories that return with.
+
+
+    In food. In
+    glitter and guts. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
   m_sharedMaterial: {fileID: -214090951566820834, guid: e54aec3aadee0e74bbb30411c8e180a6,
@@ -1651,7 +1655,7 @@ MonoBehaviour:
   m_margin: {x: -376.63446, y: -23.539642, z: -568.31433, w: -43.71649}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &262052359
@@ -5014,7 +5018,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -315.47217, y: -146}
+  m_AnchoredPosition: {x: -315.47217, y: 181}
   m_SizeDelta: {x: 3295, y: 1836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765076425
@@ -5805,7 +5809,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u201C... well add a few sequins here, of course.\u201D"
+  m_text: "\u201C... we'll add a few sequins here, of course.\u201D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e54aec3aadee0e74bbb30411c8e180a6, type: 2}
   m_sharedMaterial: {fileID: -214090951566820834, guid: e54aec3aadee0e74bbb30411c8e180a6,
@@ -7582,7 +7586,7 @@ MonoBehaviour:
   m_margin: {x: -534.3587, y: -77.344604, z: -745.8081, w: -57.167786}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1154674941
@@ -8768,7 +8772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1316554659
 Transform:
   m_ObjectHideFlags: 0
@@ -10215,7 +10219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1583454328
 Transform:
   m_ObjectHideFlags: 0
@@ -11406,7 +11410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 249.5, y: 450.89}
+  m_AnchoredPosition: {x: 251, y: -414}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831607955
@@ -11496,7 +11500,7 @@ MonoBehaviour:
   m_margin: {x: -960.5698, y: 0, z: -397.03528, w: -51.230347}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1831607956
