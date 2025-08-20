@@ -43,7 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1983260c24b704ec1850b560a9becc75, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -170,8 +170,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: ed78a52d0eb624f738d761b72b962a98, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -433,7 +433,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -560,8 +560,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 391581871fc134f8fb3cb1744d5ce552, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -689,7 +689,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bcd06848af45f42eeb6f63605066045e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -817,7 +817,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -944,8 +944,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 75ccac70fe17140a0a6a97aa98599972, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1215,12 +1215,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speechBubble: {fileID: 860118110639184924}
   bubbleText: {fileID: 6841882555653915956}
-  audioSource: {fileID: 0}
-  positiveAudioClip: {fileID: 0}
-  negativeAudioClip: {fileID: 0}
-  munchAudioClip: {fileID: 0}
-  sleepAudioClip: {fileID: 0}
-  helloAudioClip: {fileID: 0}
+  positiveAudioSource: {fileID: 0}
+  negativeAudioSource: {fileID: 0}
+  munchAudioSource: {fileID: 0}
+  sleepAudioSource: {fileID: 0}
+  helloAudioSource: {fileID: 0}
   hermitName: CaptainClaw
   acceptedCategory: 
   likedFoods:
@@ -1273,87 +1272,87 @@ MonoBehaviour:
   - triggerType: 0
     lines:
     - text: "\u201CYARRR! Look who washed back ashore!\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CAhoy there, sea-spark! Ready to make some waves?\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CYou\u2019ve got the glint of adventure in your eyes today.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CHAR HAR! I missed yer barnacle face!\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 1
     lines:
     - text: "\u201CAHA! That\u2019s the stuff!\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CNow that\u2019s what I\u2019m talkin\u2019 about!\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CA treasure-worthy decision, that one.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CYou\u2019ve got guts, kid\u2014reminds me o\u2019 me younger days.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CSmart move! You\u2019re learnin\u2019 the ropes.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 2
     lines:
     - text: "\u201CNope. Not happenin\u2019. Not in me rockpool.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CTry again, before the deep dark sharks park.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CI\u2019ve seen sea cucumbers with more sense.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 4
     lines:
     - text: '"Zzz... All hands on... zzzz deck..."'
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 8273069676805876542}
       animationTrigger: 
     - text: '"Snrrrk... Me gold... gimme back me goooooold..."'
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 4809027345413741175}
       animationTrigger: 
     - text: '"Zzz... Tell Sheila I love her... Zzz"'
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 3345543342507488477}
       animationTrigger: 
   - triggerType: 3
     lines:
     - text: "\u201CMmm... tastes like victory and smoked sea bass!\u201D"
-      audioClip: {fileID: 8300000, guid: 707c91885113a48859e1495414f02a50, type: 3}
+      audioSource: {fileID: 3678255979788433347}
       animationTrigger: 
     - text: "\u201CAye, this stew be the treasure of the tides.\u201D"
-      audioClip: {fileID: 8300000, guid: bcd06848af45f42eeb6f63605066045e, type: 3}
+      audioSource: {fileID: 6716435397803490419}
       animationTrigger: 
     - text: "\u201CMmm, Just like Old Mates soul saving soup\u201D"
-      audioClip: {fileID: 8300000, guid: f16b248860ca040c4b5c3887fa64fe40, type: 3}
+      audioSource: {fileID: 6554140748947090621}
       animationTrigger: 
     - text: "\u201CMmm, Just like Old Mates soul saving soup\u201D"
-      audioClip: {fileID: 8300000, guid: 1983260c24b704ec1850b560a9becc75, type: 3}
+      audioSource: {fileID: 2031990516043017530}
       animationTrigger: 
   - triggerType: 5
     lines:
     - text: "\u201COnce faced a shark bigger than a sailboat\u2014beat \u2018him
         with a spoon.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CHaven\u2019t seen the Lost Haul in years... but I can still smell
         her perfume.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CUsed to be feared by every reef-faring trader this side o\u2019
         the sea\u2026\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CI\u2019d trade all this treasure... just for one more tide with
         her.\u201D"
-      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
       animationTrigger: 
 --- !u!65 &3986880974761175368
 BoxCollider:
@@ -1419,7 +1418,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1547,7 +1546,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1713,7 +1712,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5833534558036975888
@@ -1759,7 +1758,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 707c91885113a48859e1495414f02a50, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1887,7 +1886,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f16b248860ca040c4b5c3887fa64fe40, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2064,8 +2063,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 0b5eda897fd52420c947a09ae6e87699, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2193,7 +2192,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2320,8 +2319,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 8da4f1599839e48e6875461aeb464b31, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2448,8 +2447,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 61f25203304b1467ca8f084a42b764cf, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2577,7 +2576,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2704,8 +2703,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 091ea0b7139ea462f82bf86cdad76e43, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2833,7 +2832,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2960,8 +2959,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: bcd06848af45f42eeb6f63605066045e, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
