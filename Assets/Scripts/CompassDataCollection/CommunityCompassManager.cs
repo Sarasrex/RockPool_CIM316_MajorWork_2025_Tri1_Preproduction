@@ -1,124 +1,125 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-// This script tracks how happy all the hermit crabs are,
-// updates the community happiness slider on the screen,
-// and shows a win screen when the group is happy enough.
+/// Tracks hermit happiness, updates the compass UI, and triggers the Final cutscene on win.
 public class CommunityCompassManager : MonoBehaviour
 {
-    public static CommunityCompassManager Instance; // Allows other scripts to call this one easily (like a shared controller)
+    public static CommunityCompassManager Instance;
 
-    private HermitCrabDropTarget[] hermits;  // Automatically filled when the game starts
-    public Slider communitySlider;          // The compass UI slider showing overall happiness
+    private HermitCrabDropTarget[] hermits;   // Filled at start
+    public Slider communitySlider;            // UI compass slider (0..1)
 
-    public GameObject winPanel;             // The panel that pops up when the community wins
-    private bool hasWon = false;            // Prevents the win screen from showing more than once
+    [Header("Legacy (optional)")]
+    public GameObject winPanel;               // Old win panel (kept for safety but not used)
+
+    private bool hasWon = false;
 
     public CompassAnimationController compassAnimationController;
 
     [Header("Settings")]
-    [Range(0f, 1f)] public float winThreshold = 1f; // How full the compass needs to be to win (1 = 100%)
+    [Range(0f, 1f)] public float winThreshold = 1f; // 1 = 100%
 
-    // This runs early — before anything else. It sets up this script so it's easy to access from other scripts.
     void Awake()
     {
         if (Instance == null) Instance = this;
-        else Destroy(gameObject); // If another one already exists, remove this one
+        else if (Instance != this) { Destroy(gameObject); return; }
     }
 
-    // This runs at the start of the game
     void Start()
     {
-        hermits = FindObjectsOfType<HermitCrabDropTarget>(); // Finds all hermits in the scene
-        Debug.Log("Hermit found " + hermits.Length + " hermits in the scene.");
+        // Find all hermits in the scene (even inactive), but we’ll only count active ones.
+        hermits = FindObjectsOfType<HermitCrabDropTarget>(includeInactive: true);
+        Debug.Log($"[CommunityCompass] Found {hermits.Length} hermits in the scene.");
         StartCoroutine(DelayedUpdate());
     }
 
-    // This waits just a moment to let everything load, then checks the initial happiness
     IEnumerator DelayedUpdate()
     {
-        yield return null; // Wait one frame
-        UpdateCommunityHappiness(); // Now check happiness across the hermits
+        yield return null; // wait a frame for other scripts to initialise
+        UpdateCommunityHappiness();
     }
 
-    // This method adds up all the hermits' happiness levels,
-    // finds the average, updates the slider, and checks if you've won
+    /// Call this if you add/remove hermits dynamically and want to rescan.
+    public void RefreshHermits()
+    {
+        hermits = FindObjectsOfType<HermitCrabDropTarget>(includeInactive: true);
+    }
+
+    /// Adds up active hermits' happiness, updates the slider/animation, and checks win.
     public void UpdateCommunityHappiness()
     {
         if (hermits == null || hermits.Length == 0)
         {
-            Debug.LogWarning("No hermits assigned to the compass manager!");
-            return; // Stop here if the list of hermits is empty
+            Debug.LogWarning("[CommunityCompass] No hermits assigned/found.");
+            return;
         }
 
         float total = 0f;
+        int count = 0;
 
-        // Go through each hermit and add up their happiness
         foreach (var crab in hermits)
         {
-            Debug.Log(" " + crab.hermitName + " happiness: " + crab.happiness);
+            if (crab == null || !crab.gameObject.activeInHierarchy) continue; // only active hermits
             total += crab.happiness;
+            count++;
+            // Debug.Log($"[CommunityCompass] {crab.hermitName} happiness: {crab.happiness}");
         }
 
-        // Work out the average (total happiness divided by number of hermits)
-        float average = total / hermits.Length;
-        float normalisedAverage = average / 100f; // Turn it into a value between 0 and 1 (since happiness is out of 100)
+        if (count == 0) return;
 
-        Debug.Log("Updated community average: " + average);
-        Debug.Log("Normalised for slider: " + normalisedAverage);
+        float average = total / count;            // 0..100
+        float normalisedAverage = average / 100f; // 0..1
 
-        // Set the slider to match the community's average happiness
-        if (communitySlider != null)
-        {
-            communitySlider.value = normalisedAverage;
-        }
+        // Update UI
+        if (communitySlider != null) communitySlider.value = normalisedAverage;
+        if (compassAnimationController != null) compassAnimationController.UpdateCompassVisual(normalisedAverage);
 
-        // Update the compass animation based on the value
-        if (compassAnimationController != null)
-        {
-            compassAnimationController.UpdateCompassVisual(normalisedAverage);
-        }
-
-        // Check if the average happiness is enough to win
+        // Win?
         if (!hasWon && normalisedAverage >= winThreshold)
         {
             hasWon = true;
-            TriggerWinCondition(); // Show the win screen
+            TriggerWinCondition();
         }
     }
 
-    // This shows the win panel and hides hermit sliders when the group is happy enough
+    /// On win: hide sliders, and route to the Final cutscene.
     private void TriggerWinCondition()
     {
-        if (winPanel != null)
-        {
-            winPanel.SetActive(true);
-            Debug.Log("Win condition reached — win panel activated.");
+        // Ensure the old panel doesn't pop
+        if (winPanel != null) winPanel.SetActive(false);
 
-            // Hide all hermit sliders
-            HideHermitSliders();
-        }
-        else
-        {
-            Debug.LogWarning("Win Panel not assigned in inspector.");
-        }
+        HideHermitSliders();
+
+        string returnScene = SceneManager.GetActiveScene().name;
+        bool forcePlay = !CutsceneTracker.HasSeen("Final"); // play once per device/profile
+
+        CutsceneRequest.Set("Final", returnScene, forcePlay);
+
+        // If you’re using additive overlays instead, do:
+        // CutsceneRequest.UseAdditive = true;
+        // SceneManager.LoadScene("CutSceneLayer", LoadSceneMode.Additive);
+        // return;
+
+        // Standard scene swap:
+        SceneSwitcher.Load("CutSceneLayer");
+        Debug.Log("[CommunityCompass] Win! Triggering Final cutscene.");
     }
 
-    // This hides the HermitSlider_ GameObjects under each hermit's Canvas
+    /// Hides the HermitSlider_ GameObjects under each hermit's Canvas
     private void HideHermitSliders()
     {
+        if (hermits == null) return;
+
         foreach (var crab in hermits)
         {
-            Transform sliderTransform = crab.transform.Find("Canvas/HermitSlider_" + crab.hermitName);
+            if (crab == null) continue;
+            Transform sliderTransform = crab.transform.Find($"Canvas/HermitSlider_{crab.hermitName}");
             if (sliderTransform != null)
             {
                 sliderTransform.gameObject.SetActive(false);
-                Debug.Log("Hid slider for " + crab.hermitName);
-            }
-            else
-            {
-                Debug.LogWarning("Could not find slider for " + crab.hermitName);
+                // Debug.Log($"[CommunityCompass] Hid slider for {crab.hermitName}");
             }
         }
     }

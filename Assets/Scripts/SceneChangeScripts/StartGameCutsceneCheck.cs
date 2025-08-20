@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// Main Menu "Start" button hook.
-/// I request the Intro cutscene and jump to CutSceneLayer. Router handles the rest.
+/// Now supports clearing all PlayerPrefs and resetting in-memory progress
+/// so every new game starts fresh (great for exhibition builds).
 public class StartGameCutsceneCheck : MonoBehaviour
 {
     [Header("What to play first")]
@@ -15,11 +16,23 @@ public class StartGameCutsceneCheck : MonoBehaviour
     [Header("Cutscene Scene")]
     public string cutsceneLayerScene = "CutSceneLayer";
 
+    [Header("Exhibition mode")]
+    [Tooltip("If true, clears ALL PlayerPrefs (cutscene flags, options, etc.) and resets GameProgress on Start.")]
+    public bool deleteAllPrefsOnStart = true;
+
     // Hook this to the Main Menu Start button
     public void StartGame()
     {
+        if (deleteAllPrefsOnStart)
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+
+            if (GameProgress.Instance != null)
+                GameProgress.Instance.ResetProgress();
+        }
+
         CutsceneRequest.Set(introCutsceneId, returnSceneName, forcePlayIntro);
         SceneSwitcher.Load(cutsceneLayerScene);
     }
 }
-

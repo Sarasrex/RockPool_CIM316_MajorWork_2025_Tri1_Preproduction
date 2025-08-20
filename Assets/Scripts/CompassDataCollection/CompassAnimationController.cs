@@ -17,14 +17,44 @@ public class CompassAnimationController : MonoBehaviour
     private GameObject currentVisual;
     private Coroutine transitionCoroutine;
 
+    // Cache original (intended) scales so we can always snap back cleanly
+    private readonly Dictionary<GameObject, Vector3> baseScale = new Dictionary<GameObject, Vector3>();
+    private GameObject[] visuals;
+
+    void Awake()
+    {
+        visuals = new[]
+        {
+            CompassAnimation_Low,
+            CompassAnimation_LowMedium,
+            CompassAnimation_Medium,
+            CompassAnimation_MediumFull,
+            CompassAnimation_Full
+        };
+
+        // Cache scales and ensure a clean starting state
+        foreach (var v in visuals)
+        {
+            if (!v) continue;
+            if (!baseScale.ContainsKey(v)) baseScale[v] = v.transform.localScale;
+            v.transform.localScale = baseScale[v];
+            v.SetActive(false);
+        }
+        currentVisual = null; // nothing shown until first UpdateCompassVisual call
+    }
+
     public void UpdateCompassVisual(float normalisedValue)
     {
         GameObject nextVisual = GetTargetVisual(normalisedValue);
-
         if (currentVisual == nextVisual) return;
 
+        // If we interrupt a transition, normalize everything so no state is left tiny
         if (transitionCoroutine != null)
+        {
             StopCoroutine(transitionCoroutine);
+            transitionCoroutine = null;
+            NormalizeAll(exceptA: currentVisual, exceptB: nextVisual);
+        }
 
         transitionCoroutine = StartCoroutine(TransitionVisual(currentVisual, nextVisual));
         currentVisual = nextVisual;
@@ -34,53 +64,62 @@ public class CompassAnimationController : MonoBehaviour
     {
         float percent = value * 100f;
 
-        if (percent < 20f)
-            return CompassAnimation_Low;
-        else if (percent < 40f)
-            return CompassAnimation_LowMedium;
-        else if (percent < 60f)
-            return CompassAnimation_Medium;
-        else if (percent < 80f)
-            return CompassAnimation_MediumFull;
-        else
-            return CompassAnimation_Full;
+        if (percent < 20f) return CompassAnimation_Low;
+        if (percent < 40f) return CompassAnimation_LowMedium;
+        if (percent < 60f) return CompassAnimation_Medium;
+        if (percent < 80f) return CompassAnimation_MediumFull;
+        return CompassAnimation_Full;
     }
 
     IEnumerator TransitionVisual(GameObject fromObj, GameObject toObj)
     {
-        // Step 1: Shrink out the current visual
-        if (fromObj != null)
-        {
-            Vector3 originalScale = fromObj.transform.localScale;
-            float t = 0f;
-            while (t < transitionDuration)
-            {
-                t += Time.deltaTime;
-                float scale = Mathf.Lerp(1f, 0f, t / transitionDuration);
-                fromObj.transform.localScale = new Vector3(scale, scale, scale);
-                yield return null;
-            }
-            fromObj.SetActive(false);
-            fromObj.transform.localScale = originalScale; // reset scale in case it's used later
-        }
+        // Prep targets
+        if (fromObj && !baseScale.ContainsKey(fromObj)) baseScale[fromObj] = fromObj.transform.localScale;
+        if (toObj && !baseScale.ContainsKey(toObj)) baseScale[toObj] = toObj.transform.localScale;
 
-        // Step 2: Grow in the next visual
-        if (toObj != null)
+        if (toObj)
         {
             toObj.SetActive(true);
-            Vector3 originalScale = toObj.transform.localScale;
-            toObj.transform.localScale = Vector3.zero;
-
-            float t = 0f;
-            while (t < transitionDuration)
-            {
-                t += Time.deltaTime;
-                float scale = Mathf.Lerp(0f, 1f, t / transitionDuration);
-                toObj.transform.localScale = new Vector3(scale, scale, scale);
-                yield return null;
-            }
-
-            toObj.transform.localScale = originalScale;
+            toObj.transform.localScale = Vector3.zero; // grow from 0 to base
         }
+
+        float t = 0f;
+        while (t < transitionDuration)
+        {
+            t += Time.unscaledDeltaTime; // UI feels better unscaled
+            float a = Mathf.Clamp01(t / transitionDuration);
+
+            if (fromObj) fromObj.transform.localScale = Vector3.Lerp(baseScale[fromObj], Vector3.zero, a);
+            if (toObj) toObj.transform.localScale = Vector3.Lerp(Vector3.zero, baseScale[toObj], a);
+
+            yield return null;
+        }
+
+        // Snap to final states
+        if (fromObj)
+        {
+            fromObj.transform.localScale = baseScale[fromObj];
+            fromObj.SetActive(false);
+        }
+        if (toObj)
+        {
+            toObj.transform.localScale = baseScale[toObj];
+        }
+
+        transitionCoroutine = null;
+    }
+
+    // Make sure everything (except the two we’re animating) is disabled and at base scale
+    private void NormalizeAll(GameObject exceptA = null, GameObject exceptB = null)
+    {
+        foreach (var v in visuals)
+        {
+            if (!v) continue;
+            if (v == exceptA || v == exceptB) continue;
+            if (baseScale.TryGetValue(v, out var s)) v.transform.localScale = s;
+            v.SetActive(false);
+        }
+        if (exceptA && baseScale.TryGetValue(exceptA, out var sa)) exceptA.transform.localScale = sa;
+        if (exceptB && baseScale.TryGetValue(exceptB, out var sb)) exceptB.transform.localScale = sb;
     }
 }
