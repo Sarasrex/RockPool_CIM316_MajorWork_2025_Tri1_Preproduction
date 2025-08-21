@@ -1310,24 +1310,24 @@ MonoBehaviour:
   - triggerType: 2
     lines:
     - text: "\u201CNope. Not happenin\u2019. Not in me rockpool.\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 8273069676805876542}
       animationTrigger: 
     - text: "\u201CTry again, before the deep dark sharks park.\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 4809027345413741175}
       animationTrigger: 
     - text: "\u201CI\u2019ve seen sea cucumbers with more sense.\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 3345543342507488477}
       animationTrigger: 
   - triggerType: 4
     lines:
     - text: '"Zzz... All hands on... zzzz deck..."'
-      audioSource: {fileID: 8273069676805876542}
+      audioSource: {fileID: 2162440068335129380}
       animationTrigger: 
     - text: '"Snrrrk... Me gold... gimme back me goooooold..."'
-      audioSource: {fileID: 4809027345413741175}
+      audioSource: {fileID: 9152787541816659547}
       animationTrigger: 
     - text: '"Zzz... Tell Sheila I love her... Zzz"'
-      audioSource: {fileID: 3345543342507488477}
+      audioSource: {fileID: 7294485097958333799}
       animationTrigger: 
   - triggerType: 3
     lines:

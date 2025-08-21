@@ -292,7 +292,7 @@ MonoBehaviour:
     - text: "\u201CMmm... seaweed never goes out of style.\u201D"
       audioSource: {fileID: 5978056831733093690}
       animationTrigger: 
-    - text: "\u201CWho needs a prince when you have plankton crisps?\u201D\r"
+    - text: "\" Plankton crisps - my kind of crunch \u201D\r"
       audioSource: {fileID: 83724167097099276}
       animationTrigger: 
   - triggerType: 5
