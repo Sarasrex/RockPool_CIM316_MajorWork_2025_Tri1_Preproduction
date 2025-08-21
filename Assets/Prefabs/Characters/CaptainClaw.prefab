@@ -432,7 +432,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e1aa5b149bb284427b7f9fd706c6a702, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -816,7 +816,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9320748b6781244ff8de7a685523c485, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1286,16 +1286,16 @@ MonoBehaviour:
   - triggerType: 1
     lines:
     - text: "\u201CAHA! That\u2019s the stuff!\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 6092281417042556335}
       animationTrigger: 
     - text: "\u201CNow that\u2019s what I\u2019m talkin\u2019 about!\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 6244202188748168832}
       animationTrigger: 
     - text: "\u201CA treasure-worthy decision, that one.\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 9019008305335973243}
       animationTrigger: 
     - text: "\u201CYou\u2019ve got guts, kid\u2014reminds me o\u2019 me younger days.\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 8925569286254350779}
       animationTrigger: 
     - text: "\u201CSmart move! You\u2019re learnin\u2019 the ropes.\u201D"
       audioSource: {fileID: 0}
@@ -2575,7 +2575,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6dea8721af50b4f35bc854f87e61063c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2831,7 +2831,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 37f72a720fd154324a6dac53663a52bd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
