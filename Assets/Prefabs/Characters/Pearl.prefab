@@ -249,7 +249,7 @@ MonoBehaviour:
       audioSource: {fileID: 989444807117021262}
       animationTrigger: 
     - text: "\u201COoo! Did you bring drama or dessert?\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 5085975051196632213}
       animationTrigger: 
   - triggerType: 2
     lines:

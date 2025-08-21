@@ -20,7 +20,8 @@ public class HermitReactionController : MonoBehaviour
 
     [Header("Animator Trigger Names")]
     [Tooltip("Trigger name used in the Animator when the crab goes to sleep.")]
-    public string sleepTriggerName = "Sleep";
+    public string sleepTriggerName = "Sleeping";
+
     [Tooltip("Trigger name used in the Animator when the crab wakes up (stops snoring).")]
     public string wakeTriggerName = "WakeUp";
 
