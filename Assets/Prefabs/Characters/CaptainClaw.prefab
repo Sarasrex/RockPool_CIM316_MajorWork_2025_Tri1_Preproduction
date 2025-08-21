@@ -1279,7 +1279,7 @@ MonoBehaviour:
   - triggerType: 0
     lines:
     - text: "\u201CYARRR! Look who washed back ashore!\u201D"
-      audioSource: {fileID: 6092281417042556335}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CAhoy there, sea-spark! Ready to make some waves?\u201D"
       audioSource: {fileID: 0}
@@ -2849,12 +2849,16 @@ AudioSource:
   serializedVersion: 4
 <<<<<<< HEAD
   OutputAudioMixerGroup: {fileID: 0}
+<<<<<<< HEAD
   m_audioClip: {fileID: 8300000, guid: 61f25203304b1467ca8f084a42b764cf, type: 3}
 =======
   OutputAudioMixerGroup: {fileID: 7948931073016209163, guid: 31adc4588d4c8f7498642fe1a757cba6,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 37f72a720fd154324a6dac53663a52bd, type: 3}
 >>>>>>> ac51cb6f048fd61ae2de0b2e77bc429da031bdff
+=======
+  m_audioClip: {fileID: 0}
+>>>>>>> parent of d291a95 (Updated audio clean)
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
