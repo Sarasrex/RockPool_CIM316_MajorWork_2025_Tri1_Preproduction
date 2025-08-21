@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Central reaction controller to trigger Animator-based reactions (like munching, sleeping, etc).
-/// Also stops the snore loop when the hermit wakes up.
+/// Starts the snore loop on "Sleeping" and stops it on "WakeUp".
 /// </summary>
 public class HermitReactionController : MonoBehaviour
 {
@@ -37,13 +37,26 @@ public class HermitReactionController : MonoBehaviour
         hermitAnimator.SetTrigger(reactionName);
         Debug.Log($"[HermitReactionController] Triggered animation: {reactionName}");
 
-        // If the reaction is "WakeUp", stop the snore loop (if assigned/playing)
+        // Start snore when entering Sleeping
+        if (!string.IsNullOrEmpty(sleepTriggerName) &&
+            reactionName == sleepTriggerName &&
+            snoreLoopSource != null &&
+            !snoreLoopSource.isPlaying)
+        {
+            snoreLoopSource.loop = true; // ensure loop is on
+            if (snoreLoopSource.clip == null)
+                Debug.LogWarning("[HermitReactionController] Snore AudioSource has no clip assigned.");
+            snoreLoopSource.Play();
+            Debug.Log("[HermitReactionController] Started snore loop.");
+        }
+
+        // Stop snore when waking up
         if (!string.IsNullOrEmpty(wakeTriggerName) &&
             reactionName == wakeTriggerName &&
-            snoreLoopSource != null &&
-            snoreLoopSource.isPlaying)
+            snoreLoopSource != null)
         {
             snoreLoopSource.Stop();
+            Debug.Log("[HermitReactionController] Stopped snore loop.");
         }
     }
 }

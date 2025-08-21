@@ -1279,7 +1279,7 @@ MonoBehaviour:
   - triggerType: 0
     lines:
     - text: "\u201CYARRR! Look who washed back ashore!\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 6092281417042556335}
       animationTrigger: 
     - text: "\u201CAhoy there, sea-spark! Ready to make some waves?\u201D"
       audioSource: {fileID: 0}
@@ -1288,7 +1288,7 @@ MonoBehaviour:
       audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CHAR HAR! I missed yer barnacle face!\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 6244202188748168832}
       animationTrigger: 
   - triggerType: 1
     lines:
@@ -1321,13 +1321,13 @@ MonoBehaviour:
   - triggerType: 4
     lines:
     - text: '"Zzz... All hands on... zzzz deck..."'
-      audioSource: {fileID: 2162440068335129380}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: '"Snrrrk... Me gold... gimme back me goooooold..."'
-      audioSource: {fileID: 9152787541816659547}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: '"Zzz... Tell Sheila I love her... Zzz"'
-      audioSource: {fileID: 7294485097958333799}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 3
     lines:

@@ -1589,8 +1589,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodySprite: {fileID: 84133117}
   hermitAnimator: {fileID: 84133119}
-  snoreLoopSource: {fileID: 0}
-  sleepTriggerName: Sleep
+  snoreLoopSource: {fileID: 777378528}
+  sleepTriggerName: Sleeping
   wakeTriggerName: WakeUp
 --- !u!212 &84133121
 SpriteRenderer:
@@ -2299,8 +2299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodySprite: {fileID: 138367233}
   hermitAnimator: {fileID: 138367237}
-  snoreLoopSource: {fileID: 0}
-  sleepTriggerName: Sleep
+  snoreLoopSource: {fileID: 941471350}
+  sleepTriggerName: Sleeping
   wakeTriggerName: WakeUp
 --- !u!95 &138367237
 Animator:
@@ -4107,6 +4107,21 @@ PrefabInstance:
       propertyPath: dialogueGroups.Array.data[3].lines.Array.data[1].text
       value: '"Zzz...Snrrrk... Me gold... gimme back me goooooold...zzzz"'
       objectReference: {fileID: 0}
+    - target: {fileID: 6737250549679163418, guid: e3e401c8e8310104abad784a34654c19,
+        type: 3}
+      propertyPath: dialogueGroups.Array.data[3].lines.Array.data[0].audioSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737250549679163418, guid: e3e401c8e8310104abad784a34654c19,
+        type: 3}
+      propertyPath: dialogueGroups.Array.data[3].lines.Array.data[1].audioSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737250549679163418, guid: e3e401c8e8310104abad784a34654c19,
+        type: 3}
+      propertyPath: dialogueGroups.Array.data[3].lines.Array.data[2].audioSource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6741493014737520805, guid: e3e401c8e8310104abad784a34654c19,
         type: 3}
       propertyPath: m_Sprite
@@ -4262,10 +4277,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4135051670731269697, guid: e3e401c8e8310104abad784a34654c19,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1333108871}
-    - targetCorrespondingSourceObject: {fileID: 4135051670731269697, guid: e3e401c8e8310104abad784a34654c19,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1333108872}
     - targetCorrespondingSourceObject: {fileID: 4135051670731269697, guid: e3e401c8e8310104abad784a34654c19,
         type: 3}
@@ -4279,6 +4290,12 @@ PrefabInstance:
 --- !u!4 &210157297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3478954029276048034, guid: e3e401c8e8310104abad784a34654c19,
+    type: 3}
+  m_PrefabInstance: {fileID: 210157296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &210157298 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 9152787541816659547, guid: e3e401c8e8310104abad784a34654c19,
     type: 3}
   m_PrefabInstance: {fileID: 210157296}
   m_PrefabAsset: {fileID: 0}
@@ -7210,12 +7227,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1408337563}
   m_LocalEulerAnglesHint: {x: 48.741, y: -235.07199, z: -47.109}
---- !u!82 &366599111 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2162440068335129380, guid: e3e401c8e8310104abad784a34654c19,
-    type: 3}
-  m_PrefabInstance: {fileID: 210157296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &369450356
 GameObject:
   m_ObjectHideFlags: 0
@@ -15007,8 +15018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodySprite: {fileID: 935825313}
   hermitAnimator: {fileID: 935825318}
-  snoreLoopSource: {fileID: 0}
-  sleepTriggerName: Sleep
+  snoreLoopSource: {fileID: 1192222313}
+  sleepTriggerName: Sleeping
   wakeTriggerName: WakeUp
 --- !u!212 &935825317
 SpriteRenderer:
@@ -18009,7 +18020,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogueGroups.Array.data[0].lines.Array.data[0].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 376617276}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[0].lines.Array.data[1].audioSource
@@ -18024,42 +18035,42 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogueGroups.Array.data[0].lines.Array.data[3].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1803989071}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[0].lines.Array.data[4].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 153835077}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[1].lines.Array.data[0].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 912409713}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[1].lines.Array.data[1].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1132588270}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[1].lines.Array.data[2].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1045845910}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[2].lines.Array.data[0].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 376617276}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[2].lines.Array.data[1].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1468313127}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[2].lines.Array.data[2].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 153835077}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[3].lines.Array.data[0].audioSource
@@ -18084,22 +18095,22 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogueGroups.Array.data[4].lines.Array.data[0].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 831953799}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[4].lines.Array.data[1].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1373937223}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[4].lines.Array.data[2].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 69154470}
     - target: {fileID: 634414658479726969, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: dialogueGroups.Array.data[4].lines.Array.data[3].audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1046885672}
     - target: {fileID: 771410266320755598, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       propertyPath: audioSource
@@ -18537,10 +18548,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 565091283012385502, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1095290850}
-    - targetCorrespondingSourceObject: {fileID: 565091283012385502, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1095290853}
     - targetCorrespondingSourceObject: {fileID: 565091283012385502, guid: 3b573d8a2e0ed5e489d06f8cadf6a62e,
         type: 3}
@@ -18569,23 +18576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ef3e0ab8592ea45abc132e129bf1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1095290850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63109583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f07074c95c15348a0c13b804daa0db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodySprite: {fileID: 138367233}
-  hermitAnimator: {fileID: 138367237}
-  snoreLoopSource: {fileID: 941471350}
-  sleepTriggerName: Sleeping
-  wakeTriggerName: WakeUp
 --- !u!114 &1095290853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19341,8 +19331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodySprite: {fileID: 1115213300}
   hermitAnimator: {fileID: 1115213302}
-  snoreLoopSource: {fileID: 0}
-  sleepTriggerName: Sleep
+  snoreLoopSource: {fileID: 210157298}
+  sleepTriggerName: Sleeping
   wakeTriggerName: WakeUp
 --- !u!1 &1115402736
 GameObject:
@@ -22494,23 +22484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ef3e0ab8592ea45abc132e129bf1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1333108871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048664129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f07074c95c15348a0c13b804daa0db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodySprite: {fileID: 1115213300}
-  hermitAnimator: {fileID: 1115213302}
-  snoreLoopSource: {fileID: 366599111}
-  sleepTriggerName: Sleeping
-  wakeTriggerName: WakeUp
 --- !u!114 &1333108872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23546,10 +23519,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1507579303}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2430949397457256094, guid: d7dbdcddbdc76694aa95d546c9e9507c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2026280409}
     - targetCorrespondingSourceObject: {fileID: 2430949397457256094, guid: d7dbdcddbdc76694aa95d546c9e9507c,
         type: 3}
       insertIndex: -1
@@ -25769,7 +25738,7 @@ PrefabInstance:
         type: 3}
       propertyPath: reactionController
       value: 
-      objectReference: {fileID: 1618135924}
+      objectReference: {fileID: 84133120}
     - target: {fileID: 5412676517454655994, guid: 22964ef60b4b7554ca5290f82860fdac,
         type: 3}
       propertyPath: negativeAudioSource
@@ -25926,10 +25895,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 480127620}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1224392419863252947, guid: 22964ef60b4b7554ca5290f82860fdac,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1618135924}
     - targetCorrespondingSourceObject: {fileID: 1224392419863252947, guid: 22964ef60b4b7554ca5290f82860fdac,
         type: 3}
       insertIndex: -1
@@ -28661,23 +28626,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1470601688}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1618135924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618135920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f07074c95c15348a0c13b804daa0db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodySprite: {fileID: 84133117}
-  hermitAnimator: {fileID: 84133119}
-  snoreLoopSource: {fileID: 777378528}
-  sleepTriggerName: Sleeping
-  wakeTriggerName: WakeUp
 --- !u!114 &1618135928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33757,23 +33705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ef3e0ab8592ea45abc132e129bf1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2026280409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569350705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f07074c95c15348a0c13b804daa0db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodySprite: {fileID: 935825313}
-  hermitAnimator: {fileID: 935825318}
-  snoreLoopSource: {fileID: 1192222313}
-  sleepTriggerName: Sleeping
-  wakeTriggerName: WakeUp
 --- !u!114 &2026280413
 MonoBehaviour:
   m_ObjectHideFlags: 0

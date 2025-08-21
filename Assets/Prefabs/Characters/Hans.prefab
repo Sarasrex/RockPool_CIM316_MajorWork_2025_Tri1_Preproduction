@@ -1058,16 +1058,16 @@ MonoBehaviour:
   - triggerType: 4
     lines:
     - text: "\u201CZzz..... don\u2019t forget the cardamom...\u201D"
-      audioSource: {fileID: 5195136689799801262}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CSnore... slow-cooked dreams... just a pinch more...\u201D"
-      audioSource: {fileID: 2362367021333226492}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CZzz\u2026\u2026 let it simmer...\u201D"
-      audioSource: {fileID: 5627356116079009758}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CZzz\u2026\u2026 One day.....they'll come back for us...\u201D"
-      audioSource: {fileID: 4497241690794063469}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 3
     lines:

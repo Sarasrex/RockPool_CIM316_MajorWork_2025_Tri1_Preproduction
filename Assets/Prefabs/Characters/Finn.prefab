@@ -237,16 +237,16 @@ MonoBehaviour:
   - triggerType: 0
     lines:
     - text: "\u201CHey hey hey! Are you ready to move?\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 2982422028063843800}
       animationTrigger: 
     - text: "\u201CRace ya to the reef! Loser owes seaweed snacks!\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 8720836485764557603}
       animationTrigger: 
     - text: "\u201CYou came back! Knew I could count on ya.\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 719680326727988034}
       animationTrigger: 
     - text: "\u201CDude! I saved you the best spot by the tide!\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 4321518887025958287}
       animationTrigger: 
   - triggerType: 2
     lines:
@@ -274,21 +274,21 @@ MonoBehaviour:
       audioSource: {fileID: 2346572814454011734}
       animationTrigger: 
     - text: "\u201CNow that\u2019s how you show up!\u201D"
-      audioSource: {fileID: 0}
+      audioSource: {fileID: 5210847067659252233}
       animationTrigger: 
   - triggerType: 4
     lines:
     - text: "\u201CZzz... pass... the ball... I\u2019m open... zzz\u2026\u201D"
-      audioSource: {fileID: 6631822797787773562}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CSnore... team huddle... we\u2019ve got this...\u201D"
-      audioSource: {fileID: 4973894488210030121}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CZzz... I\u2019ll protect them... promise...\u201D"
-      audioSource: {fileID: 1998126137998038885}
+      audioSource: {fileID: 0}
       animationTrigger: 
     - text: "\u201CStill runnin\u2019... never slowin\u2019 down... zzz\u2026\u201D"
-      audioSource: {fileID: 6288247244029708939}
+      audioSource: {fileID: 0}
       animationTrigger: 
   - triggerType: 3
     lines:
