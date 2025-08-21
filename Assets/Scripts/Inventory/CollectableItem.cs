@@ -11,42 +11,29 @@ public class CollectibleItem : MonoBehaviour
     public string itemCategory;  // e.g., "Food" or "Home"
 
     [Header("Audio Settings")]
-    [Tooltip("Sound played when this item is collected (optional - will auto-assign based on category if left blank)")]
-    public AudioClip collectSound;
+    [Tooltip("AudioSource played when this item is collected (optional - will auto-assign based on category if left blank)")]
+    public AudioSource collectAudioSource;
 
-    [Tooltip("Sound to use if itemCategory is 'Food' and no collectSound is assigned")]
-    public AudioClip foodSound;
+    [Tooltip("AudioSource to use if itemCategory is 'Food' and no collectAudioSource is assigned")]
+    public AudioSource foodAudioSource;
 
-    [Tooltip("Sound to use if itemCategory is 'Home' and no collectSound is assigned")]
-    public AudioClip homeSound;
+    [Tooltip("AudioSource to use if itemCategory is 'Home' and no collectAudioSource is assigned")]
+    public AudioSource homeAudioSource;
 
-    private AudioSource audioSource;
     private bool isCollected = false;
-
-    void Awake()
-    {
-        // Add AudioSource if not already present
-        audioSource = gameObject.GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
-
-        audioSource.playOnAwake = false;
-    }
 
     void Start()
     {
-        // Auto-assign sound if none manually set
-        if (collectSound == null)
+        // Auto-assign audio source if none manually set
+        if (collectAudioSource == null)
         {
-            if (itemCategory == "Food" && foodSound != null)
+            if (itemCategory == "Food" && foodAudioSource != null)
             {
-                collectSound = foodSound;
+                collectAudioSource = foodAudioSource;
             }
-            else if (itemCategory == "Home" && homeSound != null)
+            else if (itemCategory == "Home" && homeAudioSource != null)
             {
-                collectSound = homeSound;
+                collectAudioSource = homeAudioSource;
             }
         }
     }
@@ -60,10 +47,10 @@ public class CollectibleItem : MonoBehaviour
         InventoryManager.Instance.CollectItem(itemName, itemCategory);
 
         // Play sound and then destroy
-        if (collectSound != null)
+        if (collectAudioSource != null)
         {
-            audioSource.PlayOneShot(collectSound);
-            StartCoroutine(DestroyAfterSound(collectSound.length));
+            collectAudioSource.Play();
+            StartCoroutine(DestroyAfterSound(collectAudioSource.clip.length));
         }
         else
         {
